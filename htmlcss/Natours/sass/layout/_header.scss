@@ -1,0 +1,39 @@
+.header {
+  /* 95% viewport height */
+  height: 95vh;
+  /* 两层背景，一层是线性渐变，从左上到右下，一层是背景图片 */
+  background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)),
+    url('../img/hero.jpg');
+  /* 背景尺寸：覆盖 */
+  background-size: cover;
+  /* 缩放方式：顶部不变，裁剪其他区域 */
+  background-position: top;
+  position: relative;
+  /* 裁剪多边形，从左上角开始顺时针定义坐标 */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+  &__logo-box {
+    /* 设置为绝对，父元素设置为相对 */
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
+
+  &__logo {
+    /* 宽度会自动计算 */
+    height: 3.5rem;
+  }
+
+  &__text-box {
+    /* 居中的经典方案 */
+    position: absolute;
+    /* top和left是元素和父容器的关系 */
+    left: 50%;
+    top: 40%;
+    /* translate操作的是元素自身 */
+    transform: translate(-50%, -50%);
+    /* a标签是文字，可以居中 */
+    text-align: center;
+  }
+}

@@ -1,0 +1,46 @@
+.composition {
+  position: relative;
+
+  &__photo {
+    // 定义图片的百分比，for responsive
+    width: 55%;
+    box-shadow: 0rem 1.5rem 4rem rgba($color-black, 0.4);
+    border-radius: 2px;
+    position: absolute;
+    z-index: 10;
+    transition: all 0.2s;
+    // 设置outline和元素之间的距离
+    outline-offset: 2rem;
+
+    &--p1 {
+      left: 0;
+      top: -2rem;
+    }
+
+    &--p2 {
+      right: 0;
+      top: 2rem;
+    }
+
+    &--p3 {
+      left: 20%;
+      top: 10rem;
+    }
+
+    &:hover {
+      // 图片和阴影变大，以营造更近的感觉
+      transform: scale(1.05) translateY(-0.5rem);
+      box-shadow: 0rem 2.5rem 4rem rgba($color-black, 0.5);
+      // 到最上层
+      z-index: 20;
+      // 跟border的区别在于，可以在父元素设置offset
+      outline: 1.5rem solid $color-primary;
+    }
+  }
+
+  // hover整个composition时，选中没有被hover的子图片
+  &:hover &__photo:not(:hover) {
+    // 没有被hover的缩小
+    transform: scale(0.95);
+  }
+}

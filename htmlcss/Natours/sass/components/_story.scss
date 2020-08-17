@@ -1,0 +1,78 @@
+.story {
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: 0 3rem 6rem rgba($color-black, 0.1);
+  background-color: rgba($color-white, 0.6);
+  border-radius: 3px;
+  padding: 6rem;
+  // 弥补transform的3rem
+  padding-left: 9rem;
+  font-size: $default-font-size;
+  // 将外框x方法扭曲
+  transform: skewX(-12deg);
+
+  /* 对于shape无法生效，因为已经使用过translateX
+  & > * {
+    transform: skewX(12deg);
+  }
+  */
+
+  &__shape {
+    width: 15rem;
+    height: 15rem;
+    float: left;
+    // 文字包围的方式，参数：半径是height和width的50%，在中心
+    // 必须声明width、height、float才能使用
+    shape-outside: circle(50% at 50% 50%);
+    -webkit-shape-outside: circle(50% at 50% 50%);
+
+    // 裁剪成圆形
+    clip-path: circle(50% at 50% 50%);
+    -webkit-clip-path: circle(50% at 50% 50%);
+
+    // float的元素，不要使用margin、padding来添加距离
+    transform: translateX(-3rem) skewX(12deg);
+
+    // 为了caption的定位
+    position: relative;
+  }
+
+  &__image {
+    // 永远都需要给图片设置宽或高
+    height: 100%;
+    // 让人物处在图片的中心
+    transform: translateX(-4rem) scale(1.4);
+    backface-visibility: hidden;
+    transition: all 0.5s;
+  }
+
+  &__text {
+    transform: skewX(12deg);
+  }
+
+  &__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    color: $color-white;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.5s;
+    // 消除向上移动时，会多出一点点的小问题
+    backface-visibility: hidden;
+  }
+
+  &:hover &__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover &__image {
+    transform: translateX(-4rem) scale(1);
+    // 模糊+更暗
+    filter: blur(3px) brightness(80%);
+  }
+}

@@ -1,0 +1,83 @@
+/* 排版的放在typography，盒模型放在base */
+/* 字体的设置一般放在body */
+body {
+  font-family: 'Lato', sans-serif;
+  /* 粗细 */
+  font-weight: 400;
+  line-height: 1.7;
+  color: $color-grey-dark;
+  /* 给整个body添加一圈空白 */
+  padding: 3rem;
+  /* 使所有body的子元素都是盒模型 */
+}
+
+.heading-primary {
+  color: $color-white;
+  text-transform: uppercase;
+  /* animation会产生抖动，用这个属性消除 */
+  backface-visibility: hidden;
+
+  &--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    /* 定义动画 */
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+
+    /* 几秒后开始 
+      animation-delay: 3s;
+         执行几次
+      animation-iteration-count: 3;
+      */
+  }
+
+  &--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.74rem;
+    animation: moveInRight 1s ease-out;
+    /* 距离下方按钮 */
+    margin-bottom: 3rem;
+  }
+}
+
+.heading-secondary {
+  font-size: 3.5rem;
+  // 不使用rem，因为想要固定
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 700;
+  // 不染色整行，根据字体自动染色背景
+  display: inline-block;
+  // 将背景颜色变成渐变
+  background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+  // 将没有文字的背景裁剪掉
+  -webkit-background-clip: text;
+  // 将文字变成透明，以显示背景
+  color: transparent;
+  // 添加动画
+  transition: all 0.2s;
+
+  &:hover {
+    transform: skewY(2deg) skewX(15deg) scale(1.1);
+    text-shadow: 0.5rem 1rem 2rem rgba($color-black, 0.2);
+  }
+}
+
+.heading-tertiary {
+  font-size: $default-font-size;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.paragraph {
+  font-size: $default-font-size;
+
+  &:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+}

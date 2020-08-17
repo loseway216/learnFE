@@ -1,0 +1,105 @@
+.btn {
+  /* a标签的初始和点击后状态 */
+  &:link,
+  &:visited {
+    font-size: $default-font-size;
+    text-transform: uppercase;
+    text-decoration: none;
+    /* a原来是inline，无法添加上下方向的padding */
+    display: inline-block;
+    /* padding会被着色，margin不行 */
+    padding: 1.5rem 4rem;
+    /* 添加圆角 */
+    border-radius: 10rem;
+    /* 动画 */
+    transition: all 0.2s;
+    /* 为了让after显示在背后 */
+    position: relative;
+  }
+
+  /* 悬浮时向上移动3px，点击时向上移动1px，造成点击后按钮往下降的效果 */
+  /* 悬浮时向上阴影更大，点击时阴影变小，造成按钮被按下去的效果 */
+  &:hover {
+    transform: translateY(-0.3rem);
+    /* 参数：X方向的阴影的位移、Y方向的阴影的位移、模糊的效果、阴影的颜色 */
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+
+    &::after {
+      transform: scaleX(1.4) scaleY(1.5);
+      opacity: 0;
+    }
+  }
+
+  &:active {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
+
+  &--white {
+    color: $color-grey-dark;
+    background-color: $color-white;
+
+    &::after {
+      background-color: $color-white;
+    }
+  }
+
+  &--green {
+    color: $color-white;
+    background-color: $color-primary;
+
+    &::after {
+      background-color: $color-primary;
+    }
+  }
+
+  &::after {
+    /* 必须声明，即使为空，否则after不会显示 */
+    content: '';
+    display: inline-block;
+    /* 是btn的子元素，所有设置100%，与btn一样 */
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    /* 让这个元素在btn的背后，absolute会寻找最近的relative元素，然后以其为基准设置top和left */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    /* 添加动画时间 */
+    transition: all 0.4s;
+  }
+
+  &--animated {
+    /* 动画效果 fill-mode参数：backwards，在delay开始之前就处在0%的状态*/
+    animation: moveInBottom 0.5s ease-out 0.75s backwards;
+  }
+}
+
+.btn-text {
+  &:link,
+  &:visited {
+    font-size: $default-font-size;
+    color: $color-primary;
+    display: inline-block;
+    // 取消默认的下划线，添加自定义下border
+    text-decoration: none;
+    border-bottom: 1px solid $color-primary;
+    padding: 3px;
+    transition: all 0.2s;
+  }
+
+  &:hover {
+    //设置于link状态相反的颜色
+    color: $color-white;
+    background-color: $color-primary;
+    // 阴影，和向上移动的效果
+    box-shadow: 0rem 2rem 2rem rgba($color-black, 0.15);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    box-shadow: 0rem 1rem 1rem rgba($color-black, 0.15);
+    transform: translateY(0);
+  }
+}

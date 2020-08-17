@@ -1,0 +1,19 @@
+/* 取消所有元素自带的margin和padding，设置盒模型 */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  /* 使所有body的子元素都是盒模型 */
+  box-sizing: inherit;
+}
+
+html {
+  /* 浏览器默认16px的62.5%=10px，定义了 1rem */
+  font-size: 62.5%;
+}
+
+/* 只设置盒模型，排版放在typography */
+body {
+  box-sizing: border-box;
+}

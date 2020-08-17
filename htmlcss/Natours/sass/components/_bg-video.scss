@@ -1,0 +1,22 @@
+.bg-video {
+  // 紧贴父容器
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  // 处在最后
+  z-index: -1;
+  // 很低的透明度
+  opacity: 0.15;
+  overflow: hidden;
+
+  &__content {
+    // 跟随父容器的宽高
+    height: 100%;
+    width: 100%;
+    // 作用于video或html元素
+    // 覆盖父容器，并保持纵横比，类似background-size:cover
+    object-fit: cover;
+  }
+}
