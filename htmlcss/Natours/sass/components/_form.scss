@@ -1,0 +1,57 @@
+.form {
+  &__group:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  &__input {
+    font-size: 1.5rem;
+    // input的字体和字色，浏览器不会自动设置
+    font-family: inherit;
+    color: inherit;
+    // 左右通常比上下的padding大一点
+    padding: 1.5rem 2rem;
+    border-radius: 2px;
+    background-color: rgba($color-white, 0.5);
+    border: none;
+    width: 90%;
+    display: block;
+    // 防止focus的时候盒子变高，产生位移
+    border-bottom: 3px solid transparent;
+
+    &:focus {
+      outline: none;
+      // outline取消之后，必须添加其他样式以增加可用性
+      box-shadow: 0rem 1rem 2rem rgba($color-black, 0.1);
+      border-bottom: 3px solid $color-primary;
+
+      &:invalid {
+        // 利用浏览器的校验，改变颜色
+        border-bottom: 3px solid $color-secondary-dark;
+      }
+    }
+
+    // 改变placeholder的字体颜色，chrome、firefox有效
+    &::-webkit-input-placeholder {
+      color: $color-grey-dark-2;
+    }
+  }
+
+  &__label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-left: 2rem;
+    margin-top: 0.7rem;
+    display: block;
+    transition: all 0.3s;
+  }
+
+  // adjacent sibling:紧邻其后的同级元素
+  // ~符号可以选择到有间隔的同级元素
+  // 如果是label在前，input在后，没有选择器可以实现
+  &__input:placeholder-shown + &__label {
+    visibility: hidden;
+    // 添加动画，而不是只隐藏
+    opacity: 0;
+    transform: translateY(-4rem);
+  }
+}
