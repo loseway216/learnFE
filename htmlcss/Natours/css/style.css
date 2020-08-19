@@ -369,7 +369,8 @@ body {
   border: none;
   width: 90%;
   display: block;
-  border-bottom: 3px solid transparent; }
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s; }
   .form__input:focus {
     outline: none;
     box-shadow: 0rem 1rem 2rem rgba(0, 0, 0, 0.1);

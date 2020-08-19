@@ -17,6 +17,8 @@
     display: block;
     // 防止focus的时候盒子变高，产生位移
     border-bottom: 3px solid transparent;
+    // border-bottom颜色变化的动画
+    transition: all 0.3s;
 
     &:focus {
       outline: none;
