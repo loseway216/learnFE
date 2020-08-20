@@ -56,4 +56,57 @@
     opacity: 0;
     transform: translateY(-4rem);
   }
+
+  &__radio-group {
+    display: inline-block;
+    width: 49%;
+  }
+
+  &__radio-input {
+    display: none;
+  }
+
+  &__radio-label {
+    font-size: $default-font-size;
+    color: inherit;
+    // 鼠标改成手
+    cursor: pointer;
+    position: relative;
+    padding-left: 5rem;
+  }
+
+  &__radio-button {
+    width: 3rem;
+    height: 3rem;
+    border: 5px solid $color-primary;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: -0.4rem;
+
+    &::after {
+      // 伪元素 pseudo element，必须定义content和display
+      content: '';
+      display: block;
+      width: 1.3rem;
+      height: 1.3rem;
+      border-radius: 50%;
+      background-color: $color-primary;
+      // 相对于radio-button居中
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      // 先隐藏，选中之后再显示
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+  }
+
+  // 选中被checked的radio同级的、后面的label的子元素button的after伪类
+  // checked可以用作radio和checkbox
+  &__radio-input:checked ~ &__radio-label &__radio-button::after {
+    opacity: 1;
+  }
 }

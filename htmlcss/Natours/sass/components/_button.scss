@@ -1,4 +1,6 @@
 .btn {
+  // 这样写相当于 .btn{}，否则对button标签不生效，因为没有link和visited状态
+  &,
   /* a标签的初始和点击后状态 */
   &:link,
   &:visited {
@@ -15,6 +17,10 @@
     transition: all 0.2s;
     /* 为了让after显示在背后 */
     position: relative;
+
+    // change for <button> element
+    border: none;
+    cursor: pointer;
   }
 
   /* 悬浮时向上移动3px，点击时向上移动1px，造成点击后按钮往下降的效果 */
@@ -30,9 +36,12 @@
     }
   }
 
-  &:active {
+  &:active,
+  &:focus {
     transform: translateY(-0.1rem);
     box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+    // focus伪类，取消button标签的外框
+    outline: none;
   }
 
   &--white {
