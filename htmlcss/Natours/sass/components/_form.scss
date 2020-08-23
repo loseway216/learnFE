@@ -94,10 +94,7 @@
       border-radius: 50%;
       background-color: $color-primary;
       // 相对于radio-button居中
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
+      @include center-horizontal-vertical;
       // 先隐藏，选中之后再显示
       opacity: 0;
       transition: opacity 0.2s;
