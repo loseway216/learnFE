@@ -94,7 +94,7 @@
       border-radius: 50%;
       background-color: $color-primary;
       // 相对于radio-button居中
-      @include center-horizontal-vertical;
+      @include absCenter;
       // 先隐藏，选中之后再显示
       opacity: 0;
       transition: opacity 0.2s;
