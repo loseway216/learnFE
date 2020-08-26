@@ -12,24 +12,29 @@ html {
   /* 浏览器默认16px的62.5%=10px，定义了 1rem */
   font-size: 62.5%;
 
-  @include respond(phone) {
-    font-size: 50%;
-  }
-
-  @include respond(tab-port) {
-    font-size: 60%;
-  }
-
   @include respond(tab-land) {
-    font-size: 70%;
+    font-size: 56.25%; // 1rem = 9px, 9/16
+  }
+
+  // phone想要跟tablet-portrai一样，所以可以省略
+  @include respond(tab-port) {
+    font-size: 50%; // 1rem = 8px, 8/16
   }
 
   @include respond(big-desktop) {
-    font-size: 80%;
+    font-size: 75%; // 1rem = 12px, 12/16
   }
 }
 
 /* 只设置盒模型，排版放在typography */
 body {
+  /* 给整个body添加一圈空白 */
+  padding: 3rem;
+  /* 使所有body的子元素都是盒模型 */
   box-sizing: border-box;
+
+  // 尺寸 <=900， 取消padding
+  @include respond(tab-port) {
+    padding: 0;
+  }
 }

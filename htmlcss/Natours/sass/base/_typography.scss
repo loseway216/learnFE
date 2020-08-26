@@ -6,9 +6,6 @@ body {
   font-weight: 400;
   line-height: 1.7;
   color: $color-grey-dark;
-  /* 给整个body添加一圈空白 */
-  padding: 3rem;
-  /* 使所有body的子元素都是盒模型 */
 }
 
 .heading-primary {
@@ -32,6 +29,11 @@ body {
          执行几次
       animation-iteration-count: 3;
       */
+
+    @include respond(phone) {
+      letter-spacing: 1rem;
+      font-size: 5rem;
+    }
   }
 
   &--sub {
@@ -42,6 +44,10 @@ body {
     animation: moveInRight 1s ease-out;
     /* 距离下方按钮 */
     margin-bottom: 3rem;
+
+    @include respond(phone) {
+      letter-spacing: 0.5rem;
+    }
   }
 }
 
@@ -61,6 +67,14 @@ body {
   color: transparent;
   // 添加动画
   transition: all 0.2s;
+
+  @include respond(tab-port) {
+    font-size: 3rem;
+  }
+
+  @include respond(phone) {
+    font-size: 2.5rem;
+  }
 
   &:hover {
     transform: skewY(2deg) skewX(15deg) scale(1.1);

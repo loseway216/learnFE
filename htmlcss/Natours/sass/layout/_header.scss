@@ -13,6 +13,12 @@
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 
+  // 多边形下边界斜率过大，不自然
+  @include respond(phone) {
+    clip-path: polygon(0 0, 100% 0, 100% 85, 0 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85, 0 100%);  
+  }
+
   &__logo-box {
     /* 设置为绝对，父元素设置为相对 */
     position: absolute;

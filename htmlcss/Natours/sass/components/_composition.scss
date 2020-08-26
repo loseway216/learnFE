@@ -12,19 +12,45 @@
     // 设置outline和元素之间的距离
     outline-offset: 2rem;
 
+    // 小尺寸改成平铺布局
+    @include respond(tab-port) {
+      width: 33.3333333%;
+      position: relative;
+      float: left;
+      box-shadow: 0rem 1.5rem 3rem rgba($color-black, 0.2);
+    }
+
     &--p1 {
       left: 0;
       top: -2rem;
+
+      @include respond(tab-port) {
+        top: 0;
+        transform: scale(1.2);
+      }
     }
 
     &--p2 {
       right: 0;
       top: 2rem;
+
+      @include respond(tab-port) {
+        left: 0;
+        top: -1rem;
+        transform: scale(1.3);
+        z-index: 100;
+      }
     }
 
     &--p3 {
       left: 20%;
       top: 10rem;
+
+      @include respond(tab-port) {
+        left: 0;
+        top: 1rem;
+        transform: scale(1.1);
+      }
     }
 
     &:hover {

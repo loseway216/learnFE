@@ -15,6 +15,16 @@
     box-shadow: 0 1rem 3rem rgba($color-black, 0.1);
     text-align: center;
     cursor: pointer;
+
+    @include respond(tab-port) {
+      top: 4rem;
+      right: 4rem;
+    }
+
+    @include respond(phone) {
+      top: 3rem;
+      right: 3rem;
+    }
   }
 
   // 从一个处在按钮背后的小圈，放到70倍，覆盖整个屏幕
@@ -29,6 +39,16 @@
     background-image: radial-gradient($color-primary-light, $color-primary-dark);
     z-index: 1000;
     transition: transform 0.8s cubic-bezier(0.87, 0, 0.13, 1);
+
+    @include respond(tab-port) {
+      top: 4.5rem;
+      right: 4.5rem;
+    }
+
+    @include respond(phone) {
+      top: 3.5rem;
+      right: 3.5rem;
+    }
   }
 
   // 是__list的容器，占据整个页面

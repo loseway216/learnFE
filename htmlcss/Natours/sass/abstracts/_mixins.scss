@@ -28,6 +28,9 @@
 - tab-land
 - big-desktop
 
+写媒体查询的顺序：
+Base + typography > general layout + grid > page layout  > components
+
 */
 
 // 在媒体查询中，使用em，而非rem，1em = 浏览器默认的16px
