@@ -3,7 +3,7 @@
   perspective: 150rem;
   -moz-perspective: 150rem;
   position: relative;
-  // 改变布局后脱离正常文档流，导致card高度消失，并且与float不同，无法使用clearfix，所以手动设置高度
+  // 子元素设置absolute后脱离正常文档流，导致div.card高度消失，并且与float不同，无法使用clearfix，所以手动设置高度
   height: 52rem;
 
   &__side {
@@ -168,5 +168,52 @@
     font-size: 6rem;
     // 很大的字体需要调细一些
     font-weight: 100;
+  }
+
+  // 把背面的卡片移到正面卡片的下方
+  @include respond(tab-port) {
+    height: auto;
+    border-radius: 3px;
+    background-color: $color-white;
+    box-shadow: 0 1.5rem 5rem rgba($color-black, 0.15);
+
+    &__side {
+      height: auto;
+      position: relative;
+      // 去掉背面卡片的阴影，放到外层
+      box-shadow: none;
+
+      &--back {
+        transform: rotateY(0);
+        // 裁剪背面卡片的上边缘
+        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+      }
+    }
+
+    // hover整个组件时，旋转side
+    &:hover &__side--front {
+      transform: rotateY(0);
+    }
+
+    &__details {
+      padding: 1rem 3rem;
+    }
+
+    &__cta {
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: translate(0);
+      width: 100%;
+      padding: 7rem 4rem 4rem 4rem;
+    }
+
+    &__price-box {
+      margin-bottom: 3rem;
+    }
+
+    &__price-value {
+      font-size: 6rem;
+    }
   }
 }
