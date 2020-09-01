@@ -790,7 +790,7 @@ body {
   /* 95% viewport height */
   height: 95vh;
   /* 两层背景，一层是线性渐变，从左上到右下，一层是背景图片 */
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg");
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero-small.jpg");
   /* 背景尺寸：覆盖 */
   background-size: cover;
   /* 缩放方式：顶部不变，裁剪其他区域 */
@@ -799,6 +799,9 @@ body {
   /* 裁剪多边形，从左上角开始顺时针定义坐标 */
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
+  @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em) {
+    .header {
+      background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg"); } }
   @media (max-width: 37.5em) {
     .header {
       clip-path: polygon(0 0, 100% 0, 100% 85, 0 100%);

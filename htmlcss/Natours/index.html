@@ -60,9 +60,7 @@
     <main>
       <section class="section-about">
         <div class="u-center-text u-margin-bottom-big">
-          <h2 class="heading-secondary">
-            Exciting tours for adventurous people
-          </h2>
+          <h2 class="heading-secondary">Exciting tours for adventurous people</h2>
         </div>
 
         <div class="row">
@@ -85,9 +83,32 @@
 
           <div class="col-1-of-2">
             <div class="composition">
-              <img src="img/nat-1-large.jpg" alt="Photo 1" class="composition__photo composition__photo--p1" />
+              <!-- 图片的真实宽度，w=px，高清屏会取large -->
+              <img
+                srcset="img/nat-1.jpg 300w, img/nat-1-large.jpg 1000w"
+                sizes="(max-width: 56.25em) 30vw, (max-width: 37.5em) 20vw, 18.75em"
+                src="img/nat-1-large.jpg"
+                class="composition__photo composition__photo--p1"
+                alt="Photo 1"
+              />
+              <img
+                srcset="img/nat-2.jpg 300w, img/nat-2-large.jpg 1000w"
+                sizes="(max-width: 56.25em) 30vw, (max-width: 37.5em) 20vw, 18.75em"
+                src="img/nat-2-large.jpg"
+                class="composition__photo composition__photo--p2"
+                alt="Photo 2"
+              />
+              <img
+                srcset="img/nat-3.jpg 300w, img/nat-3-large.jpg 1000w"
+                sizes="(max-width: 56.25em) 30vw, (max-width: 37.5em) 20vw, 18.75em"
+                src="img/nat-3-large.jpg"
+                class="composition__photo composition__photo--p3"
+                alt="Photo 3"
+              />
+
+              <!-- <img src="img/nat-1-large.jpg" alt="Photo 1" class="composition__photo composition__photo--p1" />
               <img src="img/nat-2-large.jpg" alt="Photo 1" class="composition__photo composition__photo--p2" />
-              <img src="img/nat-3-large.jpg" alt="Photo 3" class="composition__photo composition__photo--p3" />
+              <img src="img/nat-3-large.jpg" alt="Photo 3" class="composition__photo composition__photo--p3" /> -->
             </div>
           </div>
         </div>
@@ -139,18 +160,14 @@
 
       <section class="section-tours" id="section-tours">
         <div class="u-center-text u-margin-bottom-big">
-          <h2 class="heading-secondary">
-            Most popular tours
-          </h2>
+          <h2 class="heading-secondary">Most popular tours</h2>
         </div>
 
         <div class="row">
           <div class="col-1-of-3">
             <div class="card">
               <div class="card__side card__side--front">
-                <div class="card__picture card__picture--1">
-                  &nbsp;
-                </div>
+                <div class="card__picture card__picture--1">&nbsp;</div>
                 <h4 class="card__heading">
                   <span class="card__heading-span card__heading-span--1">The sea explorer</span>
                 </h4>
@@ -179,9 +196,7 @@
           <div class="col-1-of-3">
             <div class="card">
               <div class="card__side card__side--front">
-                <div class="card__picture card__picture--2">
-                  &nbsp;
-                </div>
+                <div class="card__picture card__picture--2">&nbsp;</div>
                 <h4 class="card__heading">
                   <span class="card__heading-span card__heading-span--2">The forest hiker</span>
                 </h4>
@@ -210,9 +225,7 @@
           <div class="col-1-of-3">
             <div class="card">
               <div class="card__side card__side--front">
-                <div class="card__picture card__picture--3">
-                  &nbsp;
-                </div>
+                <div class="card__picture card__picture--3">&nbsp;</div>
                 <h4 class="card__heading">
                   <span class="card__heading-span card__heading-span--3">The snow adventure</span>
                 </h4>
@@ -253,9 +266,7 @@
           </video>
         </div>
         <div class="u-center-text u-margin-bottom-big">
-          <h2 class="heading-secondary">
-            We make people genuinely happy
-          </h2>
+          <h2 class="heading-secondary">We make people genuinely happy</h2>
         </div>
 
         <div class="row">
@@ -265,9 +276,7 @@
               <figcaption class="story__caption">Mary Smith</figcaption>
             </figure>
             <div class="story__text">
-              <h3 class="heading-tertiary u-margin-bottom-small">
-                I had the best week ever with my family
-              </h3>
+              <h3 class="heading-tertiary u-margin-bottom-small">I had the best week ever with my family</h3>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt saepe ea iusto? Autem aperiam eaque animi
                 deleniti deserunt ipsam, commodi excepturi, magnam, eligendi exercitationem tempore doloribus molestiae
@@ -285,9 +294,7 @@
               <figcaption class="story__caption">Jack Wilson</figcaption>
             </figure>
             <div class="story__text">
-              <h3 class="heading-tertiary u-margin-bottom-small">
-                WOW! My life is completely different now
-              </h3>
+              <h3 class="heading-tertiary u-margin-bottom-small">WOW! My life is completely different now</h3>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt saepe ea iusto? Autem aperiam eaque animi
                 deleniti deserunt ipsam, commodi excepturi, magnam, eligendi exercitationem tempore doloribus molestiae
@@ -309,9 +316,7 @@
             <div class="book__form">
               <form action="#" class="form">
                 <div class="u-margin-bottom-medium">
-                  <h2 class="heading-secondary">
-                    Start booking now
-                  </h2>
+                  <h2 class="heading-secondary">Start booking now</h2>
                 </div>
 
                 <div class="form__group">
@@ -356,7 +361,14 @@
 
     <footer class="footer">
       <div class="footer__logo-box">
-        <img src="img/logo-green-2x.png" alt="Full logo" class="footer__logo" />
+        <picture class="footer__logo">
+          <source srcset="img/logo-green-small-1x.png 1x, img/logo-green-small-2x.png 2x" media="(max-width: 37.5em)" />
+          <img
+            srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x"
+            alt="Full logo"
+            src="img/logo-green-2x.png"
+          />
+        </picture>
       </div>
       <div class="row">
         <div class="col-1-of-2">

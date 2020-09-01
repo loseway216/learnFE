@@ -3,7 +3,7 @@
   height: 95vh;
   /* 两层背景，一层是线性渐变，从左上到右下，一层是背景图片 */
   background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)),
-    url('../img/hero.jpg');
+    url('../img/hero-small.jpg');
   /* 背景尺寸：覆盖 */
   background-size: cover;
   /* 缩放方式：顶部不变，裁剪其他区域 */
@@ -13,10 +13,17 @@
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 
+  // 分辨率媒体查询，192 dots per inch是苹果retina屏幕
+  // 逗号相当于or
+  @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em) {
+    background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)),
+      url('../img/hero.jpg');
+  }
+
   // 多边形下边界斜率过大，不自然
   @include respond(phone) {
     clip-path: polygon(0 0, 100% 0, 100% 85, 0 100%);
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85, 0 100%);  
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85, 0 100%);
   }
 
   &__logo-box {
