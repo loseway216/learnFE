@@ -171,7 +171,9 @@
   }
 
   // 把背面的卡片移到正面卡片的下方
-  @include respond(tab-port) {
+  // 宽度在900px以下，或者，设备不支持hover
+  // @include respond(tab-port) {
+  @media only screen and (max-width: 56.25em), only screen and (hover: none) {
     height: auto;
     border-radius: 3px;
     background-color: $color-white;
