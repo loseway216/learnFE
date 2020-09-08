@@ -13,6 +13,7 @@
   display: flex;
   // 左右两侧不设置距离，是最常用的
   justify-content:space-between;
+  align-items: center;
 }
 
 .content {
