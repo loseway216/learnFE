@@ -1,0 +1,73 @@
+<style>
+  .container {
+    width: 1000px;
+    background-color: #eee;
+    margin: 30px auto;
+
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr 1fr;
+    /* grid-template-columns: 1fr 50% 1fr; */
+    grid-gap: 20px;
+  }
+
+  .item {
+    padding: 20px;
+    font-size: 30px;
+    font-family: sans-serif;
+    color: white;
+  }
+
+  .item--1 {
+    background-color: orangered;
+  }
+
+  .item--2 {
+    background-color: greenyellow;
+  }
+
+  .item--3 {
+    background-color: blueviolet;
+  }
+
+  .item--4 {
+    background-color: palevioletred;
+  }
+
+  .item--5 {
+    background-color: royalblue;
+
+    /* 三种写法效果相同 */
+    grid-column: 2 / 4;
+    grid-column: 2 / span 3;
+    grid-column: 2 / -1;
+    /* 不定义grid-row，会导致5到整个container的最后去，因为6是明确定义的 */
+    grid-row: 1/2;
+    z-index: 10;
+  }
+
+  .item--6 {
+    background-color: goldenrod;
+
+    /* 三种写法相等 */
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 2;
+    grid-column-end: 3;
+
+    grid-row: 1/2;
+    grid-column: 2/3;
+
+    grid-area: 1/2/2/3;
+  }
+</style>
+<body>
+  <div class="container">
+    <div class="item item--1">1: Orange</div>
+    <div class="item item--2">2: Green</div>
+    <div class="item item--3">3: Violet</div>
+    <div class="item item--4">4: Pink</div>
+    <div class="item item--5">5: Blue</div>
+    <div class="item item--6">6: Brown</div>
+  </div>
+</body>

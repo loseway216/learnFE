@@ -1,0 +1,78 @@
+<style>
+  /* 
+  1. Explicit vs Implicit
+  2. align items
+  3. align tracks
+
+  */
+  .container {
+    width: 1000px;
+    margin: 30px auto;
+    background-color: #eee;
+
+    display: grid;
+    /* 只定义两行两列explicit，剩下的部分是implicit，会自动填充 */
+    grid-template-rows: repeat(2, 150px);
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+
+    /* 设置implicit的高度 */
+    grid-auto-rows: 80px;
+    grid-auto-flow: row dense;
+    /* 设置implicit的部分往列自动填充 */
+    /* grid-auto-flow: column; */
+    /* grid-auto-columns: 0.5fr; */
+
+    /* 让item在自己的grid area中定位 */
+    align-items: stretch;
+    justify-items: stretch;
+
+    /* align grid tracks to grid container */
+    grid-template-rows: repeat(2, 100px);
+    grid-template-columns: repeat(2, 200px);
+    height: 1000px;
+
+    /* center start end space-between space-around space-evenly */
+    justify-content: center;
+    align-content: center;
+  }
+
+  .item {
+    padding: 10px;
+    font-size: 30px;
+    font-family: sans-serif;
+    background-color: orangered;
+  }
+
+  .item--4 {
+    background-color: #444;
+    grid-row: 2 / span 3;
+    /* 覆盖了父容器的align-items和justify-items */
+    /* align-self: start;
+    justify-self: stretch; */
+  }
+
+  .item--6 {
+    background-color: #444;
+    /* 在原位置上产生了一个占位的洞，需要使用dense修复 */
+    grid-row: 2 / span 2;
+  }
+
+  .item--7 {
+    background-color: #444;
+    grid-column: 1 / -1;
+    justify-self: stretch;
+  }
+</style>
+<body>
+  <div class="container">
+    <div class="item item--1">Morden</div>
+    <div class="item item--2">CSS</div>
+    <div class="item item--3">with</div>
+    <div class="item item--4">Flexbox</div>
+    <div class="item item--5">and</div>
+    <div class="item item--6">Grid</div>
+    <div class="item item--7">is</div>
+    <div class="item item--8">great</div>
+  </div>
+</body>
