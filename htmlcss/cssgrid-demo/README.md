@@ -9,3 +9,7 @@
    1. Explicit vs Implicit
    2. align items
    3. align tracks
+4. 容纳内容的方式
+   1. 都会努力容纳所有的内容，但max-content不换行，min-content会取最宽的一个子元素尽可能地换行
+   2. minmax()
+   3. auto-fill、auto-fit
