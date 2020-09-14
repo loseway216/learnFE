@@ -33,3 +33,23 @@ body {
   font-weight: 300;
   line-height: 1.6;
 }
+
+.container {
+  display: grid;
+  // 根据实际内容来决定高度，40vw意味着浏览器宽度变小时，高度会随之变小
+  grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
+  // 左侧8rem显示sidebar，中间8个column，两侧各一个fr均分剩下的空间,但两侧的1fr扮演margin的角色所以设置最小值6rem
+  // 有的部分占满10列full-bleed sections
+  // 有的占了8列，两侧的1fr扮演margin
+  grid-template-columns:
+    [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(
+      8,
+      [col-start] minmax(min-content, 14rem) [col-end]
+    )
+    [center-end] minmax(6rem, 1fr) [full-end];
+
+  & > * {
+    padding: 4rem;
+    font-size: 3rem;
+  }
+}
