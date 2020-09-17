@@ -1,4 +1,34 @@
 .features {
-  background-color: $color-grey-light-2;
   grid-column: center-start / center-end;
+
+  margin: 15rem 0;
+
+  display: grid;
+  // grid-template-columns: repeat(3, 1fr);
+  // 不写媒体查询，实现3列变2列变1列
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  grid-gap: 6rem;
+  // 对齐文字的起始线，注意：控制的是6个feature，而不是feature里的元素
+  align-items: start;
+}
+
+.feature {
+  display: grid;
+  // 此处
+  grid-template-columns: min-content 1fr;
+  grid-row-gap: 1.5rem;
+  grid-column-gap: 2.5rem;
+
+  &__icon {
+    fill: $color-primary;
+    width: 4.5rem;
+    height: 4.5rem;
+    // 让icon占据左侧的两行，让paragraph占据第四个
+    grid-row: 1 / span 2; // 这里不能用-1，因为这个写法只对explicit生效
+    transform: translateY(-1rem);
+  }
+
+  &__text {
+    font-size: 1.7rem;
+  }
 }
