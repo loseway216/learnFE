@@ -57,7 +57,9 @@
     justify-items: center;
 
     img {
-      height: 2.5rem;
+      // 为了图片自适应定义max属性
+      max-height: 2.5rem;
+      max-width: 100%;
       // 降低亮度
       filter: brightness(70%);
     }
