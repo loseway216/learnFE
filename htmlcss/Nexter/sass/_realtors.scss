@@ -9,14 +9,28 @@
   justify-items: center;
   grid-row-gap: 2rem;
 
+  @media only screen and (max-width: $bp-medium) {
+    grid-column: 1 / -1;
+  }
+
   &__list {
     display: grid;
-    // 完美容纳图片  不让文字换行
+    // 1列：完美容纳图片  2列：不让文字换行
     grid-template-columns: min-content max-content;
     grid-column-gap: 2rem;
     // 大屏时,这块内容不会缩在中间
     grid-row-gap: 5vh;
     align-items: center;
+
+    @media only screen and (max-width: $bp-medium) {
+      // 6列，图片+文字，repeat可以传参多个
+      grid-template-columns: repeat(3, min-content max-content);
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      // 600px后，再回到2乘3的布局
+      grid-template-columns: min-content max-content;
+    }
   }
 
   &__img {
