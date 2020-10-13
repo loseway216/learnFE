@@ -6,9 +6,10 @@
   "author": "loseway",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon app.js"
+    "start": "nodemon server.js"
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.4"
