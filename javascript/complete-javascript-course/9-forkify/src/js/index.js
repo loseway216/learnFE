@@ -120,7 +120,7 @@ const controlList = () => {
 elements.shopping.addEventListener('click', e => {
   const id = e.target.closest('.shopping__item').dataset.itemid
 
-  //handle the delete button
+  //handle the delete button，按钮或子元素
   if (e.target.matches('.shopping__delete, .shopping__delete *')) {
     //delete from state
     state.list.deleteItem(id)
@@ -144,7 +144,12 @@ const controlLike = () => {
   //还没有添加当前的recipe
   if (!state.likes.isLiked(currentID)) {
     //add like to state
-    const newLike = state.likes.addLike(currentID, state.recipe.title, state.recipe.author, state.recipe.img)
+    const newLike = state.likes.addLike(
+      currentID,
+      state.recipe.title,
+      state.recipe.author,
+      state.recipe.img
+    )
 
     //toggle the like button
     likesView.toggleButton(true)
