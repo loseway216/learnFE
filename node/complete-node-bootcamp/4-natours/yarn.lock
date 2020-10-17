@@ -1629,9 +1629,9 @@ mongoose-legacy-pluralize@1.0.2:
   resolved "https://registry.npm.taobao.org/mongoose-legacy-pluralize/download/mongoose-legacy-pluralize-1.0.2.tgz#3ba9f91fa507b5186d399fb40854bff18fb563e4"
   integrity sha1-O6n5H6UHtRhtOZ+0CFS/8Y+1Y+Q=
 
-mongoose@5:
+mongoose@^5.10.9:
   version "5.10.9"
-  resolved "https://registry.npm.taobao.org/mongoose/download/mongoose-5.10.9.tgz#23b74debc86d2055cee4fe77f962a9c8a286cdad"
+  resolved "https://registry.npm.taobao.org/mongoose/download/mongoose-5.10.9.tgz?cache=0&sync_timestamp=1602260394906&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fmongoose%2Fdownload%2Fmongoose-5.10.9.tgz#23b74debc86d2055cee4fe77f962a9c8a286cdad"
   integrity sha1-I7dN68htIFXO5P53+WKpyKKGza0=
   dependencies:
     bson "^1.1.4"
