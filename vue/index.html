@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue learning</title>
+  </head>
+  <body>
+    <div id="app">
+      <current-user v-slot="{user,sex}">
+        {{ user.firstName }} {{ sex.female }}
+      </current-user>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      Vue.component("current-user", {
+        data: function () {
+          return {
+            user: { firstName: "ziwei", lastName: "lululu" },
+            sex: { male: "男", female: "女" },
+          };
+        },
+        template: `<span><slot :user="user" :sex="sex">{{ user.lastName  }}{{ sex.male  }}</slot></span>`,
+      });
+      var app = new Vue({
+        el: "#app",
+        data: {},
+      });
+    </script>
+  </body>
+</html>
