@@ -1,0 +1,12 @@
+{
+  "name": "btholt-2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "jasmine": "^3.6.3"
+  },
+  "dependencies": {
+    "xxhashjs": "^0.2.2"
+  }
+}
