@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      table {
+        margin: 10px;
+      }
+      .box {
+        border: 1px solid #ccc;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      td {
+        width: 20px;
+        height: 20px;
+      }
+
+      .unvisited {
+        background-color: red;
+      }
+    </style>
+    <title>MazeGeneration</title>
+  </head>
+  <body>
+    <div class="box">
+      <h1>5x5</h1>
+      <table id="maze-1"></table>
+    </div>
+
+    <div class="box">
+      <h1>8x8</h1>
+      <table id="maze-2"></table>
+    </div>
+
+    <div class="box">
+      <h1>15x15</h1>
+      <table id="maze-3"></table>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.4/jasmine.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.4/jasmine-html.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.4/boot.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+    <script src="utils/MazeGeneration.js"></script>
+    <script>
+      // create a function that accepts two paraments: an empty maze and a starting coordinate
+      // the maze will be an array of arrays of objects. the objects will look like:
+      // {
+      //   "n": true,
+      //   "e": true,
+      //   "s": true,
+      //   "w": true,
+      //   "visited": false
+      // }
+      //
+      // the outer array (that contains arrays) represents the y axis. the inner arrays (that contains
+      // objects) are represent the x axis. maze[y][x]
+      //
+      // the starting coordinates will be a pair, an array of two numbers, [x, y]. the first
+      // number will be the x position and the second will be the y position
+      //
+      // generateMaze will return the same maze (you can operate on the parameter itself)
+      //
+      // a function called randomizeDirection is globally available. it will return to you an array of
+      // ['n', 'e', 's', 'w'] in random order. in order to be able unit test this, these return values
+      // are pre-determined. if you want to have a truly random return, call setOrder(null) (another
+      // globally available function.) if you call it too frequently to pass the unit test, you'll see an
+      // error in the console.
+      //
+      // it will also attempt to draw your maze as you write your algorithm. you'll see two lines for each
+      // cell since neighbors each has its own walls. writeMaze assumes your data is well formatted . if you
+      // have unvisted cells, they'll be highlighted in red
+      //
+      // if you'd like to see the utlities functions, they're kept in this CodePen:
+      // https://codepen.io/btholt/pen/bLEryO?editors=0010
+      //
+
+      // 策略：随机前进、破坏墙壁、不访问已经访问的点、不访问前一个点、直到访问所有的点
+      // true/false 表示当前位置是否可以往该方向前进
+      // {
+      //   "n": true,
+      //   "e": true,
+      //   "s": true,
+      //   "w": true,
+      //   "visited": false
+      // }
+      const generateMaze = (maze, [xStart, yStart]) => {
+        nextNode(xStart, yStart, maze);
+        return maze;
+      };
+
+      const nextNode = (x, y, maze) => {
+        const node = maze[y][x];
+        node.visited = true;
+        randomizeDirection().forEach((direction) => {
+          const [xMod, yMod] = getModifier(direction);
+          // 判断目标坐标点是否被访问过
+          if (
+            maze[y + yMod] &&
+            maze[y + yMod][x + xMod] &&
+            !maze[y + yMod][x + xMod].visited
+          ) {
+            // 向目标方向前进，将这个方向标记为不可行进
+            node[direction] = false;
+            // 到达目标位置后，将之前的位置标记为不可行进
+            maze[y + yMod][x + xMod][getOpposite(direction)] = false;
+            // 递归
+            nextNode(x + xMod, y + yMod, maze);
+          }
+        });
+        return false;
+      };
+      // 前进的方向
+      const getModifier = (key) => {
+        if (key === "n") {
+          return [0, 1];
+        }
+        if (key === "s") {
+          return [0, -1];
+        }
+        if (key === "e") {
+          return [1, 0];
+        }
+        if (key === "w") {
+          return [-1, 0];
+        }
+      };
+
+      const getOpposite = (key) => {
+        if (key === "n") {
+          return "s";
+        }
+        if (key === "s") {
+          return "n";
+        }
+        if (key === "e") {
+          return "w";
+        }
+        if (key === "w") {
+          return "e";
+        }
+      };
+
+      // unit tests
+      // do not modify the below code
+      describe("mazes", function () {
+        beforeEach(() => {});
+        it("5x5", () => {
+          setOrder(1);
+          const maze = generateMaze(genEmptyMaze(5, 5), [0, 0]);
+          writeMaze(maze, document.getElementById("maze-1"));
+          expect(maze).toEqual([
+            [
+              { n: true, e: false, s: true, w: true, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: false, e: true, s: true, w: false, visited: true },
+            ],
+            [
+              { n: false, e: true, s: true, w: true, visited: true },
+              { n: false, e: false, s: true, w: true, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: true, e: true, s: false, w: false, visited: true },
+            ],
+            [
+              { n: false, e: true, s: false, w: true, visited: true },
+              { n: true, e: false, s: false, w: true, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: false, e: true, s: true, w: false, visited: true },
+            ],
+            [
+              { n: false, e: false, s: false, w: true, visited: true },
+              { n: false, e: true, s: true, w: false, visited: true },
+              { n: false, e: false, s: true, w: true, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: true, e: true, s: false, w: false, visited: true },
+            ],
+            [
+              { n: true, e: true, s: false, w: true, visited: true },
+              { n: true, e: false, s: false, w: true, visited: true },
+              { n: true, e: false, s: false, w: false, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: true, e: true, s: true, w: false, visited: true },
+            ],
+          ]);
+        });
+
+        it("8x8", () => {
+          setOrder(2);
+          const maze = generateMaze(genEmptyMaze(8, 8), [5, 3]);
+          writeMaze(maze, document.getElementById("maze-2"));
+          expect(maze).toEqual([
+            [
+              { n: false, e: false, s: true, w: true, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: false, e: true, s: true, w: false, visited: true },
+            ],
+            [
+              { n: true, e: false, s: false, w: true, visited: true },
+              { n: false, e: true, s: true, w: false, visited: true },
+              { n: false, e: false, s: true, w: true, visited: true },
+              { n: true, e: true, s: true, w: false, visited: true },
+              { n: false, e: false, s: true, w: true, visited: true },
+              { n: false, e: false, s: true, w: false, visited: true },
+              { n: true, e: true, s: true, w: false, visited: true },
+              { n: false, e: true, s: false, w: true, visited: true },
+            ],
+            [
+              { n: false, e: false, s: true, w: true, visited: true },
+              { n: false, e: true, s: false, w: false, visited: true },
+              { n: true, e: false, s: false, w: true, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: false, e: true, s: false, w: false, visited: true },
+              { n: true, e: false, s: false, w: true, visited: true },
+              { n: false, e: true, s: true, w: false, visited: true },
+              { n: false, e: true, s: false, w: true, visited: true },
+            ],
+            [
+              { n: false, e: true, s: false, w: true, visited: true },
+              { n: true, e: true, s: false, w: true, visited: true },
+              { n: false, e: false, s: true, w: true, visited: true },
+              { n: false, e: true, s: true, w: false, visited: true },
+              { n: true, e: true, s: false, w: true, visited: true },
+              { n: false, e: true, s: true, w: true, visited: true },
+              { n: false, e: false, s: false, w: true, visited: true },
+              { n: true, e: true, s: false, w: false, visited: true },
+            ],
+            [
+              { n: true, e: false, s: false, w: true, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: true, e: true, s: false, w: false, visited: true },
+              { n: true, e: false, s: false, w: true, visited: true },
+              { n: false, e: true, s: true, w: false, visited: true },
+              { n: false, e: true, s: false, w: true, visited: true },
+              { n: false, e: true, s: false, w: true, visited: true },
+              { n: false, e: true, s: true, w: true, visited: true },
+            ],
+            [
+              { n: true, e: false, s: true, w: true, visited: true },
+              { n: false, e: false, s: true, w: false, visited: true },
+              { n: false, e: true, s: true, w: false, visited: true },
+              { n: false, e: true, s: true, w: true, visited: true },
+              { n: true, e: false, s: false, w: true, visited: true },
+              { n: true, e: true, s: false, w: false, visited: true },
+              { n: true, e: false, s: false, w: true, visited: true },
+              { n: false, e: true, s: false, w: false, visited: true },
+            ],
+            [
+              { n: false, e: false, s: true, w: true, visited: true },
+              { n: true, e: true, s: false, w: false, visited: true },
+              { n: true, e: false, s: false, w: true, visited: true },
+              { n: true, e: false, s: false, w: false, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: true, e: true, s: true, w: false, visited: true },
+              { n: false, e: true, s: false, w: true, visited: true },
+            ],
+            [
+              { n: true, e: false, s: false, w: true, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: true, e: true, s: false, w: false, visited: true },
+            ],
+          ]);
+        });
+
+        it("15x15", () => {
+          setOrder(3);
+          const maze = generateMaze(genEmptyMaze(15, 15), [10, 2]);
+          writeMaze(maze, document.getElementById("maze-3"));
+          expect(maze).toEqual([
+            [
+              { n: false, e: true, s: true, w: true, visited: true },
+              { n: false, e: false, s: true, w: true, visited: true },
+              { n: false, e: false, s: true, w: false, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: false, e: false, s: true, w: false, visited: true },
+              { n: true, e: true, s: true, w: false, visited: true },
+              { n: false, e: false, s: true, w: true, visited: true },
+              { n: false, e: true, s: true, w: false, visited: true },
+              { n: false, e: false, s: true, w: true, visited: true },
+              { n: false, e: true, s: true, w: false, visited: true },
+              { n: true, e: false, s: true, w: true, visited: true },
+              { n: false, e: false, s: true, w: false, visited: true },
+              { n: false, e: false, s: true, w: false, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: true, e: true, s: true, w: false, visited: true },
+            ],
+            [
+              { n: false, e: false, s: false, w: true, visited: true },
+              { n: true, e: true, s: false, w: false, visited: true },
+              { n: false, e: true, s: false, w: true, visited: true },
+              { n: true, e: false, s: true, w: true, visited: true },
+              { n: true, e: true, s: false, w: false, visited: true },
+              { n: false, e: false, s: true, w: true, visited: true },
+              { n: true, e: true, s: false, w: false, visited: true },
+              { n: true, e: false, s: false, w: true, visited: true },
+              { n: true, e: true, s: false, w: false, visited: true },
+              { n: true, e: false, s: false, w: true, visited: true },
+              { n: false, e: true, s: true, w: false, visited: true },
+              { n: false, e: true, s: false, w: true, visited: true },
+              { n: true, e: false, s: false, w: true, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: false, e: true, s: true, w: false, visited: true },
+            ],
+            [
+              { n: true, e: false, s: false, w: true, visited: true },
+              { n: false, e: true, s: true, w: false, visited: true },
+              { n: true, e: false, s: false, w: true, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: true, e: true, s: false, w: false, visited: true },
+              { n: true, e: false, s: true, w: true, visited: true },
+              { n: false, e: false, s: true, w: false, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: true, e: true, s: true, w: false, visited: true },
+              { n: true, e: true, s: false, w: true, visited: true },
+              { n: false, e: true, s: false, w: true, visited: true },
+              { n: true, e: false, s: true, w: true, visited: true },
+              { n: false, e: true, s: true, w: false, visited: true },
+              { n: false, e: true, s: false, w: true, visited: true },
+            ],
+            [
+              { n: false, e: true, s: true, w: true, visited: true },
+              { n: true, e: false, s: false, w: true, visited: true },
+              { n: false, e: true, s: true, w: false, visited: true },
+              { n: true, e: false, s: true, w: true, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: false, e: false, s: true, w: false, visited: true },
+              { n: false, e: false, s: true, w: false, visited: true },
+              { n: true, e: true, s: false, w: false, visited: true },
+              { n: false, e: false, s: true, w: true, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: false, e: true, s: true, w: false, visited: true },
+              { n: true, e: false, s: false, w: true, visited: true },
+              { n: false, e: true, s: true, w: false, visited: true },
+              { n: false, e: true, s: false, w: true, visited: true },
+              { n: false, e: true, s: false, w: true, visited: true },
+            ],
+            [
+              { n: false, e: false, s: false, w: true, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: true, e: true, s: false, w: false, visited: true },
+              { n: false, e: false, s: true, w: true, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: false, e: true, s: false, w: false, visited: true },
+              { n: true, e: true, s: false, w: true, visited: true },
+              { n: false, e: false, s: true, w: true, visited: true },
+              { n: true, e: true, s: false, w: false, visited: true },
+              { n: false, e: true, s: true, w: true, visited: true },
+              { n: true, e: false, s: false, w: true, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: true, e: false, s: false, w: false, visited: true },
+              { n: true, e: true, s: false, w: false, visited: true },
+              { n: false, e: true, s: false, w: true, visited: true },
+            ],
+            [
+              { n: false, e: true, s: false, w: true, visited: true },
+              { n: true, e: false, s: true, w: true, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: false, e: true, s: false, w: false, visited: true },
+              { n: true, e: false, s: true, w: true, visited: true },
+              { n: true, e: true, s: false, w: false, visited: true },
+              { n: false, e: false, s: true, w: true, visited: true },
+              { n: true, e: true, s: false, w: false, visited: true },
+              { n: false, e: false, s: true, w: true, visited: true },
+              { n: false, e: true, s: false, w: false, visited: true },
+              { n: false, e: false, s: true, w: true, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: false, e: true, s: false, w: false, visited: true },
+            ],
+            [
+              { n: false, e: true, s: false, w: true, visited: true },
+              { n: false, e: false, s: true, w: true, visited: true },
+              { n: false, e: true, s: true, w: false, visited: true },
+              { n: false, e: false, s: false, w: true, visited: true },
+              { n: false, e: true, s: true, w: false, visited: true },
+              { n: false, e: false, s: true, w: true, visited: true },
+              { n: true, e: true, s: false, w: false, visited: true },
+              { n: false, e: false, s: true, w: true, visited: true },
+              { n: true, e: true, s: false, w: false, visited: true },
+              { n: false, e: true, s: false, w: true, visited: true },
+              { n: false, e: true, s: false, w: true, visited: true },
+              { n: false, e: false, s: true, w: true, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: false, e: true, s: true, w: false, visited: true },
+              { n: false, e: true, s: false, w: true, visited: true },
+            ],
+            [
+              { n: true, e: false, s: false, w: true, visited: true },
+              { n: true, e: true, s: false, w: false, visited: true },
+              { n: false, e: true, s: false, w: true, visited: true },
+              { n: false, e: true, s: false, w: true, visited: true },
+              { n: true, e: false, s: false, w: true, visited: true },
+              { n: true, e: true, s: false, w: false, visited: true },
+              { n: true, e: false, s: true, w: true, visited: true },
+              { n: false, e: true, s: false, w: false, visited: true },
+              { n: true, e: false, s: true, w: true, visited: true },
+              { n: false, e: true, s: false, w: false, visited: true },
+              { n: true, e: false, s: false, w: true, visited: true },
+              { n: true, e: false, s: false, w: false, visited: true },
+              { n: true, e: true, s: true, w: false, visited: true },
+              { n: false, e: true, s: false, w: true, visited: true },
+              { n: false, e: true, s: false, w: true, visited: true },
+            ],
+            [
+              { n: false, e: false, s: true, w: true, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: true, e: true, s: false, w: false, visited: true },
+              { n: true, e: false, s: false, w: true, visited: true },
+              { n: false, e: true, s: true, w: false, visited: true },
+              { n: false, e: false, s: true, w: true, visited: true },
+              { n: false, e: true, s: true, w: false, visited: true },
+              { n: true, e: false, s: false, w: true, visited: true },
+              { n: false, e: true, s: true, w: false, visited: true },
+              { n: true, e: false, s: false, w: true, visited: true },
+              { n: false, e: true, s: true, w: false, visited: true },
+              { n: false, e: false, s: true, w: true, visited: true },
+              { n: false, e: true, s: true, w: false, visited: true },
+              { n: false, e: true, s: false, w: true, visited: true },
+              { n: false, e: true, s: false, w: true, visited: true },
+            ],
+            [
+              { n: true, e: false, s: false, w: true, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: false, e: true, s: true, w: false, visited: true },
+              { n: false, e: false, s: true, w: true, visited: true },
+              { n: true, e: true, s: false, w: false, visited: true },
+              { n: false, e: true, s: false, w: true, visited: true },
+              { n: true, e: false, s: false, w: true, visited: true },
+              { n: false, e: false, s: true, w: false, visited: true },
+              { n: true, e: true, s: false, w: false, visited: true },
+              { n: true, e: false, s: true, w: true, visited: true },
+              { n: true, e: true, s: false, w: false, visited: true },
+              { n: false, e: true, s: false, w: true, visited: true },
+              { n: true, e: false, s: false, w: true, visited: true },
+              { n: true, e: true, s: false, w: false, visited: true },
+              { n: true, e: true, s: false, w: true, visited: true },
+            ],
+            [
+              { n: false, e: false, s: true, w: true, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: true, e: true, s: false, w: false, visited: true },
+              { n: true, e: false, s: false, w: true, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: true, e: true, s: false, w: false, visited: true },
+              { n: false, e: false, s: true, w: true, visited: true },
+              { n: true, e: true, s: false, w: false, visited: true },
+              { n: false, e: false, s: true, w: true, visited: true },
+              { n: false, e: false, s: true, w: false, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: true, e: true, s: false, w: false, visited: true },
+              { n: false, e: false, s: true, w: true, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: false, e: true, s: true, w: false, visited: true },
+            ],
+            [
+              { n: false, e: true, s: false, w: true, visited: true },
+              { n: false, e: false, s: true, w: true, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: false, e: true, s: true, w: false, visited: true },
+              { n: true, e: false, s: false, w: true, visited: true },
+              { n: false, e: true, s: true, w: false, visited: true },
+              { n: false, e: true, s: false, w: true, visited: true },
+              { n: true, e: true, s: false, w: true, visited: true },
+              { n: false, e: false, s: true, w: true, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: true, e: true, s: false, w: false, visited: true },
+              { n: false, e: false, s: true, w: true, visited: true },
+              { n: false, e: true, s: false, w: false, visited: true },
+            ],
+            [
+              { n: true, e: false, s: false, w: true, visited: true },
+              { n: true, e: true, s: false, w: false, visited: true },
+              { n: false, e: false, s: true, w: true, visited: true },
+              { n: false, e: false, s: true, w: false, visited: true },
+              { n: true, e: true, s: true, w: false, visited: true },
+              { n: false, e: true, s: false, w: true, visited: true },
+              { n: true, e: false, s: true, w: true, visited: true },
+              { n: true, e: true, s: false, w: false, visited: true },
+              { n: true, e: false, s: false, w: true, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: true, e: false, s: false, w: false, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: true, e: true, s: true, w: false, visited: true },
+              { n: false, e: true, s: false, w: true, visited: true },
+              { n: true, e: true, s: false, w: true, visited: true },
+            ],
+            [
+              { n: false, e: false, s: true, w: true, visited: true },
+              { n: false, e: false, s: true, w: false, visited: true },
+              { n: true, e: true, s: false, w: false, visited: true },
+              { n: true, e: true, s: false, w: true, visited: true },
+              { n: false, e: false, s: true, w: true, visited: true },
+              { n: true, e: true, s: false, w: false, visited: true },
+              { n: false, e: false, s: true, w: true, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: false, e: true, s: true, w: false, visited: true },
+              { n: false, e: false, s: true, w: true, visited: true },
+              { n: false, e: true, s: true, w: false, visited: true },
+              { n: true, e: false, s: false, w: true, visited: true },
+              { n: false, e: true, s: true, w: false, visited: true },
+            ],
+            [
+              { n: true, e: true, s: false, w: true, visited: true },
+              { n: true, e: false, s: false, w: true, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: true, e: false, s: false, w: false, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: true, e: true, s: false, w: false, visited: true },
+              { n: true, e: false, s: true, w: true, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: true, e: false, s: false, w: false, visited: true },
+              { n: true, e: true, s: false, w: false, visited: true },
+              { n: true, e: false, s: false, w: true, visited: true },
+              { n: true, e: false, s: true, w: false, visited: true },
+              { n: true, e: true, s: false, w: false, visited: true },
+            ],
+          ]);
+        });
+      });
+    </script>
+  </body>
+</html>

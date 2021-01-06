@@ -68,6 +68,11 @@ jasmine@^3.6.3:
     glob "^7.1.6"
     jasmine-core "~3.6.0"
 
+lodash@^4.17.20:
+  version "4.17.20"
+  resolved "http://registry.npm.wisedu.com/lodash/-/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
+  integrity sha1-tEqbYpe8tpjxxRo1RaKzs2jVnFI=
+
 minimatch@^3.0.4:
   version "3.0.4"
   resolved "http://registry.npm.wisedu.com/minimatch/-/minimatch-3.0.4.tgz#5166e286457f03306064be5497e8dbb0c3d32083"

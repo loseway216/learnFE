@@ -7,6 +7,7 @@
     "jasmine": "^3.6.3"
   },
   "dependencies": {
+    "lodash": "^4.17.20",
     "xxhashjs": "^0.2.2"
   }
 }
