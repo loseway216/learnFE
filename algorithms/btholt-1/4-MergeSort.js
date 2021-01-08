@@ -1,5 +1,5 @@
 // array.sort底层使用的算法,stable
-// O(n log n)
+// O(n logn)
 // 空间复杂度，O(n)，因为创建了新的数组
 
 const mergeSort = (nums) => {
