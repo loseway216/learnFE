@@ -1,5 +1,5 @@
 const { getUser, getMe } = require("./utils/GraphDataset");
-// you work for a professional social network. in this social network, a professional
+// imagine you work for a professional social network. in this social network, a professional
 // can follow other people to see their updates (think Twitter for professionals.)
 // write a function that finds the job `title` that shows up most frequently given
 // a set of degree of separation from you. count initial id's own job title in the total
