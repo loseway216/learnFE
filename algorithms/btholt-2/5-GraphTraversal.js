@@ -24,8 +24,8 @@ const findMostCommonTitle = (myId, getUser, degreesOfSeparation) => {
         seen.add(user.id);
         return user;
       }) // 数组无变化，但操作了jobs和seen
-      .map((user) => user.connections) // [[1,2,3,4,]]
-      .reduce((acc, users) => acc.concat(users), []); // [1,2,3,4]
+      .map((user) => user.connections) // [[1,2,3,4,], [5,7,9]]
+      .reduce((acc, users) => acc.concat(users), []); // [1,2,3,4,5,7,9]
   }
   return Object.keys(jobs)
     .map((job) => [job, jobs[job]]) // ['dev': 50]
