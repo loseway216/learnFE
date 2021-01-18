@@ -3,29 +3,30 @@ class Queue {
   constructor() {
     this._storage = {};
     this._length = 0;
+    this._headIndex = 0;
   }
 
   // 入队
   enqueue(value) {
-    this._storage[this._length] = value;
+    this._storage[this._length + this._headIndex] = value;
     this._length++;
   }
 
-  // 出队
+  // 出队，删除第一个元素，不改变后面每个元素的index
   dequeue() {
     if (this._length) {
-      const value = this._storage[0];
-      // 每个元素前移一位
-      Object.keys(this._storage).forEach(
-        (index) =>
-          (this._storage[index] = !!this._storage[index + 1]
-            ? this._storage[index + 1]
-            : undefined)
-      );
-      // 删除最后元素
-      delete this._storage[this._length - 1];
+      const firstValue = this._storage[this._headIndex];
+      delete this._storage[this._headIndex];
       this._length--;
-      return value;
+      this._headIndex++;
+      return firstValue;
     }
   }
 }
+
+const myQ = new Queue();
+
+myQ.enqueue("lzw");
+console.log(myQ);
+myQ.dequeue();
+console.log(myQ);
