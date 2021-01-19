@@ -1,13 +1,20 @@
 // 用{}模拟stack
-class Stack {
+module.exports = class Stack {
   constructor() {
     this._storage = {};
     this._length = 0;
+    this._min = undefined;
   }
 
   push(value) {
     this._storage[this._length] = value;
+
     this._length++;
+    // 追踪最小值
+    this._min = Math.min(
+      this._min !== undefined ? this._min : Number.POSITIVE_INFINITY,
+      value
+    );
   }
 
   pop() {
@@ -26,4 +33,12 @@ class Stack {
       return this._storage[this._length - 1];
     }
   }
-}
+
+  getMin() {
+    return this._min;
+  }
+
+  isEmpty() {
+    return this._length === 0;
+  }
+};

@@ -6,7 +6,7 @@ class Queue {
     this._headIndex = 0;
   }
 
-  // 入队
+  // 入队，添加到末尾
   enqueue(value) {
     this._storage[this._length + this._headIndex] = value;
     this._length++;
