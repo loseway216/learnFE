@@ -2,14 +2,8 @@
 // 暗示一些场景将对象、方法、数组转成原始类型，底层逻辑：
 // hint为number时递归调用 valueOf()、toString()
 // hint为string时递归调用 toString()、valueOf()
-
-///////////////////////////////
 // toString 不是指具体的toString()方法，而是暗示在进行字符串操作
-
-///////////////////////////////
 // toNumber 不是指具体的toNumber()方法，而是暗示在进行数字操作
-
-///////////////////////////////
 // toBoolean 不是指具体的toBoolean()方法，而是暗示在进行true、false判断
 // falsy:""、0、-0、0n、NaN、null、undefined、false
 // trulsy:剩下的所有的

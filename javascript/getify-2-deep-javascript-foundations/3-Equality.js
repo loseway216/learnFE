@@ -1,5 +1,4 @@
 // https://262.ecma-international.org/9.0/#sec-strict-equality-comparison
-// 如果双等号的Type一样，会执行三等号进行判断
 
 //////////////////////////////////
 // double equal logic
@@ -17,7 +16,7 @@
 
 ////////////////////////////
 // corner case
-[] == []; // false
+[] == []; // false 因为比较的引用
 [] == ![]; // true
 
 var arr1 = [];
