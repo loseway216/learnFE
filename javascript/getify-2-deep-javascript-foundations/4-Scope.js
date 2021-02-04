@@ -1,4 +1,4 @@
-// scope:在执行阶段之前，进行的编译阶段，规划好所有的作用域
+// scope:在执行阶段之前，进行的编译阶段(parsing、compiling)，规划好所有的作用域
 
 // global scope 无法访问子作用域
 function f1() {
@@ -30,7 +30,7 @@ var ids = people.map(function getId(person) {
   return person.id;
 });
 
-/////////////////////////////////////////
+// ***********************************
 // IIFE
 var teacher = "Kyle";
 
@@ -47,7 +47,7 @@ anotherTeacher();
   console.log(teacher);
 })();
 
-/////////////////////////////////////////
+// ***********************************
 // block scope
 
 var teacher = "Kyle";
@@ -63,4 +63,20 @@ function diff(x, y) {
     x = y;
     y = temp;
   }
+}
+
+// ***********************************
+// hoisting并没有出现在spec中，hoisting其实就是lexical scope
+
+// function expression不会hoisting，因为declaration会被hoisting，但是execution的部分不会hoisting
+
+// let也会hoisting，否则下面的例子中teacher应该是Kyle
+
+// Temporal Dead Zone : the term to describe the state where variables are un-reachable. They are in scope, but they aren't declared.
+// TDZ是为了满足const的需要，不能先设成undefined，然后又赋值，所以只能不进行初始化，也说明了let和const会hoisting
+var teacher = "Kyle";
+
+{
+  console.log(teacher); // Uncaught ReferenceError: Cannot access 'teacher' before initialization
+  let teacher = "Brian";
 }

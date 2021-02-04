@@ -1,6 +1,6 @@
 // https://262.ecma-international.org/9.0/#sec-strict-equality-comparison
 
-//////////////////////////////////
+// ***********************************
 // double equal logic
 // same types: ===
 // null or undefined: equal
@@ -8,13 +8,13 @@
 // Prefer: ToNumer
 42 == [42]; // true [42] toPrimitive ->  "42" toNumber ->  42 -> 42===42 -> true
 
-/////////////////////////////////////
+// ***********************************
 // Avoid:
 // 1. == with 0 "" "    "
 // 2. == with non-primitives
 // 3. == with true false
 
-////////////////////////////
+// ***********************************
 // corner case
 [] == []; // false 因为比较的引用
 [] == ![]; // true
@@ -50,7 +50,7 @@ arr == false; // true
 // "" == false
 // 0 === 0
 
-///////////////////////////////////////////////
+// ***********************************
 // better practice
 // 判断是否为空，一个是null，一个是undefined
 var workshop1 = { topic: null };

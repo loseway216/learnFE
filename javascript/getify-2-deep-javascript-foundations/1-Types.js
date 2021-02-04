@@ -1,4 +1,4 @@
-////////////////////////////////////
+// ***********************************
 // 原始类型
 var v = undefined;
 typeof v; // 'undefined'
@@ -21,7 +21,7 @@ typeof v; // 'symbol'
 v = null;
 typeof v; // 'object' null是原始类型，但是typeof null却是object
 
-/////////////////////////////////////
+// ***********************************
 // 非原始类型
 v = function () {};
 typeof v; // 'function'
@@ -33,7 +33,7 @@ typeof v; // 'object'
 v = 42n; // or BigInt(42)
 typeof v; // 'bigint'
 
-/////////////////////////////////////
+// ***********************************
 // NaN
 var myAge = Number("0o34"); // 28
 var myNextAge = Number("29"); // 29
@@ -50,7 +50,7 @@ isNaN("my son's age"); // true 字符串其实并不是NaN，isNaN先把字符�
 Number.isNaN(myDogsAge); // true
 Number.isNaN("my son's age"); // false 字符串不是数字
 
-/////////////////////////////////////
+// ***********************************
 // negative zero
 var trendRate = -0;
 trendRate === -0; // true
@@ -81,7 +81,7 @@ sign(2); // 1
 sign(0); // 1
 sign(-0); // -1
 
-///////////////////////////////
+// ***********************************
 // fundamental objects：类似基本类型，使用new关键词构造的对象
 // use new: Object()、Array()、Function()、Date()、RegExp()、Error()
 // dont use new: String()、Number()、Boolean()
