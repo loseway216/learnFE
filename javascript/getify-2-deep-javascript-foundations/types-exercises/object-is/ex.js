@@ -12,8 +12,9 @@ if (!Object.is) {
     var v1NegZero = isItNegativeZero(v1);
     var v2NegZero = isItNegativeZero(v2);
 
+    // 其中有一个是-0
     if (v1NegZero || v2NegZero) {
-      // 其中有一个是-0的时候，两个都是-0返回true，否则返回false
+      // 两个都是-0返回true，否则返回false
       return v1NegZero && v2NegZero;
     }
 

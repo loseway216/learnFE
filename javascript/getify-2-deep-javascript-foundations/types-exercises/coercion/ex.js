@@ -8,7 +8,7 @@ function isValidName(name) {
 
 function hoursAttended(attended, length) {
   if (typeof attended == "string" && attended.trim() != "") {
-    // getify认为改变原始参数是可以接受的
+    // 在这里，getify认为改变原始参数是可以接受的
     attended = Number(attended);
   }
   if (typeof length == "string" && length.trim() != "") {

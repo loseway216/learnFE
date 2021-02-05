@@ -60,7 +60,7 @@ trendRate === 0; // true
 trendRate < 0; // false
 trendRate > 0; // false
 
-// ES6添加的方法，含以上相当于四个等号， ====
+// ES6添加的方法，相当于四个等号， ====
 Object.is(trendRate, -0); // true
 Object.is(trendRate, 0); // false
 
