@@ -61,7 +61,7 @@ workshop.ask("It is a module, right?");
 // 不用IIFE，可以多次被调用：module构造器
 // 工厂模式
 function WorkshopModule(teacher) {
-  var publicAPI = { ask };
+  var publicAPI = { ask, teacher }; // 这里如果把teacher暴露出去允许访问，会创建一份copy，永远都是初始化时候的值
   return publicAPI;
 
   // ************
