@@ -1,4 +1,4 @@
-$(document).ready(function () {
+var Carousel = (function () {
   function scrollLeft(evt) {
     evt.preventDefault();
     evt.stopPropagation();
@@ -32,11 +32,16 @@ $(document).ready(function () {
   var itemsWidth = $items.width();
   var position = 0;
   var maxPosition = itemsWidth - contentWidth;
+  function init() {
+    // attach click handlers for the `$left` and `$right` buttons,
+    // that call the `scrollLeft(..)` and `scrollRight(..)` functions,
+    // respectively
 
-  // attach click handlers for the `$left` and `$right` buttons,
-  // that call the `scrollLeft(..)` and `scrollRight(..)` functions,
-  // respectively
+    $left.on("click", scrollLeft);
+    $right.on("click", scrollRight);
+  }
 
-  $left.on("click", scrollLeft);
-  $right.on("click", scrollRight);
-});
+  return { init };
+})();
+
+$(document).ready(Carousel.init);
