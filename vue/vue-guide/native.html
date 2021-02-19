@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>native</title>
+  </head>
+  <body>
+    <div id="app">
+      <base-input
+        v-on:focus.native="onFocus"
+        label="字段1"
+        value="测试"
+      ></base-input>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      Vue.component("base-input", {
+        props: ["label", "value"],
+        computed: {
+          inputListeners() {
+            console.log(this.$listeners);
+            return Object.assign({}, this.$listeners, {
+              input: (event) => {
+                this.$emit("input", event.target.value);
+              },
+            });
+          },
+        },
+        template: `<label>
+  {{ label }}
+  <input
+    v-bind="$attrs"
+    v-bind:value="value"
+    v-on="inputListeners"
+  >
+  <button @click>add 1</button>
+</label>`,
+      });
+      var app = new Vue({
+        el: "#app",
+        data: {},
+        methods: {
+          onFocus() {
+            console.log("focus");
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .btn-container {
+        padding: 20px;
+        height: 200vh;
+      }
+    </style>
+    <title>v-on</title>
+  </head>
+  <body>
+    <div id="app">
+      <form >
+        <input @keyup.enter="submit">
+        <input @keyup.page-down="submit">
+        <div
+        @click.prevent.self="clickParent"
+        @scroll="onScroll"
+        class="btn-container"
+        >
+        <button @click="click2">button 2</button>
+        <button @click.stop="click1">button 1</button>
+      </div>
+    </div>
+  </form>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      var app = new Vue({
+        el: "#app",
+        data: {},
+        methods: {
+          click1(e) {
+            console.log("clicked button1");
+          },
+          click2(e) {
+            console.log("clicked button2");
+          },
+          clickParent(e) {
+            console.log("clicked parent");
+          },
+          onScroll(e) {
+            console.log("scroll");
+          },submit(){
+            console.log('submit');
+          }
+        },
+      });
+    </script>
+  </body>
+</html>

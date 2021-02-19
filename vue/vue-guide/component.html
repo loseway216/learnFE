@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>component</title>
+  </head>
+  <body>
+    <div id="components-demo">
+      <component :is="currentComponent"></component>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      Vue.component("home", {
+        template: "<p>Home component</p>",
+      });
+      Vue.component("posts", {
+        template: "<p>posts component</p>",
+      });
+      Vue.component("archive", {
+        template: "<p>archive component</p>",
+      });
+      var app = new Vue({
+        el: "#components-demo",
+        data: { currentComponent: "home" },
+      });
+    </script>
+  </body>
+</html>
