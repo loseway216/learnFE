@@ -3,27 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>slot</title>
+    <title>Slot</title>
   </head>
   <body>
     <div id="app">
-      <current-user v-slot="{user,sex}">
-        {{ user.firstName }} {{ sex.female }}
+      <navigation-link url="/profile"> Your Profile </navigation-link>
+      <current-user>
+        <template #user="{user}"> {{ user.firstName }} </template>
+        <template #sex="{sex}"> {{ sex.female }} </template>
       </current-user>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
-      Vue.component("current-user", {
-        template: `<span><slot :user="user" :sex="sex">{{ user.lastName  }}{{ sex.male  }}</slot></span>`,
+      Vue.component("navigation-link", {
+        template: `<a
+  v-bind:href="url"
+  class="nav-link"
+>
+  <slot></slot>
+</a>`,
         data: function () {
           return {
-            user: { firstName: "ziwei", lastName: "lululu" },
-            sex: { male: "男", female: "女" },
+            url: "",
           };
         },
         created: () => {
           console.log(this);
         },
+      });
+      Vue.component("current-user", {
+        template: `<span><slot name="user" :user="user" >{{ user.lastName  }}</slot><slot name="sex" :sex="sex">{{ sex.male  }}</slot></span>`,
+        data: function () {
+          return {
+            user: { firstName: "zw", lastName: "lululu" },
+            sex: { male: "男", female: "女" },
+          };
+        },
+        created: () => {},
       });
       var app = new Vue({
         el: "#app",
