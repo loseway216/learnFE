@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mixin</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      Vue.mixin({
+        created() {
+          console.log("from global mixin");
+        },
+      });
+      var myMixin = {
+        created() {
+          this.hello();
+        },
+        methods: {
+          hello() {
+            console.log("hello from mixin");
+          },
+        },
+      };
+
+      var MyComponent = Vue.extend({
+        mixins: [myMixin],
+        template: "<div>test</div>",
+      });
+
+      new MyComponent().$mount("#app");
+    </script>
+  </body>
+</html>

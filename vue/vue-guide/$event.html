@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>$on $once $off</title>
+  </head>
+  <body>
+    <div id="app">
+      <button @click="show = !show">switch div</button>
+      <jojo :show="show"></jojo>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      Vue.component("jojo", {
+        props: ["show"],
+        mounted() {
+          this.$on("test", (content) => {
+            console.log(content);
+          });
+
+          this.$once("hook:beforeDestroy", () => {
+            this.off("test", () => {
+              console.log("remove test event");
+            });
+          });
+        },
+        // 上面的写法更合理
+        beforeDestroy() {
+          this.off("test", () => {
+            console.log("remove test event");
+          });
+        },
+        methods: {
+          onClick() {
+            this.$emit("test", "hi");
+          },
+        },
+        template:
+          "<div v-if='show' @click='onClick' style='width:100px;height:100px;background-color:red;margin:20px;'><slot>JoJo</slot></div>",
+      });
+
+      var app = new Vue({
+        el: "#app",
+        data: { show: true },
+      });
+    </script>
+  </body>
+</html>

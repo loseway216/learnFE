@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>refs</title>
+  </head>
+  <body>
+    <div id="app">
+      <base-input ref="baseInput"></base-input>
+      <button @click="onClick">foucs the input</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      Vue.component("base-input", {
+        methods: {
+          focus() {
+            console.log(this.$refs.input);
+            this.$refs.input.focus();
+          },
+        },
+        template: "<p>ref示例<input type='text' ref='input'></input></p>",
+      });
+
+      var app = new Vue({
+        el: "#app",
+        data: {},
+        methods: {
+          onClick() {
+            // 调用子组件，内部的子组件的focus
+            this.$refs.baseInput.focus();
+            setTimeout(() => {
+              this.$refs.baseInput.$refs.input.blur();
+            }, 1000);
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

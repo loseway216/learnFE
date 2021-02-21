@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>custom directive</title>
+  </head>
+  <body>
+    <div id="app">
+      <input type="text" v-focus />
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      // 全局自定义指令
+      // Vue.directive("focus", {
+      //   inserted(el) {
+      //     el.focus();
+      //   },
+      // });
+      new Vue({
+        el: "#app",
+        directives: {
+          focus: {
+            inserted(el) {
+              el.focus();
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

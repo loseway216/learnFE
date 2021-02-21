@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>recursive component</title>
+  </head>
+  <body>
+    <div id="app"><stack-overflow></stack-overflow></div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      var comp = {
+        name: "stack-overflow",
+        data() {
+          return {
+            show: true,
+          };
+        },
+        created() {
+          console.log("created");
+          // 一个愚蠢的判断条件，渲染三次后将条件改成false终止递归
+          if (
+            this.$parent &&
+            this.$parent.$parent &&
+            this.$parent.$parent.$parent
+          ) {
+            this.show = false;
+          }
+        },
+        template: "<div v-if='show'><stack-overflow></stack-overflow></div>",
+      };
+
+      var app = new Vue({
+        el: "#app",
+        components: { "stack-overflow": comp },
+      });
+    </script>
+  </body>
+</html>

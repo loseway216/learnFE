@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>provide and inject</title>
+  </head>
+  <body>
+    <div id="app">
+      <jonathan
+        ><joseph><jodalao>空条承太郎</jodalao></joseph></jonathan
+      >
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      Vue.component("jonathan", {
+        provide() {
+          return { ola: this.ola };
+        },
+        methods: {
+          ola() {
+            console.log("ola ola ola ola ola");
+          },
+        },
+        template: "<p><slot>JoJo</slot></p>",
+      });
+      Vue.component("joseph", {
+        template: "<p><slot>JoJo</slot></p>",
+      });
+      Vue.component("jodalao", {
+        inject: ["ola"],
+        created() {
+          // 第三级组件，接收第一级组件的属性
+          this.ola();
+        },
+        template: "<p><slot>JoJo</slot></p>",
+      });
+
+      var app = new Vue({
+        el: "#app",
+        data: {},
+        methods: {},
+      });
+    </script>
+  </body>
+</html>

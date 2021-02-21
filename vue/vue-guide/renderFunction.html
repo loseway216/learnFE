@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>render function</title>
+  </head>
+  <body>
+    <div id="app">
+      <anchored-heading :level="1"
+        ><span> Hello Vue<span>ola</span> </span></anchored-heading
+      >
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      var getChildrenTextContent = function (children) {
+        return children
+          .map(function (node) {
+            return node.children
+              ? getChildrenTextContent(node.children)
+              : node.text;
+          })
+          .join("");
+      };
+
+      Vue.component("anchored-heading", {
+        props: {
+          level: {
+            type: Number,
+            required: true,
+          },
+        },
+        render(createElement) {
+          var headingId = getChildrenTextContent(this.$slots.default)
+            .toLowerCase()
+            .replace(/\W+/g, "-")
+            .replace(/(^-|-$)/g, "");
+
+          console.log(headingId);
+
+          return createElement("h" + this.level, [
+            createElement(
+              "a",
+              {
+                attrs: {
+                  name: "headingId",
+                  href: "#" + headingId,
+                },
+              },
+              this.$slots.default
+            ),
+          ]);
+        },
+      });
+
+      new Vue({
+        el: "#app",
+      });
+    </script>
+  </body>
+</html>
