@@ -1,39 +1,41 @@
-<script src="../node_modules/vue/dist/vue.js"></script>
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
-<div id="app">
-  <counter></counter>
-  <counter></counter>
-  <counter></counter>
-  <button @click="inc">increment</button>
-</div>
+  <div id="app">
+    <counter></counter>
+    <counter></counter>
+    <counter></counter>
+    <button @click="inc">increment</button>
+  </div>
 
-<script>
-function createStore ({ state, mutations }) {
-  // Implement this!
-}
-
-const store = createStore({
-  state: { count: 0 },
-  mutations: {
-    inc (state) {
-      state.count++
+  <script>
+    function createStore({ state, mutations }) {
+      // Implement this!
     }
-  }
-})
 
-const Counter = {
-  render (h) {
-    return h('div', store.state.count)
-  }
-}
+    const store = createStore({
+      state: { count: 0 },
+      mutations: {
+        inc(state) {
+          state.count++;
+        },
+      },
+    });
 
-new Vue({
-  el: '#app',
-  components: { Counter },
-  methods: {
-    inc () {
-      store.commit('inc')
-    }
-  }
-})
-</script>
+    const Counter = {
+      render(h) {
+        return h("div", store.state.count);
+      },
+    };
+
+    new Vue({
+      el: "#app",
+      components: { Counter },
+      methods: {
+        inc() {
+          store.commit("inc");
+        },
+      },
+    });
+  </script>
+</body>

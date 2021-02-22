@@ -1,56 +1,57 @@
-<script>
-  // 和真正的vue的差距，需要到源码找答案
-  // 1.清理无用的依赖
-  // 2.处理raise
-  // 3.添加新的属性
+<body>
+  <script>
+    // 和真正的vue的差距，需要到源码找答案
+    // 1.清理无用的依赖
+    // 2.处理raise
+    // 3.添加新的属性
 
-  // a class representing a dependency
-  class Dep {
-    constructor() {
-      this.subscriber = new Set();
-    }
+    // a class representing a dependency
+    class Dep {
+      constructor() {
+        this.subscriber = new Set();
+      }
 
-    // 为当前执行的代码注册依赖
-    depend() {
-      // register the current active update as a subscriber
-      if (activeUpdate) {
-        this.subscriber.add(activeUpdate);
+      // 为当前执行的代码注册依赖
+      depend() {
+        // register the current active update as a subscriber
+        if (activeUpdate) {
+          this.subscriber.add(activeUpdate);
+        }
+      }
+
+      // 依赖产生了变化
+      notify() {
+        // run all subscriber functions
+        this.subscriber.forEach((sub) => sub());
       }
     }
 
-    // 依赖产生了变化
-    notify() {
-      // run all subscriber functions
-      this.subscriber.forEach((sub) => sub());
+    // 用来判断update函数是否正在执行
+    let activeUpdate;
+
+    // autorun中执行的update函数，可以访问到updata本身，可以在这里进行依赖注册
+    function autorun(update) {
+      // 包裹函数的作用，例如update中可能会进行条件判断，收集不同的依赖
+      function wrappedUpdate() {
+        activeUpdate = wrappedUpdate;
+        update();
+        activeUpdate = null;
+      }
+      wrappedUpdate();
     }
-  }
 
-  // 用来判断update函数是否正在执行
-  let activeUpdate;
+    // *****************************************
+    // test
 
-  // autorun中执行的update函数，可以访问到updata本身，可以在这里进行依赖注册
-  // 相当于文档中的watcher，会执行render函数，用到属性就会进行依赖收集
-  function autorun(update) {
-    // 包裹函数的作用，例如update中可能会进行条件判断，收集不同的依赖
-    function wrappedUpdate() {
-      activeUpdate = wrappedUpdate;
-      update();
-      activeUpdate = null;
-    }
-    wrappedUpdate();
-  }
+    const dep = new Dep();
 
-  // *****************************************
-  // test
+    autorun(() => {
+      dep.depend();
+      console.log("updated");
+    });
+    // should log: "updated"
 
-  const dep = new Dep();
-
-  autorun(() => {
-    dep.depend();
-    console.log("updated");
-  });
-  // should log: "updated"
-
-  dep.notify();
-  // should log: "updated"
-</script>
+    dep.notify();
+    // should log: "updated"
+  </script>
+</body>

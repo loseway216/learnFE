@@ -1,13 +1,45 @@
-<script src="../node_modules/vue/dist/vue.js"></script>
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <div id="app">
+    <example :tags="['h1', 'h2', 'h3']"></example>
+  </div>
 
-<div id="app">
-  <example :tags="['h1', 'h2', 'h3']"></example>
-</div>
+  <script>
+    // 定义一个叫example的组件，根据tags属性，渲染子节点
+    // Vue.component("example", {
+    //   props: {
+    //     tags: { type: Array },
+    //   },
+    //   render(h) {
+    //     return h(
+    //       "div",
+    //       // 卡住的地方：用this获取tags即可
+    //       this.tags.map((tag, index) => h(tag, index))
+    //     );
+    //   },
+    // });
 
-<script>
-Vue.component('example', {
-  // Implement this!
-})
+    // functional component VS stateful component（normal component）
+    // 普通的组件有instance，函数式组件没有，就像函数一样，接收参数，返回virtual dom
+    // 函数式组件有eagerly执行的特性，parent不一定是真实dom的父节点
+    // 场景：性能提升：如果一个组件有很多叶子节点，其中有一些嵌套的叶子节点并不需要维护state，只是根据props渲染一些styling、markup
+    Vue.component("example", {
+      functional: true,
+      render(h, { parent, props: { tags } }) {
+        // parent is root instance, because functinal component are evaluated eagerly, expanded before passed to parent dom
+        console.log(parent);
+        return h(
+          "div",
+          tags.map((tag, index) => h(tag, index))
+        );
+      },
+    });
 
-new Vue({ el: '#app' })
-</script>
+    // JSX version
+    // const Example = (h, { props: { tags } }) => {
+    //   return <div>{tags.map((tag, index) => h(tag, index))}</div>;
+    // };
+
+    new Vue({ el: "#app" });
+  </script>
+</body>

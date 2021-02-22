@@ -1,31 +1,33 @@
-<script src="../node_modules/vue/dist/vue.js"></script>
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
-<div id="app">
-  <smart-avatar username="vuejs"></smart-avatar>
-</div>
+  <div id="app">
+    <smart-avatar username="vuejs"></smart-avatar>
+  </div>
 
-<script>
-// mock API
-function fetchURL (username, cb) {
-  setTimeout(() => {
-    // hard coded, bonus: exercise: make it fetch from gravatar!
-    cb('https://avatars3.githubusercontent.com/u/6128107?v=4&s=200')
-  }, 500)
-}
+  <script>
+    // mock API
+    function fetchURL(username, cb) {
+      setTimeout(() => {
+        // hard coded, bonus: exercise: make it fetch from gravatar!
+        cb("https://avatars3.githubusercontent.com/u/6128107?v=4&s=200");
+      }, 500);
+    }
 
-const Avatar = {
-  props: ['src'],
-  template: `<img :src="src">`
-}
+    const Avatar = {
+      props: ["src"],
+      template: `<img :src="src">`,
+    };
 
-function withAvatarURL (InnerComponent) {
-  // Implement this!
-}
+    function withAvatarURL(InnerComponent) {
+      // Implement this!
+    }
 
-const SmartAvatar = withAvatarURL(Avatar)
+    const SmartAvatar = withAvatarURL(Avatar);
 
-new Vue({
-  el: '#app',
-  components: { SmartAvatar }
-})
-</script>
+    new Vue({
+      el: "#app",
+      components: { SmartAvatar },
+    });
+  </script>
+</body>
