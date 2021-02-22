@@ -1,9 +1,70 @@
 <script>
-function observe (obj) {
-  // Implement this!
-}
+  function observe(obj) {
+    Object.keys(obj).forEach((key) => {
+      var internalValue = obj[key];
+      var dep = new Dep();
+      Object.defineProperty(obj, key, {
+        get() {
+          dep.register();
+          return internalValue;
+        },
+        set(newValue) {
+          internalValue = newValue;
+          dep.notify();
+        },
+      });
+    });
+  }
 
-function autorun (update) {
-  // Implement this!
-}
+  class Dep {
+    constructor() {
+      this.subscriber = new Set();
+    }
+
+    register() {
+      if (activeUpdate) {
+        this.subscriber.add(activeUpdate);
+      }
+    }
+
+    notify() {
+      this.subscriber.forEach((sub) => sub());
+    }
+  }
+
+  let activeUpdate;
+
+  function autorun(update) {
+    function wrappedUpdate() {
+      activeUpdate = wrappedUpdate;
+      update();
+      activeUpdate = null;
+    }
+    wrappedUpdate();
+  }
+
+  // *****************************************
+  // test
+
+  const state = {
+    count: 0,
+  };
+
+  observe(state);
+
+  // 伪代码：
+  // render函数更新视图，用到了state的属性，触发getter，进行了依赖收集
+  // 如果给state上的属性重新赋值，触发setter，触发notify，触发dep收集的更新视图方法
+  // autorun(() => {
+  //   view = render(state)
+  // })
+
+  autorun(() => {
+    console.log(state.count);
+  });
+  // should immediately log "count is: 0"
+
+  // state.count++ 比 state.count = 1 会多触发一次getter，但是由于不在autorun中，不会被收集依赖
+  state.count = state.count + 1;
+  // should log "count is: 1"
 </script>

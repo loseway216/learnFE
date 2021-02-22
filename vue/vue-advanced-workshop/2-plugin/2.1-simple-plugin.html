@@ -1,9 +1,39 @@
-<script src="../node_modules/vue/dist/vue.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script>
-const RulesPlugin = {
-  // Implement this!
-}
+  // 1.
+  // 2.
+  // 3.
+  const RulesPlugin = {
+    install(Vue) {
+      Vue.mixin({
+        created() {
+          if (this.$options.rules) {
+            const rules = this.$options.rules;
+            Object.keys(rules).forEach((key) => {
+              const { validate, message } = rules[key];
+              if (!validate(this[key])) {
+                console.log(message);
+              }
+            });
+          }
+        },
+      });
+    },
+  };
 
-Vue.use(RulesPlugin)
+  // *****************************************
+  // test
+  Vue.use(RulesPlugin);
+
+  const vm = new Vue({
+    data: { foo: 10 },
+    rules: {
+      foo: {
+        validate: (value) => value > 1,
+        message: "foo must be greater than one",
+      },
+    },
+  });
+
+  vm.foo = 0; // should log: "foo must be greater than one"
 </script>
