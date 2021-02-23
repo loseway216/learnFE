@@ -21,7 +21,7 @@
           }
         }
         notify() {
-          this.subscriber.forEach((sub) => sub());
+          this.subscriber.forEach(sub => sub());
         }
       }
 
@@ -36,7 +36,7 @@
       }
 
       function observe(obj) {
-        Object.keys(obj).forEach((key) => {
+        Object.keys(obj).forEach(key => {
           var dep = new Dep();
           var internalValue = obj[key];
           Object.defineProperty(obj, key, {
@@ -47,22 +47,22 @@
             get() {
               dep.register();
               return internalValue;
-            },
+            }
           });
         });
       }
 
       var state = {
-        value: 0,
+        value: 0
       };
 
       observe(state);
 
       function render() {
-        document.querySelector("span").textContent = state.value;
+        document.querySelector('span').textContent = state.value;
         document
-          .querySelector("input")
-          .addEventListener("input", (e) => (state.value = e.target.value));
+          .querySelector('input')
+          .addEventListener('input', e => (state.value = e.target.value));
       }
 
       autorun(render);

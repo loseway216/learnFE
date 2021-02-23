@@ -1,18 +1,18 @@
 <body>
   <script>
     function observe(obj) {
-      Object.keys(obj).forEach((key) => {
+      Object.keys(obj).forEach(key => {
         var internalValue = obj[key];
         var dep = new Dep();
         Object.defineProperty(obj, key, {
           get() {
-            dep.register();
+            dep.depend();
             return internalValue;
           },
           set(newValue) {
             internalValue = newValue;
             dep.notify();
-          },
+          }
         });
       });
     }
@@ -22,14 +22,14 @@
         this.subscriber = new Set();
       }
 
-      register() {
+      depend() {
         if (activeUpdate) {
           this.subscriber.add(activeUpdate);
         }
       }
 
       notify() {
-        this.subscriber.forEach((sub) => sub());
+        this.subscriber.forEach(sub => sub());
       }
     }
 
@@ -48,7 +48,7 @@
     // test
 
     const state = {
-      count: 0,
+      count: 0
     };
 
     observe(state);

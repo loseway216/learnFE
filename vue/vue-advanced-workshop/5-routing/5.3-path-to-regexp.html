@@ -9,50 +9,73 @@
     // '#/bar' -> Bar
     // '#/404' -> NotFound
 
-    // path-to-regexp usage:
-    // const regex = pathToRegexp(pattern)
-    // const match = regex.exec(path)
-    // const params = regex.keys.reduce((params, key, index) => {
-    //   params[key] = match[index + 1]
-    // }, {})
-
     const Foo = {
-      props: ["id"],
-      template: `<div>foo with id: {{ id }}</div>`,
-    };
-    const Bar = { template: `<div>bar</div>` };
-    const NotFound = { template: `<div>not found!</div>` };
+      props: ['id'],
+      template: `<div>foo with id: {{ id }}</div>`
+    }
+    const Bar = { template: `<div>bar</div>` }
+    const NotFound = { template: `<div>not found!</div>` }
 
     const routeTable = {
-      // Implement this!
-    };
+      '/foo/:id': Foo,
+      '/bar': Bar
+    }
 
-    window.addEventListener("hashchange", () => {
-      // Implement this!
-    });
+    // 将routeTable转成带有校验信息的数组，url改变时，遍历这个route entry
+    // VueRouter中这段逻辑被封装成了一个组件，router-view
+    const compiledRoutes = []
+
+    Object.keys(routeTable).forEach(key => {
+      const dynamicSegements = []
+      const regex = pathToRegexp(key, dynamicSegements)
+      const component = routeTable[key]
+      compiledRoutes.push({
+        component,
+        regex,
+        dynamicSegements
+      })
+    })
+
+    window.addEventListener('hashchange', () => {
+      app.url = window.location.hash.slice(1)
+    })
 
     const app = new Vue({
-      el: "#app",
+      el: '#app',
       data: {
-        url: window.location.hash.slice(1),
+        url: window.location.hash.slice(1)
       },
       render(h) {
-        const path = "/" + this.url;
+        const path = '/' + this.url
 
-        let componentToRender;
-        let props = {};
+        let componentToRender = NotFound
+        let props = {}
 
         // Implement the logic to figure out proper values
         // for componentToRender and props
 
-        return h("div", [
+        // some() 方法测试数组中是不是至少有1个元素通过了被提供的函数测试。它返回的是一个Boolean类型的值
+        compiledRoutes.some(route => {
+          const match = route.regex.exec(path)
+          if (match) {
+            console.log(match)
+            componentToRender = route.component
+            route.dynamicSegements.forEach((segement, index) => {
+              console.log(segement)
+              props[segement.name] = match[index + 1]
+            })
+          }
+        })
+
+        return h('div', [
           h(componentToRender, { props }),
-          h("a", { attrs: { href: "#foo/123" } }, "foo"),
-          h("a", { attrs: { href: "#foo/234" } }, "foo"),
-          " | ",
-          h("a", { attrs: { href: "#bar" } }, "bar"),
-        ]);
-      },
-    });
+          h('a', { attrs: { href: '#foo/123' } }, 'foo'),
+          ' | ',
+          h('a', { attrs: { href: '#foo/234' } }, 'foo'),
+          ' | ',
+          h('a', { attrs: { href: '#bar' } }, 'bar')
+        ])
+      }
+    })
   </script>
 </body>

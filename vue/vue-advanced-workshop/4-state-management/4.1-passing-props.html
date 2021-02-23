@@ -9,12 +9,20 @@
   </div>
 
   <script>
-    // requirement: a counter component rendered 3 times
-    // the component takes the current count via props
-    // and a button that increments all 3 counters at once
+    // 最基本的情形：把需要共享的状态放在根实例，通过props传递到字节点，但是层级多了之后就无法维护了
     new Vue({
-      el: "#app",
-      // Implement this!
+      el: '#app',
+      data: {
+        count: 0
+      },
+      components: {
+        Counter: {
+          props: ['count'],
+          render(h) {
+            return h('div', this.count);
+          }
+        }
+      }
     });
   </script>
 </body>

@@ -1,2 +1,1 @@
-# learnFE
-学习用
+# Frontend Learning path

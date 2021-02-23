@@ -22,7 +22,7 @@
       // 依赖产生了变化
       notify() {
         // run all subscriber functions
-        this.subscriber.forEach((sub) => sub());
+        this.subscriber.forEach(sub => sub());
       }
     }
 
@@ -47,7 +47,7 @@
 
     autorun(() => {
       dep.depend();
-      console.log("updated");
+      console.log('updated');
     });
     // should log: "updated"
 

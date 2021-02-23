@@ -4,27 +4,48 @@
   <div id="app"></div>
 
   <script>
+    // 利用vue的api创建一个满足函数式的调用
     function createApp({ el, model, view, actions }) {
-      // Implement this!
+      const wrappedActions = {}
+      Object.keys(actions).forEach(key => {
+        const originalAction = actions[key]
+        wrappedActions[key] = event => {
+          const nextModel = originalAction(vm.model)
+          // 底层的实现其实是有mutation的，但是上层的api看起来是functional
+          // 触发vue的响应式更新
+          vm.model = nextModel
+        }
+      })
+      const vm = new Vue({
+        el,
+        data: {
+          model
+        },
+        render(h) {
+          // 关键点在于，传进来的actions和view方法中需要的actions并不同，所以需要包装
+          // view中的actions是不需要参数的，可以直接执行的，但是actions参数的定义是functional，接收参数，返回结果
+          return view(h, this.model, wrappedActions)
+        }
+      })
     }
 
     // voila
     createApp({
-      el: "#app",
+      el: '#app',
       model: {
-        count: 0,
+        count: 0
       },
       actions: {
         inc: ({ count }) => ({ count: count + 1 }),
-        dec: ({ count }) => ({ count: count - 1 }),
+        dec: ({ count }) => ({ count: count - 1 })
       },
       view: (h, model, actions) =>
-        h("div", { attrs: { id: "app" } }, [
+        h('div', { attrs: { id: 'app' } }, [
           model.count,
-          " ",
-          h("button", { on: { click: actions.inc } }, "+"),
-          h("button", { on: { click: actions.dec } }, "-"),
-        ]),
-    });
+          ' ',
+          h('button', { on: { click: actions.inc } }, '+'),
+          h('button', { on: { click: actions.dec } }, '-')
+        ])
+    })
   </script>
 </body>

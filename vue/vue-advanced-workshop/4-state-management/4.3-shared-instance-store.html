@@ -9,19 +9,33 @@
   </div>
 
   <script>
-    // copy and modify the first exercise to use a Vue instance as
-    // a shared store instead.
+    // 使用new Vue创建的实例本身就是响应式的，不需要放到根实例或者组件的data中
+    // 并且状态的变更放到state内部
+    // 这种方式对于中小型应用足够了
     const state = new Vue({
-      // Implement this!
+      data: {
+        count: 0
+      },
+      methods: {
+        inc() {
+          this.count++;
+        }
+      }
     });
 
     const Counter = {
-      // Implement this!
+      // getter -> collect dependecny -> state changed -> rerender
+      render: h => h('div', state.count)
     };
 
     new Vue({
-      el: "#app",
-      // Implement this!
+      el: '#app',
+      components: { Counter },
+      methods: {
+        inc() {
+          state.inc();
+        }
+      }
     });
   </script>
 </body>

@@ -2,7 +2,7 @@
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
   <div id="app">
-    <smart-avatar username="vuejs"></smart-avatar>
+    <smart-avatar username="vuejs" name="hello"></smart-avatar>
   </div>
 
   <script>
@@ -10,24 +10,50 @@
     function fetchURL(username, cb) {
       setTimeout(() => {
         // hard coded, bonus: exercise: make it fetch from gravatar!
-        cb("https://avatars3.githubusercontent.com/u/6128107?v=4&s=200");
+        cb('https://avatars3.githubusercontent.com/u/6128107?v=4&s=200');
       }, 500);
     }
 
+    // 高阶组件，在react中很常见
+    // 假设有一个头像组件，必须接收一个url才能渲染，url来自一个异步api
+    // 如果在使用了这个组件的父组件中，进行这个api调用，其实是污染了父组件的逻辑
+    // 将这个重复的逻辑从组件内部、父组件中抽离出去
     const Avatar = {
-      props: ["src"],
-      template: `<img :src="src">`,
+      props: ['src'],
+      template: `<img :src="src">`
     };
 
     function withAvatarURL(InnerComponent) {
-      // Implement this!
+      // 扩展：利用cache提升性能
+
+      return {
+        props: ['username'],
+        data() {
+          return {
+            url: 'http://via.placeholder.com/200x200'
+          };
+        },
+        created() {
+          fetchURL(this.username, url => {
+            // 卡住的点：如何更新传进去的props?
+            // 用data属性创建响应的url，在created钩子进行更新
+            this.url = url;
+          });
+        },
+        render(h) {
+          return h(InnerComponent, {
+            props: { src: this.url },
+            attrs: { id: 'vue' } // 父组件上面的属性会自动传到子组件
+          });
+        }
+      };
     }
 
     const SmartAvatar = withAvatarURL(Avatar);
 
     new Vue({
-      el: "#app",
-      components: { SmartAvatar },
+      el: '#app',
+      components: { SmartAvatar }
     });
   </script>
 </body>
