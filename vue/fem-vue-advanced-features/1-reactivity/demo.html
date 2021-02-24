@@ -13,59 +13,59 @@
     <script>
       class Dep {
         constructor() {
-          this.subscriber = new Set();
+          this.subscriber = new Set()
         }
         register() {
           if (activeUpdate) {
-            this.subscriber.add(activeUpdate);
+            this.subscriber.add(activeUpdate)
           }
         }
         notify() {
-          this.subscriber.forEach(sub => sub());
+          this.subscriber.forEach(sub => sub())
         }
       }
 
-      let activeUpdate;
+      let activeUpdate
       function autorun(update) {
         function wrappedUpdate() {
-          activeUpdate = wrappedUpdate;
-          update();
-          activeUpdate = null;
+          activeUpdate = wrappedUpdate
+          update()
+          activeUpdate = null
         }
-        wrappedUpdate();
+        wrappedUpdate()
       }
 
       function observe(obj) {
         Object.keys(obj).forEach(key => {
-          var dep = new Dep();
-          var internalValue = obj[key];
+          var dep = new Dep()
+          var internalValue = obj[key]
           Object.defineProperty(obj, key, {
             set(newValue) {
-              internalValue = newValue;
-              dep.notify();
+              internalValue = newValue
+              dep.notify()
             },
             get() {
-              dep.register();
-              return internalValue;
+              dep.register()
+              return internalValue
             }
-          });
-        });
+          })
+        })
       }
 
       var state = {
         value: 0
-      };
-
-      observe(state);
-
-      function render() {
-        document.querySelector('span').textContent = state.value;
-        document
-          .querySelector('input')
-          .addEventListener('input', e => (state.value = e.target.value));
       }
 
-      autorun(render);
+      observe(state)
+
+      function render() {
+        document.querySelector('span').textContent = state.value
+        document
+          .querySelector('input')
+          .addEventListener('input', e => (state.value = e.target.value))
+      }
+
+      autorun(render)
     </script>
   </body>
 </html>

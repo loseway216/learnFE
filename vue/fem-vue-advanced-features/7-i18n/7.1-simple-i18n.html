@@ -1,6 +1,13 @@
 <body>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
+  <script>
+    // vue国际化，vue i18n from Kazupon
+    // 1.$t符号，缺点是性能差
+    // 2.自定义指令，优点是性能较好，不涉及virtual dom diffing，缺点是只能在template使用
+    // 3.在vue-loader中添加编译插件，在编译时替换$t，然后部署多份app，省掉切换时的编译时间
+  </script>
+
   <div id="app">
     <h1>{{ $t('welcome-message') }}</h1>
     <button @click="changeLang('en')">English</button>
@@ -10,28 +17,48 @@
 
   <script>
     const i18nPlugin = {
-      // Implement this!
-    };
+      install(Vue, locales) {
+        // 先想到的做法
+        // Vue.mixin({
+        //   methods: {
+        //     $t(content) {
+        //       const dic = locales[this.lang]
+        //       return dic[content]
+        //     }
+        //   }
+        // })
+
+        // 更好的实现
+        Vue.prototype.$t = function (id) {
+          return locales[this.$root.lang][id]
+        }
+
+        // 指令
+        Vue.directive('i18n', {
+          inserted(el) {}
+        })
+      }
+    }
 
     Vue.use(
       i18nPlugin,
       /* option */ {
-        en: { "welcome-message": "hello" },
-        zh: { "welcome-message": "你好" },
-        nl: { "welcome-message": "Hallo" },
+        en: { 'welcome-message': 'hello' },
+        zh: { 'welcome-message': '你好' },
+        nl: { 'welcome-message': 'Hallo' }
       }
-    );
+    )
 
     new Vue({
-      el: "#app",
+      el: '#app',
       data: {
-        lang: "en",
+        lang: 'en'
       },
       methods: {
         changeLang(lang) {
-          this.lang = lang;
-        },
-      },
-    });
+          this.lang = lang
+        }
+      }
+    })
   </script>
 </body>

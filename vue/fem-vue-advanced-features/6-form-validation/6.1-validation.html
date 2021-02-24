@@ -1,6 +1,12 @@
 <body>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
+  <script>
+    // 不同的校验插件
+    // markup-based vee-validate
+    // model-based vuelidate
+  </script>
+
   <div id="app">
     <form @submit="validate">
       <input v-model="text" />
@@ -16,11 +22,67 @@
   </div>
 
   <script>
-    const validationPlugin = {
+    // 最先想到的实现
+    const vvalidationPlugin = {
       install(Vue) {
         Vue.mixin({
           created() {
             if (this.$options.validations) {
+              this.$v = {
+                valid: true,
+                errors: {}
+              }
+              const rules = this.$options.validations
+              Object.keys(rules).forEach(key => {
+                const { validate, message } = rules[key]
+
+                function check(key, value) {
+                  const result = validate(value)
+                  if (!result) {
+                    this.$v.errors[key] = message(key, value)
+                  } else {
+                    delete this.$v.errors[key]
+                  }
+                  this.$v.valid = Object.keys(this.$v.errors).length <= 0
+                }
+
+                check.call(this, key, this[key])
+
+                this.$watch(key, newValue => {
+                  check.call(this, key, newValue)
+                })
+              })
+            }
+          }
+        })
+      }
+    }
+
+    // 更好的实现
+    const validationPlugin = {
+      install(Vue) {
+        Vue.mixin({
+          computed: {
+            $v() {
+              let valid = true
+              const errors = []
+
+              const rules = this.$options.validations
+              if (rules) {
+                Object.keys(rules).forEach(key => {
+                  const rule = rules[key]
+                  const value = this[key]
+                  const { validate, message } = rule
+
+                  const result = validate(value)
+                  if (!result) {
+                    errors.push(message(key, value))
+                    valid = result
+                  }
+                })
+              }
+
+              return { valid, errors }
             }
           }
         })
