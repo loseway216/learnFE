@@ -14,13 +14,7 @@ module.exports = ({ mode, presets } = { mode: 'production', presets: [] }) => {
         filename: 'bundle.js'
       },
       module: {
-        rules: [
-          // 链式调用loaders，顺序是从右到左，style(css(less()))
-          {
-            test: /\.less$/,
-            use: ['style-loader', 'css-loader', 'less-loader']
-          }
-        ]
+        rules: [{ test: /\.jpe?g$/, use: ['url-loader'] }, {}]
       },
       plugins: [new HtmlWebpackPlugin(), new webpack.ProgressPlugin()]
     },

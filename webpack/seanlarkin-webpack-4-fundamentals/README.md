@@ -23,9 +23,17 @@ https://docs.google.com/presentation/d/1hFtMCMo62DgOIc-9OwgaVwPZHwv1cgMELArHcMbX
 3. mode 设为 none 输出的 main.js 是没有优化过的，大致梳理里面的逻辑：IFEE 结构，0、1、2、3 标记的模块文件，webpackrequire 方法
 4. webpack.config.js 是 webpack 内部 require 的文件，四大概念：
 
-   1. entry，入口文件，形成 dependency graph
-   2. output
-   3. loaders & rules
-   4. plugins
+   - entry，入口文件，形成 dependency graph
+   - output
+   - loaders & rules，链式调用，从右到左生效
+   - plugins
 
-5.
+5. webpackMerge：区分通用配置、开发环境、生产环境，
+6. --hot 命令，hot module replacement，：不需要 reload 浏览器，热更新 css 等资源，但是 js 会让浏览器 reload
+7. css 的加载，开发环境用 style-loader，生产环境用 MiniCssExtractPlugin
+8. url-loader：加载图片
+9. file-loader：
+
+## 拓展
+
+1. 多页应用，index.html 和 js 引用的问题，https://github.com/zorigitano/multipage-webpack-plugin
