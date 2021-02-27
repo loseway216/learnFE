@@ -19,20 +19,26 @@ https://docs.google.com/presentation/d/1hFtMCMo62DgOIc-9OwgaVwPZHwv1cgMELArHcMbX
 ## tasks
 
 1. 编写 package.json 里面的 scripts，熟悉 node 的 debug 方法
-2. ESM 、commonJS 测试，观察 webpack 输出的 dependency graph，tree shaking
-3. mode 设为 none 输出的 main.js 是没有优化过的，大致梳理里面的逻辑：IFEE 结构，0、1、2、3 标记的模块文件，webpackrequire 方法
-4. webpack.config.js 是 webpack 内部 require 的文件，四大概念：
+2. ESM 、commonJS，webpack 支持混用，观察 webpack 输出的 dependency graph
+3. tree shaking：用到的模块才加载，class 中的方法不会被 tree shaking
+4. code spliting：异步加载，会 build 出数字开头的 js，用到时才加载
+5. mode 设为 none 输出的 main.js 是没有优化过的，大致梳理里面的逻辑：IFEE 结构，0、1、2、3 标记的模块文件，webpackrequire 方法
+6. webpack.config.js 是 webpack 内部 require 的文件，四大概念：
 
    - entry，入口文件，形成 dependency graph
    - output
    - loaders & rules，链式调用，从右到左生效
    - plugins
 
-5. webpackMerge：区分通用配置、开发环境、生产环境，
-6. --hot 命令，hot module replacement，：不需要 reload 浏览器，热更新 css 等资源，但是 js 会让浏览器 reload
-7. css 的加载，开发环境用 style-loader，生产环境用 MiniCssExtractPlugin
-8. url-loader：加载图片
-9. file-loader：
+7. webpackMerge：区分通用配置、开发环境、生产环境，
+8. --hot 命令，hot module replacement，：不需要 reload 浏览器，热更新 css 等资源，但是 js 会让浏览器 reload
+9. css 的加载，开发环境用 style-loader，生产环境用 MiniCssExtractPlugin
+10. url-loader：加载图片转成 base64，limit 选项控制转成 url 还是 启用 file-loader
+11. file-loader：将 assets 放到 dist 目录
+12. loadPreset 启用特别的配置，不想放到常规、dev、prod 的
+13. webpack-bundle-analyzer，打包分析，拓展：启用 static 生成静态文件，然后部署成服务，:port/analyze
+14. compression-webpack-plugin，压缩
+15. source maps
 
 ## 拓展
 
