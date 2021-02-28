@@ -30,16 +30,13 @@ https://docs.google.com/presentation/d/1hFtMCMo62DgOIc-9OwgaVwPZHwv1cgMELArHcMbX
    - loaders & rules，链式调用，从右到左生效
    - plugins
 
-7. webpackMerge：区分通用配置、开发环境、生产环境，
-8. --hot 命令，hot module replacement，：不需要 reload 浏览器，热更新 css 等资源，但是 js 会让浏览器 reload
-9. css 的加载，开发环境用 style-loader，生产环境用 MiniCssExtractPlugin
-10. url-loader：加载图片转成 base64，limit 选项控制转成 url 还是 启用 file-loader
-11. file-loader：将 assets 放到 dist 目录
-12. loadPreset 启用特别的配置，不想放到常规、dev、prod 的
-13. webpack-bundle-analyzer，打包分析，拓展：启用 static 生成静态文件，然后部署成服务，:port/analyze
-14. compression-webpack-plugin，压缩
-15. source maps
-
-## 拓展
-
-1. 多页应用，index.html 和 js 引用的问题，https://github.com/zorigitano/multipage-webpack-plugin
+7. html-webpack-plugin，拓展：多页应用，index.html 和 js 引用的问题，https://github.com/zorigitano/multipage-webpack-plugin
+8. webpackMerge：区分通用配置、开发环境、生产环境
+9. --hot 命令，hot module replacement，：不需要 reload 浏览器，热更新 css 等资源，但是 js 会让浏览器 reload
+10. css 的加载，开发环境用 style-loader，生产环境用 MiniCssExtractPlugin
+11. url-loader：加载图片转成 base64，limit 选项控制转成 url 还是 启用 file-loader
+12. file-loader：将 assets 放到 dist 目录
+13. loadPreset 启用特别的配置，不想放到常规、dev、prod 的
+14. webpack-bundle-analyzer，打包分析，拓展：启用 static 生成静态文件，然后部署成服务，:port/analyze
+15. compression-webpack-plugin，压缩
+16. source maps

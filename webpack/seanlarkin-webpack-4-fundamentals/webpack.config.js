@@ -2,7 +2,7 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { merge } = require('webpack-merge')
 
-const modeConfig = function (mode) {
+const modeConfig = function(mode) {
   return require(`./build-utils/webpack.${mode}`)(mode)
 }
 const loadPresets = require('./build-utils/loadPresets')
@@ -10,7 +10,7 @@ const loadPresets = require('./build-utils/loadPresets')
 module.exports = ({ mode, presets } = { mode: 'production', presets: [] }) => {
   return merge(
     {
-      mode,
+      mode: 'none',
       output: {
         filename: 'bundle.js'
       },
