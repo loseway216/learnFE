@@ -1,0 +1,51 @@
+{
+  "name": "web-performance-with-webpack",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "webpack-dev-server": "webpack-dev-server",
+    "webpack": "webpack",
+    "debug": "node --inspect --inspect-brk ./node_modules/webpack/bin/webpack.js",
+    "prod": "yarn webpack --env.mode production",
+    "dev": "yarn webpack-dev-server --env.mode development --hot",
+    "prod:debug": "yarn debug --env.mode production",
+    "dev:debug": "yarn debug --env.mode development",
+    "prod:typescript": "yarn prod --env.presets typescript",
+    "prod:analyze": "yarn prod --env.presets analyze",
+    "prod:compress": "yarn prod --env.presets compress",
+    "prod:compress:analyze": "yarn prod:compress --env.presets analyze"
+  },
+  "author": "loseway",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "babel-loader": "^8.0.6",
+    "compression-webpack-plugin": "1.1.11",
+    "css-loader": "^5.1.0",
+    "file-loader": "^6.2.0",
+    "fork-ts-checker-webpack-plugin": "^1.5.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "http-server": "^0.11.1",
+    "mini-css-extract-plugin": "^0.8.0",
+    "postcss-loader": "^3.0.0",
+    "style-loader": "^2.0.0",
+    "ts-loader": "^8.0.17",
+    "typescript": "^4.3.0-dev.20210227",
+    "url-loader": "^4.1.1",
+    "vue": "^2.6.12",
+    "vue-loader": "^15.9.6",
+    "webpack": "^4.39.1",
+    "webpack-bundle-analyzer": "^4.4.0",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.7.3",
+    "webpack-node-externals": "^1.7.2",
+    "workbox-webpack-plugin": "^4.3.1"
+  },
+  "dependencies": {
+    "gsap": "^3.6.0",
+    "lodash-es": "^4.17.21"
+  }
+}
