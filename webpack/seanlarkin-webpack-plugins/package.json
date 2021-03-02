@@ -8,12 +8,7 @@
     "debug": "node --inspect --inspect-brk ./node_modules/webpack/bin/webpack.js",
     "prod": "yarn webpack --env.mode production",
     "dev": "yarn webpack-dev-server --env.mode development --hot",
-    "prod:debug": "yarn debug --env.mode production",
-    "dev:debug": "yarn debug --env.mode development",
-    "prod:typescript": "yarn prod --env.presets typescript",
-    "prod:analyze": "yarn prod --env.presets analyze",
-    "prod:compress": "yarn prod --env.presets compress",
-    "prod:compress:analyze": "yarn prod:compress --env.presets analyze"
+    "prod:myloader": "yarn prod --env.presets myloader"
   },
   "author": "loseway",
   "license": "MIT",

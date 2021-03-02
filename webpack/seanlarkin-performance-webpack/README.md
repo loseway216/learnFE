@@ -22,10 +22,24 @@
 3. 不支持 named exports
 4. 利用缓存去重，从 [CommonsChunkPlugin](https://webpack.js.org/plugins/commons-chunk-plugin/) 到 [SplitChunksPlugin](https://webpack.js.org/plugins/split-chunks-plugin/)
 
-### static
+### Static Code Splitting 场景
 
 1. 不需要在首屏使用的重型第三方库
 2. 临时的，例如 modal、tooltip、dialog
 3. routes
 
-### dynamic
+### Dynamic Code Splitting（module 路径有变量、ContextModule）场景：
+
+1. A/B testing
+2. theme
+3. locale
+
+## Magic Comments
+
+1. webpackModes
+2. Prefetch、Preload
+
+## Tips
+
+1. 保持 webpack.config.js 在根目录
+2. 如果编写 library 不要使用 webpack，甚至不需要使用 babel，保持 ESM

@@ -24,3 +24,11 @@ https://docs.google.com/presentation/d/1P5f-cK4jlhGQIfPQ_vaYFRWV464kBb5UaUBkfRjB
 1. build the dependency graph：接收 config，从 entry 开始进行上面的步骤，根据 entry 的依赖，进行 breath-first search graph traversal
 2. optimize the graph by plugins
 3. render the graph by templates
+
+## 自定义 plugin
+
+## 自定义 loader
+
+## 开发者工具 by Sean Larkin
+
+https://github.com/TheLarkInn/webpack-developer-kit
