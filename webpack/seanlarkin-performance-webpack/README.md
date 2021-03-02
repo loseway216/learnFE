@@ -1,5 +1,9 @@
 # Web performance with Webpack
 
+## slides
+
+https://docs.google.com/presentation/d/1FW3GT9Ww1S6SEGu8HAO5eRZUFggfVuFE2ievNCDWVDo/edit#slide=id.g376e8d6b61_0_4
+
 ## Top Performance Issues
 
 1. 初始化加载的 JavaScript 数量
