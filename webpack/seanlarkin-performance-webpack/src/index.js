@@ -1,4 +1,6 @@
 import makeButton from './button'
+// import trim from 'lodash-es/trim'
+// console.log(trim('   yes!'))
 
 // import * as GSAP from 'gsap'
 const getGSAP = () => import('gsap')
@@ -8,7 +10,7 @@ const getGSAP = () => import('gsap')
 // 要么import具体的路径
 const getLodashUniq = () =>
   import(
-    /* xwebpackChunkName: "uniq" */
+    /* webpackChunkName: "uniq" */
     'lodash-es/uniq'
   )
 
