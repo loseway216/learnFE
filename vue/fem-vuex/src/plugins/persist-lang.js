@@ -16,8 +16,13 @@ var persistLang = function(store) {
     }
   })
 
-  store.subscribeAction((action, state) => {
-    console.log(action.type)
+  store.subscribeAction({
+    before: (action, state) => {
+      console.log('before', action.type)
+    },
+    after: (action, state) => {
+      console.log('after', action.type)
+    }
   })
 }
 export default persistLang

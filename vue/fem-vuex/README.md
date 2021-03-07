@@ -19,4 +19,5 @@ https://slides.com/shortdiv/vuex-1#/1/16
 3. module
 4. dynamic module, TODO:
 5. plugins
-6. 结合 vue-router
+6. 结合 vue-router：导航守卫判断是否登录
+7. Vuex ORM
