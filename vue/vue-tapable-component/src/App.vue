@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <select-user :plugin="SelectUserPlugin"></select-user>
+    <select-user :plugins="plugins"></select-user>
   </div>
 </template>
 
@@ -15,7 +15,7 @@ export default {
   },
   data() {
     return {
-      SelectUserPlugin: new SelectUserPlugin()
+      plugins: [new SelectUserPlugin()]
     }
   },
   mounted() {}

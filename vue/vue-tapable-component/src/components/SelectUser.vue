@@ -16,7 +16,7 @@ import {
 
 export default {
   props: {
-    plugin: Object
+    plugins: Array
   },
   data() {
     return {
@@ -30,7 +30,7 @@ export default {
     }
   },
   async created() {
-    this.plugin.apply(this)
+    this.plugins.forEach(plugin => plugin.apply(this))
 
     // 获取配置
     this.config = this.hooks.getConfig.call(this.config)
