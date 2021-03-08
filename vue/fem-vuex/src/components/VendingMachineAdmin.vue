@@ -1,5 +1,6 @@
 <template>
   <div class="wrapper">
+    <button @click="handleLogout">登出</button>
     <button class="language-selection" @click="toggleLang">
       {{ langSelected }}
     </button>
@@ -330,7 +331,12 @@ export default {
       dispense: 'inventory/dispenseItem',
       restock: 'inventory/fetchFromInventory',
       toggleLang: 'locale/toggleLang'
-    })
+    }),
+    handleLogout() {
+      this.$store.dispatch('logout').then(() => {
+        this.$router.push('/login')
+      })
+    }
   }
 }
 </script>
