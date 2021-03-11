@@ -101,7 +101,7 @@
       },
       validations: {
         text: {
-          validate: value => value.length >= 5,
+          validate: value => value.length >= 5, // 依赖validation库，可以自定义规则：[greaterThan(5),allCaps()]
           message: (key, value) =>
             `${key} should have a min length of 5, but got ${value.length}`
         },

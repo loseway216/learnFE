@@ -46,11 +46,11 @@ button.addEventListener('click', function() {
   getLodashUniq().then(uniq => {
     console.log(uniq)
   })
-
+  console.log(Object.prototype.toString.call(this))
   // 切换主题
   setButtonStyle('red').then(styleStr => {
     console.log(styleStr)
-    button.style = styleStr.default
+    this.style = styleStr.default
   })
 })
 document.body.appendChild(button)
