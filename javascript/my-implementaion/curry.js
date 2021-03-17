@@ -15,3 +15,7 @@ function add(a, b, c) {
 var curried = curry(add)
 
 console.log(curried(1)(2)(3))
+
+/////////////////////////////////////////
+
+const curry = (fn, ...args) => {}
