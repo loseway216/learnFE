@@ -142,7 +142,7 @@ git config --global core.editor <YOUR_EDITOR>
 
 > 用来引用 commit
 
-![hat&tilde](./images/hat&tilde.png)
+<img src="./images/hat&tilde.png" width="80%" height="auto">
 
 ---
 
@@ -159,7 +159,7 @@ git config --global core.editor <YOUR_EDITOR>
 2. `git diff --staged`：staged changes
 3. `git diff A B`，比较两个 branch 的区别
 
-![diffAB](./images/diffAB.png)
+<img src="./images/diffAB.png" width="80%" height="auto">
 
 ---
 
@@ -178,19 +178,19 @@ git config --global core.editor <YOUR_EDITOR>
 2. `git checkout <commit> -- <file_path>`，将 commit 中的该文件，更新到 staging area 和 working area
 3. `git checkout <deleting_commit>^ -- <file_path>`，删除了某个文件想要恢复，比`git reset <commit> -- <file_path>`多一步覆盖 working area
 
-![checkout-branch](./images/checkout-branch.png)
+<img src="./images/checkout-branch.png" width="80%" height="auto">
 
 ---
 
 > -- flag 用来区分 branch 还是文件
 
-![checkout-file](./images/checkout-file.png)
+<img src="./images/checkout-file.png" width="80%" height="auto">
 
 ---
 
 > checkout commit -- file 会将这个文件更新到当前 staging area 和 working area
 
-![checkout-commit-file](./images/checkout-commit-file.png)
+<img src="./images/checkout-commit-file.png" width="80%" height="auto">
 
 ---
 
@@ -215,19 +215,19 @@ git config --global core.editor <YOUR_EDITOR>
 1. `git reset -- <file>`，省略了 HEAD 参数，从 repository 到 staging area
 2. `git reset <commit> -- <file>`，从目标 commit 的 repository 到 staging area
 
-![reset-head](./images/reset-head.png)
+<img src="./images/reset-head.png" width="80%" height="auto">
 
 ---
 
 > 操作文件
 
-![reset-file](./images/reset-file.png)
+<img src="./images/reset-file.png" width="80%" height="auto">
 
 ---
 
 > reset 之后，原来那个 commit 其实成了 dangling commit，如何返回： git reset ORIG_HEAD
 
-![reset-orig](./images/reset-orig.png)
+<img src="./images/reset-orig.png" width="80%" height="auto">
 
 ---
 
@@ -256,7 +256,7 @@ git config --global core.editor <YOUR_EDITOR>
 2. `git rebase master`，相当于在 master 上，进行了一次 feature 的 copy commit
 3. `git log --oneline`观察 commit 记录，最新一次 commit 是 feature 的，再早一次 commit 的 master 的
 
-![merge-vs-rebase](./images/merge-rebase.png)
+<img src="./images/merge-rebase.png" width="80%" height="auto">
 
 ---
 
@@ -279,7 +279,7 @@ git config --global core.editor <YOUR_EDITOR>
 
 1. `git rebase -i HEAD~n`，n 就是想要操作的前几次 commit
 
-![rebase-options](./images/rebase-options.png)
+<img src="./images/rebase-options.png" width="80%" height="auto">
 
 ---
 
