@@ -28,6 +28,14 @@
     - [git commit --amend](#git-commit---amend)
     - [git rebase](#git-rebase)
     - [rebase tips](#rebase-tips)
+  - [Exercise-8 Forks And Remote Repos](#exercise-8-forks-and-remote-repos)
+    - [fork & upstream](#fork--upstream)
+    - [pull --rebase](#pull---rebase)
+    - [tracking branches](#tracking-branches)
+    - [pull & fetch & push & tags](#pull--fetch--push--tags)
+    - [贡献开源项目——PR](#贡献开源项目pr)
+  - [Exercise-9 Advanced Tools](#exercise-9-advanced-tools)
+  - [ADVICES](#advices)
   - [Tips](#tips)
 
 # Git In-depth Exercises
@@ -73,6 +81,7 @@ git config --global core.editor <YOUR_EDITOR>
 
 > stash 的典型场景是，dev 分支正在开发新功能，master 出现了需要紧急修复的 bug，此时无法切换到 master 分支，因为文件有冲突，要么 commit，要么 stash，要么 reset 或者 checkout 文件的变化。
 > 最佳实践是，`git stash save "message" --include-untracked`未完成的工作，然后切换到 master 分支，新建一个 bugfix 分支，修复 bug 并 merge 到 master 分支后删除 bugfix 分支，然后切换到 dev 分支`stash pop`
+> 在 master 分支上修复的 bug，想要合并到当前 dev 分支，可以用 git cherry-pick ，把 bug 提交的修改“复制”到当前分支，避免重复劳动
 
 1. stash 对于 working area 和 staging area 的变化都有效，但是想要 stash 新增的 untracked 的文件，需要使用`git stash --include-untracked`
 2. `git stash save "message"`描述未完成的工作
@@ -137,6 +146,7 @@ git config --global core.editor <YOUR_EDITOR>
 3. `git log --grep=i18n --author=nina --since=2.weeks`，查找符合条件的某个 commit，`--since="yesterday"`、`--since="2 weeks ago"`
 4. `git log --diff-filter=R --find-renames`，查找有文件被 rename 的 commit
 5. `git log --diff-filter=M --oneline`，查找文件被修改的 commit
+6. `git reflog`，查看历史 commit，保留 2 周左右，包含 dangling commit
 
 ### ^ ~
 
@@ -247,6 +257,14 @@ git config --global core.editor <YOUR_EDITOR>
 
 ---
 
+> 配合 ORIG_HEAD 撤销 merge 操作
+
+---
+
+<img src="./images/reset-merge.png" width="80%" height="auto">
+
+---
+
 ### git revert
 
 > revert is SAFE reset
@@ -307,6 +325,69 @@ git config --global core.editor <YOUR_EDITOR>
 
 1. `git rebase --abort`退出 rebase
 2. rebase 之前，保险的做法是先 copy 一份当前的 branch`git branch my_branch_backup`，创建但不切换到该分支，如果搞砸了，通过`git reset --hard my_branch_backup`恢复
+
+## Exercise-8 Forks And Remote Repos
+
+### fork & upstream
+
+> 方法 1：
+
+1. 从目标项目 fork 到自己的 Github
+2. `git clone`原作者的版本
+3. `git remote -v`会显示 origin 指向 ORIG_OWNER
+4. `git remote rename origin upstream`，将 origin 改成 upstream
+5. `git remote add origin git@github.com:MY_FORK/REPO.git`，将 origin 指向自己 fork 的版本
+6. `git remote -v`会显示 origin 指向自己 fork 的版本，upstream 指向 ORIG_OWNER
+7. `git branch --set-upstream-to origin/master`，master 此时 track 的是 upstream/master
+
+> 方法 2：
+
+2. `git clone`自己 fork 的版本
+3. `git remote add upstream https://github.com/ORIG_OWNER/REPO.git`
+
+### pull --rebase
+
+> 经常使用 git pull -rebase 更新本地的 fork，这样发起 PR 的时候，commit history 会很干净。
+
+1. upstream 上 master 分支产生了变化
+2. `git checkout -b feature`，新建一个 feature 分支然后进行 add、commit 操作
+3. `git pull --rebase upstream master`
+
+### tracking branches
+
+1. `git checkout -t origin/feature`，追踪 origin 上的 feature 分支
+2. `git push -u origin feature`，第一次 push 的时候告诉 git 需要追踪哪一个分支
+3. `git branch -vv`，查看 branch 的远程信息，可以看到落后或领先多少个 commit
+
+### pull & fetch & push & tags
+
+1. `git pull = git fetch && git merge`
+2. `git pull --rebase = git fetch && git rebase`
+3. `git cherry -v`，可以查看没有 push 到 upstream 的 commit
+4. `git push <tagname>` `git push --tags` tag 需要手动 push
+
+---
+
+<img src="./images/git-pull-rebase.png" width="80%" height="auto">
+
+---
+
+### 贡献开源项目——PR
+
+---
+
+<img src="./images/pull-requests.png" width="80%" height="auto">
+
+---
+
+## Exercise-9 Advanced Tools
+
+## ADVICES
+
+1. 鼓励开发使用每个人自己的 fork 版本，这样没有人直接向初始的 codebase 直接提交代码，并且开发自己可以自由 rebase 和 force push
+2. 在提交到 remote 之前，在本地 feature branch 上进行 rebase，再 merge 到 origin（或者 upstream）
+3. 接受 PR 时，谨慎 squash、merge、rebase，因为会失去 feature branch 的上下文，将来发生 bug 更难定位
+4. `git checkout -- <file>`和`git reset --hard`之前，先 stash
 
 ## Tips
 
