@@ -1,8 +1,9 @@
-import { StrictMode } from "react";
+import { StrictMode, useState } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import SearchParams from "./SearchParams";
 import Details from "./Details";
+import ThemeContext from "./ThemeContext";
 
 // const App = () => {
 //   return React.createElement("div", {}, [
@@ -22,8 +23,10 @@ import Details from "./Details";
 // };
 
 const App = () => {
+  const themeHook = useState("darkblue");
+
   return (
-    <StrictMode>
+    <ThemeContext.Provider value={themeHook}>
       <div>
         <Router>
           <header>
@@ -41,8 +44,13 @@ const App = () => {
           </Switch>
         </Router>
       </div>
-    </StrictMode>
+    </ThemeContext.Provider>
   );
 };
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+  document.getElementById("root")
+);
