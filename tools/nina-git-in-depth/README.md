@@ -66,7 +66,7 @@ git config --global user.email ""
 # vscode
 git config --global core.editor code --wait
 # enable reuse recorded resolution
-git	config --global rerere.enabled true
+git config --global rerere.enabled true
 # autocorrect in 1 second
 git config --global help.autocorrect 10
 # commit message tempalte
@@ -76,7 +76,7 @@ git config --global alias.st status
 git config --global alias.co checkout
 git config --global alias.br branch
 git config --global alias.cm commit
-git config --global alias.unstage 'reset HEAD --'
+git config --global alias.unstage "reset HEAD --"
 git config --global alias.last "log -1 HEAD"
 git config --global alias.lg "log --graph --pretty=format:'%C(auto)%h -%d %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
 ```
