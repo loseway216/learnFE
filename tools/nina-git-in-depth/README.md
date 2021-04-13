@@ -61,12 +61,12 @@ https://github.com/nnja/advanced-git
 git config --global pull.rebase true
 git config branch.<branch_name>.rebase true
 # user and email
-git config --global user.name ""
-git config --global user.email ""
+git config --global/--local user.name ""
+git config --global/--local user.email ""
 # vscode
 git config --global core.editor code --wait
 # enable reuse recorded resolution
-git	config --global rerere.enabled true
+git config --global rerere.enabled true
 # autocorrect in 1 second
 git config --global help.autocorrect 10
 # commit message tempalte
@@ -76,7 +76,7 @@ git config --global alias.st status
 git config --global alias.co checkout
 git config --global alias.br branch
 git config --global alias.cm commit
-git config --global alias.unstage 'reset HEAD --'
+git config --global alias.unstage "reset HEAD --"
 git config --global alias.last "log -1 HEAD"
 git config --global alias.lg "log --graph --pretty=format:'%C(auto)%h -%d %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
 ```
@@ -171,7 +171,7 @@ feel free to be detailed.
 > 场景：查找符合条件的 commit
 
 1. commit message 的 bset practice：简短的一句话描+空白的一行+详细描述
-2. `git log --name-status --follow --oneline file-name` 追踪某个文件的变化，包括 add、modified、rename 等操作
+2. `git log --name-status --follow --oneline <file-name>` 追踪某个文件的变化，包括 add、modified、rename 等操作
 3. `git log --grep=i18n --author=nina --since=2.weeks` 查找符合条件的某个 commit，`--since="yesterday"`、`--since="2 weeks ago"`
 4. `git log --diff-filter=R --find-renames` 查找有文件被 rename 的 commit
 5. `git log --diff-filter=M --oneline` 查找文件被修改的 commit
