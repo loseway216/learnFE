@@ -61,8 +61,8 @@ https://github.com/nnja/advanced-git
 git config --global pull.rebase true
 git config branch.<branch_name>.rebase true
 # user and email
-git config --global user.name ""
-git config --global user.email ""
+git config --global/--local user.name ""
+git config --global/--local user.email ""
 # vscode
 git config --global core.editor code --wait
 # enable reuse recorded resolution
