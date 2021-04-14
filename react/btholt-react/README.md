@@ -1,4 +1,4 @@
-# Complete Intro to React
+# React Workshop
 
 ## Course website
 
@@ -10,3 +10,7 @@ https://github.com/btholt/citr-v6-project/
 
 1. 分页
 2. Adding a navigation bar
+
+## Hooks in Depth
+
+[codesandbox demos](https://codesandbox.io/s/github/btholt/react-hooks-examples-v3/tree/master/)
