@@ -1,5 +1,13 @@
-import { create } from "eslint/lib/rules/*";
 import { createStore } from "redux";
-import reduer from "./reduer";
+import reducer from "./reducer";
 
-const store = createStore();
+const store = createStore(
+  reducer,
+  // redux devtool
+  typeof window === "object" &&
+    typeof window.__REDUX_DEVTOOLS_EXTENSION__ !== "undefined"
+    ? window.__REDUX_DEVTOOLS_EXTENSION__()
+    : (f) => f
+);
+
+export default store;
