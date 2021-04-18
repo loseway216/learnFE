@@ -1,14 +1,14 @@
 import ReactDOM from "react-dom";
-import State from "./State";
-import Effect from "./Effect";
-import Context from "./Context";
-import Ref from "./Ref";
-import Reducer from "./Reducer";
-import Memo from "./Memo";
-import Callback from "./Callback";
-import LayoutEffect from "./LayoutEffect";
-import ImperativeHandle from "./ImperativeHandle";
-import DebugValue from "./DebugValue";
+import State from "./hooks/State";
+import Effect from "./hooks/Effect";
+import Context from "./hooks/Context";
+import Ref from "./hooks/Ref";
+import Reducer from "./hooks/Reducer";
+import Memo from "./hooks/Memo";
+import Callback from "./hooks/Callback";
+import LayoutEffect from "./hooks/LayoutEffect";
+import ImperativeHandle from "./hooks/ImperativeHandle";
+import DebugValue from "./hooks/DebugValue";
 
 import "./styles.css";
 

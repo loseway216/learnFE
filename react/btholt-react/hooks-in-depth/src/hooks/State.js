@@ -5,10 +5,11 @@ const StateComponent = () => {
 
   return (
     <h1
+      // 调用setState就会触发rerender，即使值不变
       onClick={() => setIsGreen(!isGreen)}
       style={{ color: isGreen ? "limegreen" : "crimson" }}
     >
-      useState Example
+      State Example
     </h1>
   );
 };
