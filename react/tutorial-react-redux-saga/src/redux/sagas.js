@@ -2,11 +2,13 @@ import { put, takeEvery, all, takeLatest } from "redux-saga/effects";
 
 import addTodo from "./actionCreators/addTodo";
 
-const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+export const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-function* addTodoAsync(action) {
+export function* addTodoAsync(action) {
   yield put({ type: "START_LOADING" });
-  yield delay(1000);
+  // 为了测试，不要直接进行异步调用，而是用call，返回的是object
+  // yield delay(1000);
+  yield call(delay, 1000);
   yield put({ type: "END_LOADING" });
   yield put(addTodo(action.payload.content));
 }

@@ -1,15 +1,11 @@
 {
-  "name": "adopt-me",
-  "version": "1.0.0",
-  "description": "The Adopt Me pet adoption app",
   "main": "src/index.js",
   "scripts": {
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
-    "dev": "parcel src/index.html"
+    "dev": "parcel src/index.html",
+    "test": "node test/sagas.spec.js | tap-spec"
   },
-  "author": "Brian Holt <btholt+citrv6@gmail.com>",
-  "license": "Apache-2.0",
   "devDependencies": {
     "@babel/core": "7.12.16",
     "@babel/eslint-parser": "7.13.4",
@@ -23,7 +19,9 @@
     "eslint-plugin-react": "7.22.0",
     "eslint-plugin-react-hooks": "4.2.0",
     "parcel": "1.12.3",
-    "prettier": "2.2.1"
+    "prettier": "2.2.1",
+    "tap-spec": "^5.0.0",
+    "tape": "^5.2.2"
   },
   "dependencies": {
     "react": "17.0.1",
