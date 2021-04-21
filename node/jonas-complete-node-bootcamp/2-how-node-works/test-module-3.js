@@ -1,3 +1,3 @@
-console.log('Hello from module')
+console.log("Hello from module");
 
-module.exports = () => console.log('Log...')
+module.exports = () => console.log("Log...");

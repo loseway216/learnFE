@@ -8,25 +8,25 @@
 
   <script>
     const Foo = {
-      render: h => h('div', 'foo')
+      render: (h) => h("div", "foo"),
     };
 
     const Bar = {
-      render: h => h('div', 'bar')
+      render: (h) => h("div", "bar"),
     };
 
-    Vue.component('example', {
-      props: ['ok'],
+    Vue.component("example", {
+      props: ["ok"],
       render(h) {
         return this.ok ? h(Foo) : h(Bar);
-      }
+      },
     });
 
     new Vue({
-      el: '#app',
+      el: "#app",
       data: {
-        ok: true
-      }
+        ok: true,
+      },
     });
   </script>
 </body>

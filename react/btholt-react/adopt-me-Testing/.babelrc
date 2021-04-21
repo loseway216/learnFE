@@ -10,14 +10,17 @@
   ],
   "plugins": ["@babel/plugin-proposal-class-properties"],
   "env": {
-    "test":{
+    "test": {
       "presets": [
         [
-        "@babel/preset-env",
-        {
-
-        "targets":{
-          "node":"current"}}]]
+          "@babel/preset-env",
+          {
+            "targets": {
+              "node": "current"
+            }
+          }
+        ]
+      ]
     }
   }
 }

@@ -1,5 +1,5 @@
 export default {
   isSupplyLow(state) {
-    return state.supply < 10
-  }
-}
+    return state.supply < 10;
+  },
+};

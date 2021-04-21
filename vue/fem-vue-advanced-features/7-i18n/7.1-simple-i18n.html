@@ -30,35 +30,35 @@
 
         // 更好的实现
         Vue.prototype.$t = function (id) {
-          return locales[this.$root.lang][id]
-        }
+          return locales[this.$root.lang][id];
+        };
 
         // 指令
-        Vue.directive('i18n', {
-          inserted(el) {}
-        })
-      }
-    }
+        Vue.directive("i18n", {
+          inserted(el) {},
+        });
+      },
+    };
 
     Vue.use(
       i18nPlugin,
       /* option */ {
-        en: { 'welcome-message': 'hello' },
-        zh: { 'welcome-message': '你好' },
-        nl: { 'welcome-message': 'Hallo' }
+        en: { "welcome-message": "hello" },
+        zh: { "welcome-message": "你好" },
+        nl: { "welcome-message": "Hallo" },
       }
-    )
+    );
 
     new Vue({
-      el: '#app',
+      el: "#app",
       data: {
-        lang: 'en'
+        lang: "en",
       },
       methods: {
         changeLang(lang) {
-          this.lang = lang
-        }
-      }
-    })
+          this.lang = lang;
+        },
+      },
+    });
   </script>
 </body>

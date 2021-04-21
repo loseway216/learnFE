@@ -1,60 +1,60 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 // schema
 const tourSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: [true, 'A tour must have a name'],
+    required: [true, "A tour must have a name"],
     unique: true,
-    trim: true
+    trim: true,
   },
   duration: {
     type: Number,
-    required: [true, 'A tour must have a duration']
+    required: [true, "A tour must have a duration"],
   },
   maxGroupSize: {
     type: Number,
-    required: [true, 'A tour must have a group size']
+    required: [true, "A tour must have a group size"],
   },
   difficulty: {
     type: String,
-    required: [true, 'A tour must have a difficulty']
+    required: [true, "A tour must have a difficulty"],
   },
   ratingsAverage: {
     type: Number,
-    default: 4.5
+    default: 4.5,
   },
   ratingsQuantity: {
     type: Number,
-    default: 0
+    default: 0,
   },
   price: {
     type: Number,
-    required: [true, 'A tour must have a price']
+    required: [true, "A tour must have a price"],
   },
   priceDiscount: Number,
   summary: {
     type: String,
     trim: true, // 去掉开头和结尾的空格
-    required: [true, 'A tour must have a summary']
+    required: [true, "A tour must have a summary"],
   },
   description: {
     type: String,
-    trim: true
+    trim: true,
   },
   imageCover: {
     type: String,
-    required: [true, 'A tour must have a cover images']
+    required: [true, "A tour must have a cover images"],
   },
   images: [String],
   createdAt: {
     type: Date,
-    default: Date.now()
+    default: Date.now(),
   },
-  startDates: [Date]
+  startDates: [Date],
 });
 
 // model
-const Tour = mongoose.model('Tour', tourSchema);
+const Tour = mongoose.model("Tour", tourSchema);
 
 module.exports = Tour;

@@ -1,11 +1,14 @@
 # Advanced Git
+
 ## Exercise Nine - Advanced Tools
 
 ### Overview
+
 In this exercise, we'll take a look at some of the advanced features of `git grep`, we'll learn how to "cherry-pick" commits, then we'll take a look at `git blame` and `git bisect`.
 
 ## Prerequisite
-You should have the [`advanced-git-exercises`](https://github.com/nnja/advanced-git-exercises)  repository cloned locally. Checkout the `exercise9` branch to begin:
+
+You should have the [`advanced-git-exercises`](https://github.com/nnja/advanced-git-exercises) repository cloned locally. Checkout the `exercise9` branch to begin:
 
 ```
 $> git checkout exercise9
@@ -13,14 +16,16 @@ Switched to branch 'exercise9'
 ```
 
 ### Exercise
+
 1. Use `git grep` to search for a string in your git repo. Try using arguments for `git grep` to print line numbers and group results by file. Use the `--cached` option to see the difference between grepping your working area and your staging area.
 2. Try to cherry-pick a commit from one branch into the `exercise9` branch.
 3. Use `git blame` to see who touched a file. Delete a file and commit your change. Use `git blame` again to blame a file from an earlier point in time, before it was deleted.
-4. Start a `git bisect` session and try to find which commit introduced the word "emergency" into `hello.txt` 
+4. Start a `git bisect` session and try to find which commit introduced the word "emergency" into `hello.txt`
 
 ## Solutions
 
 ### Step 1 - Grepping with Git
+
 We should have three new code files in our `exercise9` branch. Let's use git's built in, super-fast grep functionality to search our code, looking for the word "Python":
 
 ```
@@ -38,7 +43,7 @@ python_code.py
 4:    print("Welcome to Python!")
 ```
 
-Now we have matches broken up with line numbers and grouped by file, so it's a little easier to read. 
+Now we have matches broken up with line numbers and grouped by file, so it's a little easier to read.
 
 Let's make a change, and use `git grep` again. Because `python_code.py` is tracked, `git grep` will pick up the change. Try `git grep --cached` - this will only search the version in the staging area, so the new change will be ignored. Then stage the file and try again.
 
@@ -67,6 +72,7 @@ python_code.py:5:More Python code
 ```
 
 ### Step 2 - Cherry Picking
+
 Let's reset our `python_code.py` to avoid errors when changing branches:
 
 ```
@@ -107,6 +113,7 @@ $> git log --oneline
 Great - as we can see from `git log`, the commit "Testing the emergency git-casting system" was merged into our branch `exercise9`. You'll noticed the cherry-picked commit is on top - unlike if we had rebased our other changes on top of it.
 
 ### Step 3 - Git Blame
+
 Say you come across some questionable code. How could we tell who the last person to touch it was? `git blame` of course:
 
 ```
@@ -126,7 +133,7 @@ $> git commit -m "Who uses Java anyway?"
 [exercise9 b8e1a56] Who uses Java anyway?
  1 file changed, 7 deletions(-)
  delete mode 100644 java_code.java
- 
+
 # Let's find the commit where java_code.java was deleted
 
 $> git log --diff-filter=D -- java_code.java
@@ -135,10 +142,10 @@ Author: Nina Zakharenko <nina@nnja.io>
 Date:   Thu Oct 5 12:19:16 2017 -0700
 
     Who uses Java anyway?
-    
+
 # Your commit hash will be different than mine, so take note of it.
 
-# Now that we have the commit where it was deleted, let's git blame it from one commit before then (using the ^ syntax) 
+# Now that we have the commit where it was deleted, let's git blame it from one commit before then (using the ^ syntax)
 
 $> git blame b8e1a5692b0ecf1c3a01bce59e640287d0d298f8^ -- java_code.java
 88f6e286 (Nina Zakharenko 2017-10-05 11:31:34 -0700 1) // This is a Java file
@@ -153,8 +160,8 @@ $> git blame b8e1a5692b0ecf1c3a01bce59e640287d0d298f8^ -- java_code.java
 `git blame` also accepts line numbers or regular expressions, if you want to limit your blaming to a range of lines or specific function, rather than blaming the entire file.
 
 ### Step 4 - Git Bisect
-`git bisect` is a really useful function for determining where in history something changed, especially when given a large timeframe. Maybe a bug was introduced last month, but going through every commit since then would be too time-consuming. Say we want to find out where the line "This is a test of the emergency git-casting system." was added to our `hello.txt` file. First we need to know a commit range - we know it's present in our current commit, and we know it wasn't in our Initial commit, so let's start a `git bisect` session with those start and end points:
 
+`git bisect` is a really useful function for determining where in history something changed, especially when given a large timeframe. Maybe a bug was introduced last month, but going through every commit since then would be too time-consuming. Say we want to find out where the line "This is a test of the emergency git-casting system." was added to our `hello.txt` file. First we need to know a commit range - we know it's present in our current commit, and we know it wasn't in our Initial commit, so let's start a `git bisect` session with those start and end points:
 
 ```
 $> git log --oneline
@@ -196,5 +203,6 @@ Date:   Wed Oct 4 19:01:12 2017 -0700
 :100644 100644 980a0d5f19a64b4b30a87d4206aade58726b60e3 b31a35bc9c5ae5aff4a0f76f7834cc2428408050 M	hello.txt
 ```
 
-Excellent - with a simple test - git has helped us figure out that the offending string was introduced in the `331024e...` commit. We can even perform manual tests to see if our commit is good - like loading a webpage. `bisect` is even more powerful with automated tests. By using `git bisect run` with an automated test - such as a unit test or even a simple shell script - we can quickly and easily find bugs introduced into codebases with complex history. 
+Excellent - with a simple test - git has helped us figure out that the offending string was introduced in the `331024e...` commit. We can even perform manual tests to see if our commit is good - like loading a webpage. `bisect` is even more powerful with automated tests. By using `git bisect run` with an automated test - such as a unit test or even a simple shell script - we can quickly and easily find bugs introduced into codebases with complex history.
+
 #### End of Example Nine

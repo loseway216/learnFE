@@ -1,16 +1,18 @@
-import { elements } from './base'
+import { elements } from "./base";
 
-export const toggleButton = isLiked => {
-  const iconStr = isLiked ? 'icon-heart' : 'icon-heart-outlined'
+export const toggleButton = (isLiked) => {
+  const iconStr = isLiked ? "icon-heart" : "icon-heart-outlined";
 
-  document.querySelector('.recipe__love use').setAttribute('href', `img/icons.svg#${iconStr}`)
-}
+  document
+    .querySelector(".recipe__love use")
+    .setAttribute("href", `img/icons.svg#${iconStr}`);
+};
 
-export const toggleMenu = numLikes => {
-  elements.likesMenu.style.visibility = numLikes > 0 ? 'visible' : 'hidden'
-}
+export const toggleMenu = (numLikes) => {
+  elements.likesMenu.style.visibility = numLikes > 0 ? "visible" : "hidden";
+};
 
-export const renderLike = like => {
+export const renderLike = (like) => {
   const markup = `
     <li>
         <a class="likes__link" href="#${like.id}">
@@ -23,13 +25,14 @@ export const renderLike = like => {
             </div>
         </a>
     </li>
-    `
-  elements.likesList.insertAdjacentHTML('beforeend', markup)
-}
+    `;
+  elements.likesList.insertAdjacentHTML("beforeend", markup);
+};
 
-export const deleteLike = id => {
-  const el = document.querySelector(`.likes__link[href*="${id}"]`).parentElement
+export const deleteLike = (id) => {
+  const el = document.querySelector(`.likes__link[href*="${id}"]`)
+    .parentElement;
   if (el) {
-    el.parentElement.removeChild(el)
+    el.parentElement.removeChild(el);
   }
-}
+};

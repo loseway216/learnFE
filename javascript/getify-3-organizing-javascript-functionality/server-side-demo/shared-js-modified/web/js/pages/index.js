@@ -1,12 +1,10 @@
-(function(context){
+(function (context) {
+  function init() {}
 
-	function init(){}
+  function teardown() {}
 
-	function teardown(){}
-
-	Pages.page_scripts["/index"] = {
-		init: init,
-		teardown: teardown
-	};
-
+  Pages.page_scripts["/index"] = {
+    init: init,
+    teardown: teardown,
+  };
 })(window);

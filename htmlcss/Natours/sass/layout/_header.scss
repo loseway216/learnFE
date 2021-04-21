@@ -1,8 +1,12 @@
 .header {
   height: 85vh;
   /* 两层背景，一层是线性渐变，从左上到右下，一层是背景图片 */
-  background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)),
-    url('../img/hero-small.jpg');
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.8),
+      rgba($color-primary-dark, 0.8)
+    ),
+    url("../img/hero-small.jpg");
   /* 背景尺寸：覆盖 */
   background-size: cover;
   /* 缩放方式：顶部不变，裁剪其他区域 */
@@ -23,8 +27,12 @@
   @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
     only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
     only screen and (min-width: 125em) {
-    background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)),
-      url('../img/hero.jpg');
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.8),
+        rgba($color-primary-dark, 0.8)
+      ),
+      url("../img/hero.jpg");
   }
 
   // 多边形下边界斜率过大，不自然

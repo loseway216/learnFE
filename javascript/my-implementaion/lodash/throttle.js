@@ -5,22 +5,22 @@
 // 浏览器播放事件，每个一秒计算一次进度信息等
 // input 框实时搜索并发送请求展示下拉列表，没隔一秒发送一次请求 (也可做防抖)
 function throttle(fn, delay) {
-  let canUse = true
+  let canUse = true;
   return function () {
     if (canUse) {
-      canUse = false
-      fn.apply(this, arguments)
-      setTimeout(() => (canUse = true), delay)
+      canUse = false;
+      fn.apply(this, arguments);
+      setTimeout(() => (canUse = true), delay);
     }
-  }
+  };
 }
 
-const doNotSayHiTooFrequently = throttle(msg => console.log(msg), 1000)
+const doNotSayHiTooFrequently = throttle((msg) => console.log(msg), 1000);
 
-doNotSayHiTooFrequently('hi')
-doNotSayHiTooFrequently('hi')
-doNotSayHiTooFrequently('hi')
+doNotSayHiTooFrequently("hi");
+doNotSayHiTooFrequently("hi");
+doNotSayHiTooFrequently("hi");
 
 setTimeout(() => {
-  doNotSayHiTooFrequently('hi')
-}, 1000)
+  doNotSayHiTooFrequently("hi");
+}, 1000);

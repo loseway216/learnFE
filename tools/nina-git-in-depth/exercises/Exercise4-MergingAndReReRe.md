@@ -1,11 +1,14 @@
 # Advanced Git
+
 ## Exercise Four - Merging and ReReRe
 
 ### Overview
+
 In this exercise, we'll take a look at the fast-forward merge, learn how to make a non-fast-forward merge, then learn how to use git's Reuse Recorded Resolution (ReReRe) functionality to automate complex merges.
 
 ### Prerequisite
-You should have the [`advanced-git-exercises`](https://github.com/nnja/advanced-git-exercises)  repository cloned locally. Checkout the `exercise4` branch:
+
+You should have the [`advanced-git-exercises`](https://github.com/nnja/advanced-git-exercises) repository cloned locally. Checkout the `exercise4` branch:
 
 ```
 $> git checkout exercise4
@@ -13,6 +16,7 @@ Switched to branch 'exercise4'
 ```
 
 ### Exercise
+
 1. Merge the `exercise3` branch into `exercise4`, and look at the git log.
 2. Use `git reset --hard HEAD^` to reset your `exercise4` branch back one commit, then use the `--no-ff` option to `git merge` to merge `exercise3` again. Look at the git log, how is it different from the last step?
 3. Make two conflicting changes to `hello.txt` in two different branches.
@@ -21,8 +25,8 @@ Switched to branch 'exercise4'
 
 ## Solutions
 
-
 ### Step 1 - Fast-Forward Merge
+
 You've probably done plenty of git merges. Here we're going to practice making a merge commit without "fast-forwarding."
 
 On the `exercise4` branch, you should be on the commit labeled "Initial commit." Let's say `exercise3` is our feature branch - we have a new commit in `exercise3` that we want to merge into `exercise4` - "Testing the emergency git-casting system." Let's try a regular merge:
@@ -102,6 +106,7 @@ The picture is much clearer now: The `exercise4` branch diverged with the additi
 ![no-ff](https://user-images.githubusercontent.com/2030983/31261123-f756a890-aa17-11e7-8ab9-501af4e44373.png)
 
 ### Step 3 - Setting up for a Conflict
+
 Here's where things get a little tricky. Let's set up a merge conflict, and use git's Reuse Recorded Resolution function to resolve it automatically for us. This is super useful in situations where you get a large number of repeated merge conflicts, such as when you're refactoring a codebase while others are still making changes.
 
 Let's set things up so that we're changing the same line from two different branches, creating a merge conflict. You should still be on the `exercise4` branch. Let's create a new branch, called `mundo`.
@@ -162,6 +167,7 @@ $> git commit -m "Changing Hello to Hola"
 ```
 
 ### Step 4 - Enable ReReRe and Merge
+
 Before trying to merge, let's enable git's ReReRe functionality. Then, let's try to merge the `mundo` branch into `exercise4` as normal.
 
 ```
@@ -195,7 +201,7 @@ $> git rerere diff
  This is a test of the emergency git-casting system.
 ```
 
-This shows us the current state of the resolution - what we started with to resolve and what we've resolved it to. 
+This shows us the current state of the resolution - what we started with to resolve and what we've resolved it to.
 
 Resolve the conflict in `hello.txt` by changing it to say "Hola Mundo!" and run `rerere diff` again:
 
@@ -223,6 +229,7 @@ $> git commit -m "Merging in mundo branch"
 ```
 
 ### Step 5 - Back up and Merge Again
+
 Now let's back up to just before the last commit, and try the merge again - this time with the help of ReReRe:
 
 ```

@@ -8,10 +8,10 @@
           created() {
             if (this.$options.rules) {
               const rules = this.$options.rules;
-              Object.keys(rules).forEach(key => {
+              Object.keys(rules).forEach((key) => {
                 const { validate, message } = rules[key];
                 // 监听字段的变化，执行校验
-                this.$watch(key, newValue => {
+                this.$watch(key, (newValue) => {
                   const result = validate(newValue);
                   if (!result) {
                     console.log(message);
@@ -19,9 +19,9 @@
                 });
               });
             }
-          }
+          },
         });
-      }
+      },
     };
 
     // *****************************************
@@ -32,10 +32,10 @@
       data: { foo: 10 },
       rules: {
         foo: {
-          validate: value => value > 1,
-          message: 'foo must be greater than one'
-        }
-      }
+          validate: (value) => value > 1,
+          message: "foo must be greater than one",
+        },
+      },
     });
 
     vm.foo = 0; // should log: "foo must be greater than one"

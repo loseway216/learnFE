@@ -13,7 +13,11 @@
 .section-features {
   // 和其他section的上下距离
   padding: 20rem 0;
-  background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)),
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.8),
+      rgba($color-primary-dark, 0.8)
+    ),
     url(../img/nat-4.jpg);
   background-size: cover;
 
@@ -52,7 +56,11 @@
 
 .section-book {
   padding: 15rem 0;
-  background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+  background-image: linear-gradient(
+    to right bottom,
+    $color-primary-light,
+    $color-primary-dark
+  );
 
   @include respond(tab-port) {
     padding: 10rem 0;
@@ -61,7 +69,12 @@
 
 .book {
   // 50%图片的中心交界处，两种颜色都没有渐变，是实线交汇
-  background-image: linear-gradient(105deg, rgba($color-white, 0.9) 0%, rgba($color-white, 0.9) 49.9%, transparent 50%),
+  background-image: linear-gradient(
+      105deg,
+      rgba($color-white, 0.9) 0%,
+      rgba($color-white, 0.9) 49.9%,
+      transparent 50%
+    ),
     url(../img/nat-10.jpg);
   // 等于cover
   background-size: 100%;
@@ -69,13 +82,22 @@
   box-shadow: 0 1.5rem 4rem rgba($color-primary-dark, 0.2);
 
   @include respond(tab-land) {
-    background-image: linear-gradient(105deg, rgba($color-white, 0.9) 0%, rgba($color-white, 0.9) 65%, transparent 65%),
+    background-image: linear-gradient(
+        105deg,
+        rgba($color-white, 0.9) 0%,
+        rgba($color-white, 0.9) 65%,
+        transparent 65%
+      ),
       url(../img/nat-10.jpg);
     background-size: cover;
   }
 
   @include respond(tab-port) {
-    background-image: linear-gradient(to right, rgba($color-white, 0.9) 0%, rgba($color-white, 0.9) 100%),
+    background-image: linear-gradient(
+        to right,
+        rgba($color-white, 0.9) 0%,
+        rgba($color-white, 0.9) 100%
+      ),
       url(../img/nat-10.jpg);
   }
 

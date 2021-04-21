@@ -1,4 +1,4 @@
 function myLoader(source) {
-  console.log(source)
-  return source
+  console.log(source);
+  return source;
 }

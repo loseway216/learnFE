@@ -228,8 +228,8 @@
       </svg>
       <div class="product-name">
         <span>Lays</span>
-        <h2>{{ translation['productName'] }}</h2>
-        <p>{{ translation['productCodeText'] }}</p>
+        <h2>{{ translation["productName"] }}</h2>
+        <p>{{ translation["productCodeText"] }}</p>
         <span>76424233</span>
       </div>
     </div>
@@ -256,16 +256,16 @@
               d="m140 217.73a12.6 12.6 0 1 1 25.2 0 12.6 12.6 0 1 1 -25.2 0zm23.6-114.8c0 7.4-2.2 26.4-4.8 54.4l-2.6 27.8h-7.2l-2.6-27.8c-2.6-28-4.8-47-4.8-54.4 0-8.6 4.2-12.2 11-12.2s11.03 3.6 11.03 12.2z"
             />
           </svg>
-          <span class="count">{{ translation['supplyText'] }}</span>
+          <span class="count">{{ translation["supplyText"] }}</span>
           <h4>{{ supply }}</h4>
         </div>
       </div>
       <div class="buttons">
         <button class="restock-btn" @click="restock" :disabled="supply === 15">
-          {{ translation['restockText'] }}
+          {{ translation["restockText"] }}
         </button>
         <button class="dispense-btn" @click="dispense" :disabled="supply === 0">
-          {{ translation['dispenseText'] }}
+          {{ translation["dispenseText"] }}
         </button>
       </div>
     </section>
@@ -273,13 +273,13 @@
 </template>
 
 <script>
-import { mapState, mapGetters, mapActions } from 'vuex'
-import { createNamespacedHelpers } from 'vuex'
+import { mapState, mapGetters, mapActions } from "vuex";
+import { createNamespacedHelpers } from "vuex";
 
 export default {
-  name: 'VendingMachineAdmin',
+  name: "VendingMachineAdmin",
   data() {
-    return {}
+    return {};
   },
   computed: {
     // supply() {
@@ -295,10 +295,10 @@ export default {
     //   return this.$store.state.langSelected
     // },
     ...mapState({
-      supply: state => state.inventory.supply,
-      isRestocking: state => state.inventory.isRestocking,
-      isDispensing: state => state.inventory.isDispensing,
-      langSelected: state => state.locale.langSelected
+      supply: (state) => state.inventory.supply,
+      isRestocking: (state) => state.inventory.isRestocking,
+      isDispensing: (state) => state.inventory.isDispensing,
+      langSelected: (state) => state.locale.langSelected,
     }),
     // translation() {
     // return this.$store.getters.translation
@@ -307,15 +307,15 @@ export default {
     // return this.$store.getters.isSupplyLow
     // },
     ...mapGetters({
-      translation: 'locale/translation',
-      isSupplyLow: 'inventory/isSupplyLow'
+      translation: "locale/translation",
+      isSupplyLow: "inventory/isSupplyLow",
     }),
     isInLoadingState() {
       return (
         this.$store.state.inventory.isRestocking ||
         this.$store.state.inventory.isDispensing
-      )
-    }
+      );
+    },
   },
   methods: {
     // dispense() {
@@ -328,22 +328,22 @@ export default {
     //   this.$store.dispatch('toggleLang')
     // }
     ...mapActions({
-      dispense: 'inventory/dispenseItem',
-      restock: 'inventory/fetchFromInventory',
-      toggleLang: 'locale/toggleLang'
+      dispense: "inventory/dispenseItem",
+      restock: "inventory/fetchFromInventory",
+      toggleLang: "locale/toggleLang",
     }),
     handleLogout() {
-      this.$store.dispatch('logout').then(() => {
-        this.$router.push('/login')
-      })
-    }
-  }
-}
+      this.$store.dispatch("logout").then(() => {
+        this.$router.push("/login");
+      });
+    },
+  },
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-[class*='chip-'] {
+[class*="chip-"] {
   fill: #ffc400;
 }
 .cls-2 {

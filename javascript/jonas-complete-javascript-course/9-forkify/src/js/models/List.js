@@ -1,8 +1,8 @@
-import uniqid from 'uniqid'
+import uniqid from "uniqid";
 
 export default class List {
   constructor() {
-    this.items = []
+    this.items = [];
   }
 
   addItem(count, unit, ingredient) {
@@ -10,20 +10,20 @@ export default class List {
       id: uniqid(),
       count,
       unit,
-      ingredient
-    }
-    this.items.push(item)
-    return item
+      ingredient,
+    };
+    this.items.push(item);
+    return item;
   }
 
   deleteItem(id) {
-    const index = this.items.findIndex(el => el.id === id)
+    const index = this.items.findIndex((el) => el.id === id);
     //[2,4,8] splice(1,2) --> return [4,8], original arr [2]
     //[2,4,8] slice(1,2) --> return [4], original arr [2,4,8]，不包含结尾的元素
-    this.items.splice(index, 1)
+    this.items.splice(index, 1);
   }
 
   updateCount(id, newCount) {
-    this.items.find(el => el.id === id).count = newCount
+    this.items.find((el) => el.id === id).count = newCount;
   }
 }

@@ -5,21 +5,21 @@
 </template>
 
 <script>
-import SelectUser from './components/SelectUser'
-import SelectUserPlugin from './plugins/SelectUserPlugin'
+import SelectUser from "./components/SelectUser";
+import SelectUserPlugin from "./plugins/SelectUserPlugin";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    SelectUser
+    SelectUser,
   },
   data() {
     return {
-      plugins: [new SelectUserPlugin()]
-    }
+      plugins: [new SelectUserPlugin()],
+    };
   },
-  mounted() {}
-}
+  mounted() {},
+};
 </script>
 
 <style>

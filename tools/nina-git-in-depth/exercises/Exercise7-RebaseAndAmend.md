@@ -1,11 +1,14 @@
 # Advanced Git
+
 ## Exercise Seven - Rebase and Amend
 
 ### Overview
+
 In this exercise, we'll practice amending commits, then we'll try a normal rebase and an interactive rebase.
 
-### Prerequisite 
-You should have the [`advanced-git-exercises`](https://github.com/nnja/advanced-git-exercises)  repository cloned locally. Checkout the `exercise7` branch:
+### Prerequisite
+
+You should have the [`advanced-git-exercises`](https://github.com/nnja/advanced-git-exercises) repository cloned locally. Checkout the `exercise7` branch:
 
 ```
 $> git checkout exercise7
@@ -13,14 +16,15 @@ Switched to a new branch 'exercise7'
 ```
 
 ### Exercise
+
 1. Make a commit, then practice using the `--amend` option to make another change to the previous commit.
 2. Make two non-conflicting changes to two different branches. Rebase one branch onto the other.
 3. Make another change to your current branch. Use an interactive rebase (`git rebase -i`) to rebase the two branches. Try squashing your two commits and rewording the message during the rebase.
 
-
 ## Solutions
 
 ### Step 1 - Amend a Commit
+
 Create two new files, `first.txt` and `second.txt`, then commit the first but not the second:
 
 ```
@@ -50,13 +54,14 @@ $> git commit --amend
  2 files changed, 2 insertions(+)
  create mode 100644 first.txt
  create mode 100644 second.txt
- 
+
 # Confirm that we've committed both files now
 ```
 
 There we go, we've fixed the commit to contain both `first.txt` and `second.txt`. Notice that the SHAs are different between the original commit (`8adf686`) and the amended commit (`b4952f3`). Commits can't be edited, so a new commit with the changed data was created and the old commit was replaced.
 
 ### Step 2 - Set up for a Rebase
+
 Let's get things set up for a simple rebase demo. Checkout `master`, and let's pretend that we have a new feature branch, called `exercise7-2`.
 
 ```
@@ -121,8 +126,8 @@ a2c699b Master has continued to change
 
 **Tip:** When working on a feature branch that's likely to conflict, I prefer to rebase from master often and fix conflicts as they come up. This way, I'm not stuck with a huge disastrous merge full of conflicts when I'm done with my feature and ready to merge it back to master.
 
-
 ### Step 3 - Interactive Rebase
+
 Let's set up our feature branch for a very simple interactive rebase. Add another new feature and commit it:
 
 ```
@@ -136,7 +141,7 @@ $> git commit -m "Adding another new feature"
  create mode 100644 another_feature.txt
 ```
 
-Now we have two new commits on top of `master`. 
+Now we have two new commits on top of `master`.
 
 ```
 # passing -n 3 to log lets us see the last 3 commits
@@ -149,13 +154,13 @@ ce8865e (master) Master has continued to change
 
 When we're done with our feature, we want to clean these commits up by combining them using `squash`, and changing the commit message using `reword`.
 
-Start the interactive rebase by passing in one commit *before* the one you want to start rebasing from. In this case, we want to rebase commit `64db08a` and the commit after it.
+Start the interactive rebase by passing in one commit _before_ the one you want to start rebasing from. In this case, we want to rebase commit `64db08a` and the commit after it.
 
 We have some options for which ref to use. All the options below will get the same result:
 
 - `HEAD~2` - 2 commits before `HEAD`
 - `64db08a^` - points to one commit back - parent `ce8865e`
-- `ce8865e` - the actual commit before the one we want to rebase from 
+- `ce8865e` - the actual commit before the one we want to rebase from
 - `master` - since `master` points to `ce8865e`
 
 ```

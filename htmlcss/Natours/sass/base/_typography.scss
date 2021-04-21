@@ -1,7 +1,7 @@
 /* 排版的放在typography，盒模型放在base */
 /* 字体的设置一般放在body */
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   /* 粗细 */
   font-weight: 400;
   line-height: 1.7;
@@ -60,7 +60,11 @@ body {
   // 不染色整行，根据字体自动染色背景
   display: inline-block;
   // 将背景颜色变成渐变
-  background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+  background-image: linear-gradient(
+    to right,
+    $color-primary-light,
+    $color-primary-dark
+  );
   // 将没有文字的背景裁剪掉
   -webkit-background-clip: text;
   // 将文字变成透明，以显示背景

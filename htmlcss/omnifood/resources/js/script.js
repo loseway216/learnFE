@@ -1,8 +1,8 @@
-$(document).ready(function() {
+$(document).ready(function () {
   // trigger when the top of that element hits the top of the viewport
   // trigger when the element is 60px from the top
   $(".js-section-features").waypoint(
-    function(direction) {
+    function (direction) {
       if (direction === "down") {
         $("nav").addClass("sticky");
       } else {
@@ -13,20 +13,20 @@ $(document).ready(function() {
   );
 
   //点击按钮，页面滚到购买计划
-  $(".js-scroll-to-plans").click(function() {
+  $(".js-scroll-to-plans").click(function () {
     $("html,body").animate(
       {
-        scrollTop: $(".js-section-plans").offset().top
+        scrollTop: $(".js-section-plans").offset().top,
       },
       1000
     );
   });
 
   //点击按钮，页面滚到了解更多
-  $(".js-scroll-to-start").click(function() {
+  $(".js-scroll-to-start").click(function () {
     $("html,body").animate(
       {
-        scrollTop: $(".js-section-features").offset().top
+        scrollTop: $(".js-section-features").offset().top,
       },
       1000
     );
@@ -34,7 +34,7 @@ $(document).ready(function() {
 
   //features 动画，渐现
   $(".js-wp-1").waypoint(
-    function(direction) {
+    function (direction) {
       $(".js-wp-1").addClass("animated fadeIn");
     },
     { offset: "50%" }
@@ -42,7 +42,7 @@ $(document).ready(function() {
 
   //app-screen,动画，从下方出现
   $(".js-wp-2").waypoint(
-    function(direction) {
+    function (direction) {
       $(".js-wp-2").addClass("animated fadeInUp");
     },
     { offset: "50%" }
@@ -50,21 +50,21 @@ $(document).ready(function() {
 
   //cities,动画，渐现
   $(".js-wp-3").waypoint(
-    function(direction) {
+    function (direction) {
       $(".js-wp-3").addClass("animated fadeIn");
     },
     { offset: "50%" }
   );
   //plans,动画，脉搏
   $(".js-wp-4").waypoint(
-    function(direction) {
+    function (direction) {
       $(".js-wp-4").addClass("animated pulse");
     },
     { offset: "50%" }
   );
 
   //mobile navigation
-  $(".js-mobile-nav").click(function() {
+  $(".js-mobile-nav").click(function () {
     var nav = $(".js-main-nav");
     var icon = $(".js-mobile-nav i");
     //滑动切换
@@ -84,7 +84,7 @@ $(document).ready(function() {
     // Remove links that don't actually link to anything
     .not('[href="#"]')
     .not('[href="#0"]')
-    .click(function(event) {
+    .click(function (event) {
       // On-page links
       if (
         location.pathname.replace(/^\//, "") ==
@@ -102,10 +102,10 @@ $(document).ready(function() {
           event.preventDefault();
           $("html, body").animate(
             {
-              scrollTop: target.offset().top
+              scrollTop: target.offset().top,
             },
             1000,
-            function() {
+            function () {
               // Callback after animation
               // Must change focus!
               var $target = $(target);

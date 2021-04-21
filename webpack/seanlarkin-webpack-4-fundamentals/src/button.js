@@ -1,11 +1,11 @@
 // commonJS default export
-const makeButton = buttonName => {
-  const buttonLabel = `Button: ${buttonName}`
+const makeButton = (buttonName) => {
+  const buttonLabel = `Button: ${buttonName}`;
 
-  const button = document.createElement('button')
-  button.innerText = buttonLabel
+  const button = document.createElement("button");
+  button.innerText = buttonLabel;
 
-  return button
-}
+  return button;
+};
 
-module.exports = makeButton
+module.exports = makeButton;

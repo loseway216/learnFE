@@ -23,16 +23,16 @@
     // 普通的组件有instance，函数式组件没有，就像函数一样，接收参数，返回virtual dom
     // 函数式组件有eagerly执行的特性，parent不一定是真实dom的父节点
     // 场景：性能提升：如果一个组件有很多叶子节点，其中有一些嵌套的叶子节点并不需要维护state，只是根据props渲染一些styling、markup
-    Vue.component('example', {
+    Vue.component("example", {
       functional: true,
       render(h, { parent, props: { tags } }) {
         // parent is root instance, because functinal component are evaluated eagerly, expanded before passed to parent dom
         console.log(parent);
         return h(
-          'div',
+          "div",
           tags.map((tag, index) => h(tag, index))
         );
-      }
+      },
     });
 
     // JSX version
@@ -40,6 +40,6 @@
     //   return <div>{tags.map((tag, index) => h(tag, index))}</div>;
     // };
 
-    new Vue({ el: '#app' });
+    new Vue({ el: "#app" });
   </script>
 </body>

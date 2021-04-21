@@ -1,28 +1,28 @@
-var persistLang = function(store) {
+var persistLang = function (store) {
   // 订阅mutation
   store.subscribe((mutation, state) => {
-    if (mutation.type == 'locale/toggleLang') {
-      console.log('mutation', mutation.type)
-      console.log('locale', state.locale.langSelected)
+    if (mutation.type == "locale/toggleLang") {
+      console.log("mutation", mutation.type);
+      console.log("locale", state.locale.langSelected);
 
       try {
         localStorage.setItem(
-          'locale',
+          "locale",
           JSON.stringify(state.locale.langSelected)
-        )
+        );
       } catch (error) {
-        throw error
+        throw error;
       }
     }
-  })
+  });
 
   store.subscribeAction({
     before: (action, state) => {
-      console.log('before', action.type)
+      console.log("before", action.type);
     },
     after: (action, state) => {
-      console.log('after', action.type)
-    }
-  })
-}
-export default persistLang
+      console.log("after", action.type);
+    },
+  });
+};
+export default persistLang;

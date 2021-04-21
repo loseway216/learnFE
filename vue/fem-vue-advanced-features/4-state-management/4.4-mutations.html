@@ -15,35 +15,35 @@
         data: { state },
         methods: {
           commit(mutaionType) {
-            mutations[mutaionType](this.state)
-          }
-        }
-      })
+            mutations[mutaionType](this.state);
+          },
+        },
+      });
     }
 
     const store = createStore({
       state: { count: 0 },
       mutations: {
         inc(state) {
-          state.count++
-        }
-      }
-    })
+          state.count++;
+        },
+      },
+    });
 
     const Counter = {
       render(h) {
-        return h('div', store.state.count)
-      }
-    }
+        return h("div", store.state.count);
+      },
+    };
 
     new Vue({
-      el: '#app',
+      el: "#app",
       components: { Counter },
       methods: {
         inc() {
-          store.commit('inc')
-        }
-      }
-    })
+          store.commit("inc");
+        },
+      },
+    });
   </script>
 </body>

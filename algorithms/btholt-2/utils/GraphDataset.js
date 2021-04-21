@@ -7009,5 +7009,5 @@ let getMe;
   ];
 })();
 
-exports.getUser = getUser
-exports.getMe = getMe
+exports.getUser = getUser;
+exports.getMe = getMe;

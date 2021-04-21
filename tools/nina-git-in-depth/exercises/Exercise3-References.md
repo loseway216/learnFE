@@ -1,10 +1,13 @@
 # Advanced Git
+
 ## Exercise Three - References
 
 ### Overview
+
 In this exercise, we'll take a look at our references (`refs`) and create some lightweight and annotated tags. Then we'll make a dangling commit from a "detached HEAD" state and learn why this isn't a great idea.
 
 ### Prerequisite
+
 You should have the [`advanced-git-exercises`](https://github.com/nnja/advanced-git-exercises) repository cloned locally. Checkout the `exercise3` branch to begin:
 
 ```
@@ -13,6 +16,7 @@ Switched to branch 'exercise3'
 ```
 
 ### Exercise
+
 1. Check the value of your `HEAD` variable (hint: look in `.git`) and confirm you're pointed at the `exercise3` branch.
 2. Use `show-ref` to look at your other heads.
 3. Create a lightweight tag and confirm that it's pointing at the right commit.
@@ -21,7 +25,9 @@ Switched to branch 'exercise3'
 6. Make a new commit, then switch branches to confirm that you're leaving a commit behind.
 
 ## Solutions
+
 ### Step 1 - Where's your HEAD?
+
 Assuming you checked out the `exercise3` branch in Step 0, your `HEAD` should be pointing to `exercise3`. You can corroborate this with `git branch`:
 
 ```
@@ -35,6 +41,7 @@ $> git branch
 ```
 
 ### Step 2 - Where are your refs?
+
 Use `git show-ref` to see which commits your HEADs are pointing at. You should see one for every branch you have, as well as every remote branch we've interacted with. Yours may look slightly different.
 
 ```
@@ -70,8 +77,8 @@ committer Nina Zakharenko <nina@nnja.io> 1507168872 -0700
 Testing the emergency git-casting system
 ```
 
-
 ### Step 3 - Lightweight Tags:
+
 Lightweight tags are simply named pointers to a commit. Make a new tag, then confirm that it points to the correct commit using `show-ref`:
 
 ```
@@ -80,7 +87,8 @@ $> git tag my-exercise3-tag
 $> git show-ref --tags
 e348ebc1187cb3b4066b1e9432a614b464bf9d07 refs/tags/my-exercise3-tag
 ```
-Our current HEAD, `38708c...` has now been tagged as `my-exercise3-tag`. 
+
+Our current HEAD, `38708c...` has now been tagged as `my-exercise3-tag`.
 
 You can also do a reverse lookup using `git tag --points-at`:
 
@@ -90,6 +98,7 @@ my-exercise3-tag
 ```
 
 ### Step 4 - Annotated Tags:
+
 Annotated tags serve the same function as regular tags, but they also store additional metadata:
 
 ```
@@ -120,6 +129,7 @@ index 980a0d5..b31a35b 100644
 Using `git show`, we can see all of the pertinent information about our `exercise3-annotated-tag`. We see the tag metadata at the top - who made the tag and when, as well as the tag message. Below that, we see the commit that was tagged, and then the diff between the tagged commit and its parent.
 
 ### Step 5 - Detached HEAD
+
 Now we're going to venture into a "detached HEAD" state. Use `git checkout` to checkout the latest commit directly. You'll get a scary-looking warning about your HEAD being detached. You can confirm this by looking at `.git/HEAD` and seeing that it's now pointing to a commit hash, instead of `refs/heads/exercise3`
 
 ```
@@ -146,6 +156,7 @@ e348ebc1187cb3b4066b1e9432a614b464bf9d07
 ```
 
 ### Step 6 - Create a Dangling Commit
+
 Even though our `HEAD` is now pointing at a specific commit - instead of a branch or tag - we can still make commits. Go ahead and make a new commit, then confirm that our `HEAD` is now pointing at this new commit:
 
 ```
@@ -157,7 +168,7 @@ $> git commit -m "This is a dangling commit"
 [detached HEAD 9bdea9e] This is a dangling commit
  1 file changed, 1 insertion(+)
  create mode 100644 dangle.txt
- 
+
 $> git log --oneline
 9bdea9e This is a dangling commit
 38708c1 Testing the emergency git-casting system

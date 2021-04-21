@@ -64,7 +64,7 @@
 
   &::after {
     /* 必须声明，即使为空，否则after不会显示 */
-    content: '';
+    content: "";
     display: inline-block;
     /* 是btn的子元素，所有设置100%，与btn一样 */
     height: 100%;

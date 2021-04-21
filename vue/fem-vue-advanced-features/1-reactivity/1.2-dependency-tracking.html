@@ -8,50 +8,50 @@
     // a class representing a dependency
     class Dep {
       constructor() {
-        this.subscriber = new Set()
+        this.subscriber = new Set();
       }
 
       // 为当前执行的代码注册依赖
       depend() {
         // register the current active update as a subscriber
         if (activeUpdate) {
-          this.subscriber.add(activeUpdate)
+          this.subscriber.add(activeUpdate);
         }
       }
 
       // 依赖产生了变化
       notify() {
         // run all subscriber functions
-        this.subscriber.forEach(sub => sub())
+        this.subscriber.forEach((sub) => sub());
       }
     }
 
     // 用来判断update函数是否正在执行
-    let activeUpdate
+    let activeUpdate;
 
     // autorun中执行的update函数，可以访问到updata本身，可以在这里进行依赖注册
     function autorun(update) {
       // 包裹函数的作用，例如update中可能会进行条件判断，收集不同的依赖？？没理解
       function wrappedUpdate() {
-        activeUpdate = wrappedUpdate
-        update()
-        activeUpdate = null
+        activeUpdate = wrappedUpdate;
+        update();
+        activeUpdate = null;
       }
-      wrappedUpdate()
+      wrappedUpdate();
     }
 
     // *****************************************
     // test
 
-    const dep = new Dep()
+    const dep = new Dep();
 
     autorun(() => {
-      dep.depend()
-      console.log('updated')
-    })
+      dep.depend();
+      console.log("updated");
+    });
     // should log: "updated"
 
-    dep.notify()
+    dep.notify();
     // should log: "updated"
   </script>
 </body>

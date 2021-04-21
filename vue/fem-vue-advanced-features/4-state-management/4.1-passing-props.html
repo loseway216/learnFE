@@ -11,18 +11,18 @@
   <script>
     // 最基本的情形：把需要共享的状态放在根实例，通过props传递到字节点，但是层级多了之后就无法维护了
     new Vue({
-      el: '#app',
+      el: "#app",
       data: {
-        count: 0
+        count: 0,
       },
       components: {
         Counter: {
-          props: ['count'],
+          props: ["count"],
           render(h) {
-            return h('div', this.count);
-          }
-        }
-      }
+            return h("div", this.count);
+          },
+        },
+      },
     });
   </script>
 </body>

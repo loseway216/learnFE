@@ -1,1 +1,1 @@
-export default 'color:blue;'
+export default "color:blue;";

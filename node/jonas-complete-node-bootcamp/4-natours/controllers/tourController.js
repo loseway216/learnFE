@@ -1,18 +1,18 @@
-const Tour = require('../models/tourModel');
+const Tour = require("../models/tourModel");
 
 exports.getAllTours = async (req, res) => {
   try {
     const tours = await Tour.find();
 
     res.status(200).json({
-      status: 'success',
+      status: "success",
       results: tours.length,
-      data: { tours }
+      data: { tours },
     });
   } catch (err) {
     res.status(404).json({
-      status: 'fail',
-      message: err
+      status: "fail",
+      message: err,
     });
   }
 };
@@ -23,13 +23,13 @@ exports.getTour = async (req, res) => {
     // Tour.findOne({_id: req.params.id})
 
     res.status(200).json({
-      status: 'success',
-      data: { tour }
+      status: "success",
+      data: { tour },
     });
   } catch (err) {
     res.status(404).json({
-      status: 'fail',
-      message: err
+      status: "fail",
+      message: err,
     });
   }
 };
@@ -41,13 +41,13 @@ exports.createTour = async (req, res) => {
     const newTour = await Tour.create(req.body);
     // 201:created
     res.status(201).json({
-      status: 'success',
-      data: { tour: newTour }
+      status: "success",
+      data: { tour: newTour },
     });
   } catch (error) {
     res.status(400).json({
-      status: 'fail',
-      message: 'Invalid data sent'
+      status: "fail",
+      message: "Invalid data sent",
     });
   }
 };
@@ -57,16 +57,16 @@ exports.updateTour = async (req, res) => {
     const tour = await Tour.findByIdAndUpdate(req.params.id, req.body, {
       // 返回更新后的数据
       new: true,
-      runValidators: true
+      runValidators: true,
     });
     res.status(200).json({
-      status: 'success',
-      data: { tour }
+      status: "success",
+      data: { tour },
     });
   } catch (err) {
     res.status(404).json({
-      status: 'fail',
-      message: err
+      status: "fail",
+      message: err,
     });
   }
 };
@@ -76,13 +76,13 @@ exports.deleteTour = async (req, res) => {
     await Tour.findByIdAndDelete(req.params.id);
     // 204:no content
     res.status(204).json({
-      status: 'success',
-      data: null // 删除时，rest api通常不返回任何内容
+      status: "success",
+      data: null, // 删除时，rest api通常不返回任何内容
     });
   } catch (err) {
     res.status(404).json({
-      status: 'fail',
-      message: err
+      status: "fail",
+      message: err,
     });
   }
 };

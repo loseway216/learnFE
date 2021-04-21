@@ -50,7 +50,7 @@
 
     &::before,
     &::after {
-      content: '';
+      content: "";
       height: 1px;
       display: block;
       // 继承父元素的color属性

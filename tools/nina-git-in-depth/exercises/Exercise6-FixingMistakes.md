@@ -1,11 +1,14 @@
 # Advanced Git
+
 ## Exercise Six - Fixing Mistakes
 
 ### Overview
+
 In this exercise, we'll practice reverting a file and cleaning our repo. Then we'll take a deeper look at `git reset` and `git revert` to go back in time.
 
 ### Prerequisite
-You should have the [`advanced-git-exercises`](https://github.com/nnja/advanced-git-exercises)  repository cloned locally. Checkout the `exercise6` branch:
+
+You should have the [`advanced-git-exercises`](https://github.com/nnja/advanced-git-exercises) repository cloned locally. Checkout the `exercise6` branch:
 
 ```
 $> git checkout exercise6
@@ -13,6 +16,7 @@ Switched to a new branch 'exercise6'
 ```
 
 ### Exercise
+
 1. Make bad changes to a file, then use `git checkout` to fix it. Use `git checkout` to reset your file back to an earlier point in time.
 2. Use `git clean` to remove untracked files from your repo. Remember to use `--dry-run` first.
 3. Stage a change and then use `git reset` to unstage it. Use `git reset --hard` to reset your branch back pointer, staging area, and working area to an earlier commit. Use "mixed mode" to reset your branch back to an earlier commit, then use `ORIG_HEAD` to reset your branch back to where you were.
@@ -21,6 +25,7 @@ Switched to a new branch 'exercise6'
 ## Solutions
 
 ### Step 1 - Undo changes in your working area with `git checkout -- <file>`
+
 We all make mistakes. Let's make one now:
 
 ```
@@ -125,6 +130,7 @@ This is a test of the emergency git-casting system.
 Excellent, we now have our `hello.template` file back in our staging area and working area.
 
 ### Step 2 - Clean your Repo
+
 We should still have this old `hello.txt` file sitting around, cluttering up our repo. We can use `git clean` to blow out anything that isn't tracked by git. We'll do a dry run first, just to be safe:
 
 ```
@@ -138,6 +144,7 @@ Removing hello.txt
 All clean!
 
 ### Step 3 - Git Reset
+
 But wait, we never recommitted our `hello.template` file after we deleted it. It should still be staged for commit:
 
 ```
@@ -166,7 +173,7 @@ Untracked files:
 	hello.template
 ```
 
-We can see that `hello.template` is now untracked, because it was deleted in the latest commit. Remember that using `git reset` on a file instead of a commit works with `mixed` mode. That means it updates the copy in the staging area, but it keeps the copy in the working area. 
+We can see that `hello.template` is now untracked, because it was deleted in the latest commit. Remember that using `git reset` on a file instead of a commit works with `mixed` mode. That means it updates the copy in the staging area, but it keeps the copy in the working area.
 
 Along with unstaging the file from `HEAD`, you can also reset individual files in the staging area to a specific point in time.
 
@@ -203,7 +210,7 @@ Changes not staged for commit:
   (use "git checkout -- <file>..." to discard changes in working directory)
 
 	deleted:    hello.template
-	
+
 
 # But git reset won't update the working area.
 $> cat hello.template
@@ -242,13 +249,14 @@ $> git log -1 --oneline
 And there we are, back at the commit where we deleted the file `hello.template`
 
 ### Step 4 - Git Revert
+
 Let's say we want to undo deleting `hello.template`, but don't want to alter history. Reverts don't look as nice in your history, but are a safer option when working with collaborators.
 
 ```
 $> git log -1 --oneline
 713f6a1 Deleting hello.template
 
-# Let's revert the last commit. 
+# Let's revert the last commit.
 
 $> git revert 713f6a1
 

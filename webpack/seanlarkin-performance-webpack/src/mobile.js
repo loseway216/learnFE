@@ -1,5 +1,5 @@
-import makeButton from './button'
-import trim from 'lodash-es/trim'
+import makeButton from "./button";
+import trim from "lodash-es/trim";
 
-const button = makeButton('Mobile Button')
-console.log(trim('   yes!'))
+const button = makeButton("Mobile Button");
+console.log(trim("   yes!"));

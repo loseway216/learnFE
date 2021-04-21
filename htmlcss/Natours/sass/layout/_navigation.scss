@@ -36,7 +36,10 @@
     top: 6.5rem;
     right: 6.5rem;
     // radial从中间向周围，放射状渐变
-    background-image: radial-gradient($color-primary-light, $color-primary-dark);
+    background-image: radial-gradient(
+      $color-primary-light,
+      $color-primary-dark
+    );
     z-index: 1000;
     transition: transform 0.8s cubic-bezier(0.87, 0, 0.13, 1);
 
@@ -93,7 +96,13 @@
       text-decoration: none;
       text-transform: uppercase;
       // 创建一个实线分割的背景
-      background-image: linear-gradient(120deg, transparent 0%, transparent 50%, $color-white 50%, $color-white 100%);
+      background-image: linear-gradient(
+        120deg,
+        transparent 0%,
+        transparent 50%,
+        $color-white 50%,
+        $color-white 100%
+      );
       background-size: 220%;
       transition: all 0.4s;
 
@@ -139,7 +148,7 @@
 
     &::before,
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       left: 0;
       transition: all 0.2s;

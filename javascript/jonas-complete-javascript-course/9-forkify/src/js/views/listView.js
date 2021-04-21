@@ -1,6 +1,6 @@
-import { elements } from './base'
+import { elements } from "./base";
 
-export const renderItem = item => {
+export const renderItem = (item) => {
   const markup = `
     <li class="shopping__item" data-itemid="${item.id}">
     <div class="shopping__count">
@@ -15,12 +15,12 @@ export const renderItem = item => {
     </button>
     </li>
 
-  `
+  `;
 
-  elements.shopping.insertAdjacentHTML('beforeend', markup)
-}
+  elements.shopping.insertAdjacentHTML("beforeend", markup);
+};
 
-export const deleteItem = id => {
-  const item = document.querySelector(`[data-itemid="${id}"]`)
-  if (item) item.parentElement.removeChild(item)
-}
+export const deleteItem = (id) => {
+  const item = document.querySelector(`[data-itemid="${id}"]`);
+  if (item) item.parentElement.removeChild(item);
+};

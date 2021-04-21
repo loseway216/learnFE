@@ -7,33 +7,33 @@
     // '#/bar' -> Bar
     // '#/404' -> NotFound
 
-    const Foo = { template: `<div>foo</div>` }
-    const Bar = { template: `<div>bar</div>` }
-    const NotFound = { template: `<div>not found!</div>` }
+    const Foo = { template: `<div>foo</div>` };
+    const Bar = { template: `<div>bar</div>` };
+    const NotFound = { template: `<div>not found!</div>` };
 
     const routeTable = {
       foo: Foo,
-      bar: Bar
-    }
+      bar: Bar,
+    };
 
-    window.addEventListener('hashchange', () => {
-      app.url = window.location.hash.slice(1)
-    })
+    window.addEventListener("hashchange", () => {
+      app.url = window.location.hash.slice(1);
+    });
 
     const app = new Vue({
-      el: '#app',
+      el: "#app",
       data: {
-        url: window.location.hash.slice(1)
+        url: window.location.hash.slice(1),
       },
       render(h) {
-        return h('div', { attrs: { id: 'app' } }, [
+        return h("div", { attrs: { id: "app" } }, [
           h(routeTable[this.url] || NotFound),
-          h('a', { attrs: { href: '#foo' } }, 'foo'),
+          h("a", { attrs: { href: "#foo" } }, "foo"),
           // render函数和template的区别，不会显示html中的空格、换行
-          '|',
-          h('a', { attrs: { href: '#bar' } }, 'bar')
-        ])
-      }
-    })
+          "|",
+          h("a", { attrs: { href: "#bar" } }, "bar"),
+        ]);
+      },
+    });
   </script>
 </body>

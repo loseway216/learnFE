@@ -14,28 +14,28 @@
     // 这种方式对于中小型应用足够了
     const state = new Vue({
       data: {
-        count: 0
+        count: 0,
       },
       methods: {
         inc() {
           this.count++;
-        }
-      }
+        },
+      },
     });
 
     const Counter = {
       // getter -> collect dependecny -> state changed -> rerender
-      render: h => h('div', state.count)
+      render: (h) => h("div", state.count),
     };
 
     new Vue({
-      el: '#app',
+      el: "#app",
       components: { Counter },
       methods: {
         inc() {
           state.inc();
-        }
-      }
+        },
+      },
     });
   </script>
 </body>

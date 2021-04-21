@@ -7,7 +7,7 @@ const ElaborateInput = forwardRef(
       return {
         focus() {
           inputRef.current.focus();
-        }
+        },
       };
     });
     return (
@@ -23,7 +23,7 @@ const ElaborateInput = forwardRef(
           borderColor: hasError ? "crimson" : "#999",
           borderRadius: "5px",
           margin: "0 10px",
-          textAlign: "center"
+          textAlign: "center",
         }}
       />
     );

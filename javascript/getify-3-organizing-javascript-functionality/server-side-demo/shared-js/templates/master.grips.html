@@ -1,34 +1,25 @@
-{$define "#page" |
-	title = $.page_title ? $.page_title : "Cool Awesome"
-}
+{$define "#page" | title = $.page_title ? $.page_title : "Cool Awesome" }
 
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<meta name=viewport content="width=device-width, initial-scale=1">
-<title>{$insert title $}</title>
-<link rel="stylesheet" href="/css/site.css">
-</head>
-<body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{$insert title $}</title>
+    <link rel="stylesheet" href="/css/site.css" />
+  </head>
+  <body>
+    <div id="notifications">
+      <div class="list"></div>
+      <div class="close">X</div>
+    </div>
 
-<div id="notifications"><div class="list"></div><div class="close">X</div></div>
+    {$partial "#nav" $} {$partial "#content" $}
 
-{$partial "#nav" $}
-
-{$partial "#content" $}
-
-<script src="/js/load.js"></script>
-
-</body>
+    <script src="/js/load.js"></script>
+  </body>
 </html>
 
-{$}
-
-
-{$define "#nav" }
-	<nav><a href="/">home</a></nav>
-{$}
-
-
-{$define "#content" }{$}
+{$} {$define "#nav" }
+<nav><a href="/">home</a></nav>
+{$} {$define "#content" }{$}

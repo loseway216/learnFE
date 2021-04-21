@@ -1,11 +1,14 @@
 # Advanced Git
+
 ## Exercise Five - History and Diffs
 
 ### Overview
+
 In this exercise, we'll practice making a good commit, take a look at some of the interesting command line arguments for `git log`, use `git show` to get more information about a commit, then take a quick look at `git branch`.
 
 ### Prerequisite
-You should have the [`advanced-git-exercises`](https://github.com/nnja/advanced-git-exercises)  repository cloned locally. Checkout the `exercise5` branch:
+
+You should have the [`advanced-git-exercises`](https://github.com/nnja/advanced-git-exercises) repository cloned locally. Checkout the `exercise5` branch:
 
 ```
 $> git checkout exercise5
@@ -13,6 +16,7 @@ Switched to a new branch 'exercise5'
 ```
 
 ### Exercise
+
 1. Practice creating a well-crafted commit - look at the format given on the slides for help.
 2. Use `git log` to find commits created since yesterday. Rename a file and use the `--name-status` and `--follow` options to `git log` to track down when the file was renamed, and what it used to be called. Use `--grep` to search within commit messages, and `--diff-filter` to find renamed and modified files from `git log`.
 3. Use `git show` to get more information about a specific git hash.
@@ -21,6 +25,7 @@ Switched to a new branch 'exercise5'
 ## Solutions
 
 ### Step 1 - Make a Good Commit
+
 We've all made commits with short, silly, or otherwise unhelpful messages. Let's practice making a solid commit message for use in this example.
 
 ```
@@ -54,6 +59,7 @@ any language!
 ```
 
 ### Step 2 - Git Log
+
 Let's take a look at our new commit using `git log`. First we'll see how to see all commits in the log since yesterday:
 
 ```
@@ -119,6 +125,7 @@ e348ebc Testing the emergency git-casting system
 ```
 
 ### Step 3 - Git Show
+
 Now that we've mastered `git log`, how do we actually see what happened in a commit? Let's use `git show` to find out.
 
 ```
@@ -166,6 +173,7 @@ $> git show 4b2b90e --stat --oneline
 ```
 
 ### Step 4 - Git Branch
+
 Let's say you're working on a complicated codebase with a `master` branch and lots of feature branches. Some of your coworkers forget to clean up their branches when they're done (we're all guilty). Which branches have been merged into `master` and can be cleaned up? Which branches haven't been merged yet? If you've been following along, yours may look different.
 
 ```

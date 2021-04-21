@@ -97,7 +97,7 @@
 
     &::after {
       // 伪元素 pseudo element，必须定义content和display
-      content: '';
+      content: "";
       display: block;
       width: 1.3rem;
       height: 1.3rem;

@@ -8,11 +8,11 @@ In this exercise, you will refactor some code that manages student enrollment re
 
 2. The returned public API object should include the following methods:
 
-	- `addStudent(id,name,paid)`
-	- `enrollStudent(id)`
-	- `printCurrentEnrollment()`
-	- `enrollPaidStudents()`
-	- `remindUnpaidStudents()`,
+   - `addStudent(id,name,paid)`
+   - `enrollStudent(id)`
+   - `printCurrentEnrollment()`
+   - `enrollPaidStudents()`
+   - `remindUnpaidStudents()`,
 
 3. Move the `currentEnrollment` and `studentRecords` arrays inside the module definition, but as empty arrays.
 

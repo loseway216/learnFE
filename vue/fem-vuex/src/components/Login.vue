@@ -7,10 +7,10 @@
 export default {
   methods: {
     handleLogin() {
-      this.$store.dispatch('login').then(() => {
-        this.$router.push('/')
-      })
-    }
-  }
-}
+      this.$store.dispatch("login").then(() => {
+        this.$router.push("/");
+      });
+    },
+  },
+};
 </script>

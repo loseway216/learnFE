@@ -5,19 +5,19 @@
 // 2.调整浏览器窗口大小时，resize 次数过于频繁，造成计算过多，此时需要一次到位，就用到了防抖
 // 3.文本编辑器实时保存，当无任何更改操作一秒后进行保存
 function debounce(fn, delay) {
-  let timeoutID = null
+  let timeoutID = null;
   return function () {
-    clearTimeout(timeoutID)
+    clearTimeout(timeoutID);
     timeoutID = setTimeout(() => {
-      fn.apply(this, arguments)
-    }, delay)
-  }
+      fn.apply(this, arguments);
+    }, delay);
+  };
 }
 
-const doNotSayHiTooFrequently = debounce(msg => console.log(msg), 1000)
+const doNotSayHiTooFrequently = debounce((msg) => console.log(msg), 1000);
 
-doNotSayHiTooFrequently('hi')
-doNotSayHiTooFrequently('hi')
-doNotSayHiTooFrequently('hi')
-doNotSayHiTooFrequently('hi')
-doNotSayHiTooFrequently('hi')
+doNotSayHiTooFrequently("hi");
+doNotSayHiTooFrequently("hi");
+doNotSayHiTooFrequently("hi");
+doNotSayHiTooFrequently("hi");
+doNotSayHiTooFrequently("hi");
