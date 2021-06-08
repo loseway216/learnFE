@@ -31,11 +31,13 @@
 
 ### FLEXBOX
 
-![image-20200902153449234](.\images\image-20200902153449234.png)
+<img src=".\images\image-20200902153449234.png" alt="FLEXBOX"  />
+
 
 ### GRID
 
-![image-20200910135738552](.\images\image-20200910135738552.png)
+<img src=".\images\image-20200910135738552.png" alt="GRID"  />
+
 
 ## HTML
 
@@ -138,7 +140,7 @@
 1. desktop-first，用 max-width
 2. mobile-first，用 min-width
 
-<img src=".\images\image-20200825222207223.png" alt="image-20200825222207223"  />
+<img src=".\images\image-20200825222207223.png" alt="media-queries"  />
 
 ### responsive images
 
