@@ -63,6 +63,7 @@
 | :--------------------------------------------------- | :-------------- | :-------- | :-------- |
 | Visual Studio Code Can Do That (3.5h)                | Burke Holland   | 2021-3-18 | 2021-3-22 |
 | Git in depth (4h)                                    | Nina Zakharenko | 2021-4-5  | 2021-4-9  |
+| VIM Fundamentals (4h)                                | ThePrimeagen    | 2021-8-8  | 2021-8-14 |
 | Complete Intro to Linux and the Command-Line (6.75h) | Brian Holt      |           |           |
 | Complete Intro to Containers (6h)                    | Brian Holt      |           |           |
 | Mastering Chrome Developer Tools v2 (3.5h)           | Jon Kuperman    |           |           |
