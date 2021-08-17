@@ -354,6 +354,7 @@ feel free to be detailed.
 
 1. `git rebase --abort` 退出 rebase
 2. rebase 之前，保险的做法是先 copy 一份当前的 branch`git branch my_branch_backup`，创建但不切换到该分支，如果搞砸了，通过`git reset --hard my_branch_backup`恢复
+3. rebase误操作，可以通用`git reflog`查找到rebase之前的那次commitID，然后`git reset --hard commitID`进行恢复
 
 ## Exercise-8 Forks And Remote Repos
 
