@@ -1,14 +1,26 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+
+function usePrevious(value) {
+  const ref = useRef();
+  useEffect(() => {
+    ref.current = value;
+  });
+  return ref.current;
+}
 
 const RefComponent = () => {
   const [stateNumber, setStateNumber] = useState(0);
   const numRef = useRef(0);
+  const previousStateNumber = usePrevious(stateNumber);
 
   function incrementAndDelayLogging() {
-    setStateNumber(stateNumber++);
+    setStateNumber(stateNumber + 1);
     numRef.current++;
     setTimeout(
-      () => alert(`state: ${stateNumber} | ref: ${numRef.current}`),
+      () =>
+        alert(
+          `previous: ${previousStateNumber} | state: ${stateNumber} | ref: ${numRef.current}`
+        ),
       1000
     );
   }
