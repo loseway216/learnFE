@@ -5,6 +5,7 @@ const limitRGB = (num) => (num < 0 ? 0 : num > 255 ? 255 : num);
 
 const step = 50;
 
+// 很像redux，但区别是这里维护的是组件内部的state
 const reducer = (state, action) => {
   switch (action.type) {
     case "INCREMENT_R":

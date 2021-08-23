@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useMemo, useState } from "react";
 
 const fibonacci = (n) => {
   if (n <= 1) {

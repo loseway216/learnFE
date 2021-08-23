@@ -1,4 +1,4 @@
-import { useState, useEffect, useDebugValue } from "react";
+import { useEffect, useState } from "react";
 
 const useIsRaining = () => {
   const [isRaining, setIsRaining] = useState(false);

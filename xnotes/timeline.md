@@ -45,8 +45,8 @@
 
 | Workshop                                 | Teacher         | From      | To        |
 | :--------------------------------------- | :-------------- | :-------- | :-------- |
-| Complete Intro to React (?h)             | Brian Holt      | 2021-4-10 | 2021-4-11 |
-| Intermediate React (?h)                  | Brian Holt      | 2021-4-13 |           |
+| Complete Intro to React (6h)             | Brian Holt      | 2021-4-10 | 2021-4-11 |
+| Intermediate React (6h)                  | Brian Holt      | 2021-8-21 | 2021-8-2? |
 | State Modeling in React with XState (4h) | David Khourshid |           |           |
 
 ### Webpack

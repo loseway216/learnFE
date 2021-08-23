@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const EffectComponent = () => {
   const [time, setTime] = useState(new Date());
@@ -8,6 +8,7 @@ const EffectComponent = () => {
       setTime(new Date());
     }, 1000);
     // return function: when component destroyed, clearTimeout or unsubscribe
+    // 每次rerender之前都会clean up
     return () => clearTimeout(timer);
   }, [time, setTime]);
   // []: no dependency, run once

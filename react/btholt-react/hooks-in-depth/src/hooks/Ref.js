@@ -1,11 +1,11 @@
-import { useState, useRef } from "react";
+import { useRef, useState } from "react";
 
 const RefComponent = () => {
   const [stateNumber, setStateNumber] = useState(0);
   const numRef = useRef(0);
 
   function incrementAndDelayLogging() {
-    setStateNumber(stateNumber + 1);
+    setStateNumber(stateNumber++);
     numRef.current++;
     setTimeout(
       () => alert(`state: ${stateNumber} | ref: ${numRef.current}`),

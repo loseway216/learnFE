@@ -1,15 +1,15 @@
 import { useState } from "react";
 
 const StateComponent = () => {
+  // 调用setState就会触发rerender，即使值不变
   const [isGreen, setIsGreen] = useState(true);
 
   return (
     <h1
-      // 调用setState就会触发rerender，即使值不变
       onClick={() => setIsGreen(!isGreen)}
-      style={{ color: isGreen ? "limegreen" : "crimson" }}
+      style={{ color: isGreen ? "greenyellow" : "orangered" }}
     >
-      State Example
+      useState Example
     </h1>
   );
 };
