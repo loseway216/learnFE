@@ -43,11 +43,11 @@
 
 ### React
 
-| Workshop                                 | Teacher         | From      | To        |
-| :--------------------------------------- | :-------------- | :-------- | :-------- |
-| Complete Intro to React (6h)             | Brian Holt      | 2021-4-10 | 2021-4-11 |
-| Intermediate React (6h)                  | Brian Holt      | 2021-8-21 | 2021-8-29 |
-| State Modeling in React with XState (4h) | David Khourshid |           |           |
+| Workshop                     | Teacher      | From      | To        |
+| :--------------------------- | :----------- | :-------- | :-------- |
+| Complete Intro to React (6h) | Brian Holt   | 2021-4-10 | 2021-4-11 |
+| Intermediate React (6h)      | Brian Holt   | 2021-8-21 | 2021-8-29 |
+| Redux-Fundamentals (5h)      | Steve-Kinney |           |           |
 
 ### Webpack
 
@@ -75,8 +75,6 @@
 ### TODO
 
 - [ ] Brian Holt
-  - [ ] Complete Intro to React, v5 (5.5h)
-  - [ ] Intermediate React, v2 (4h)
   - [ ] Complete Intro to Linux and the Command-Line (6.75h)
   - [ ] Complete Intro to Docker Containers (6h)
   - [ ] Complete Intro to Databases (7h)
