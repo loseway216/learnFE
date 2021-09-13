@@ -43,11 +43,12 @@
 
 ### React
 
-| Workshop                     | Teacher      | From      | To        |
-| :--------------------------- | :----------- | :-------- | :-------- |
-| Complete Intro to React (6h) | Brian Holt   | 2021-4-10 | 2021-4-11 |
-| Intermediate React (6h)      | Brian Holt   | 2021-8-21 | 2021-8-29 |
-| Redux-Fundamentals (5h)      | Steve-Kinney |           |           |
+| Workshop                        | Teacher      | From      | To        |
+| :------------------------------ | :----------- | :-------- | :-------- |
+| Complete Intro to React (6h)    | Brian Holt   | 2021-4-10 | 2021-4-11 |
+| Intermediate React (6h)         | Brian Holt   | 2021-8-21 | 2021-8-29 |
+| Getting Started with Redux (2h) | Dan Abramov  | 2021-9-13 |           |
+| Redux-Fundamentals (5h)         | Steve-Kinney |           |           |
 
 ### Webpack
 
