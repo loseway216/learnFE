@@ -9,6 +9,13 @@
 
 ---
 
+**浏览器**
+
+- [ ] [building a web browser](https://www.udacity.com/course/programming-languages--cs262)
+- [ ] 解析html、js、css
+
+---
+
 **JS**
 
 - [ ] [web API](https://wangdoc.com/)
@@ -26,7 +33,6 @@
 - [ ] 通读 react 官方文档
 - [ ] 状态管理
   - [ ] redux-dan
-  - [ ] redux-steve
   - [ ] saga 文档
   - [ ] [一种 Hooks 数据流管理方案](https://github.com/ascoders/weekly/blob/master/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/206.%E7%B2%BE%E8%AF%BB%E3%80%8A%E4%B8%80%E7%A7%8D%20Hooks%20%E6%95%B0%E6%8D%AE%E6%B5%81%E7%AE%A1%E7%90%86%E6%96%B9%E6%A1%88%E3%80%8B.md)
 - [ ] [ahooks 学习源码](https://github.com/alibaba/hooks)
@@ -65,12 +71,17 @@
 - [ ] service worker
 - [ ] web perfomance
 
+
+
 ---
 
-**算法**
+解惑：
 
-- [ ] leetcode
-- [ ] [算法导论 youtube](https://www.youtube.com/playlist?list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb)
+- [ ] jsx如何变成js和html
+- [ ] 开发框架
+  - [ ] 路由注入
+  - [ ] css-module
+  - [ ] store注入
 
 ---
 
