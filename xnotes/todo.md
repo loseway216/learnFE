@@ -11,14 +11,14 @@
 
 **浏览器**
 
-- [ ] [building a web browser](https://www.udacity.com/course/programming-languages--cs262)
-- [ ] 解析html、js、css
+- [ ][building a web browser](https://www.udacity.com/course/programming-languages--cs262)
+- [ ] 解析 html、js、css
 
 ---
 
 **JS**
 
-- [ ] [web API](https://wangdoc.com/)
+- [ ][web api](https://wangdoc.com/)
 - [ ] DOM API
 - [ ] ES6
 - [ ] lodash
@@ -31,17 +31,18 @@
 **React**
 
 - [ ] 通读 react 官方文档
+- [ ] react 官方 conext，reducer 实现，触发更新的原理
 - [ ] 状态管理
   - [ ] redux-dan
   - [ ] saga 文档
-  - [ ] [一种 Hooks 数据流管理方案](https://github.com/ascoders/weekly/blob/master/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/206.%E7%B2%BE%E8%AF%BB%E3%80%8A%E4%B8%80%E7%A7%8D%20Hooks%20%E6%95%B0%E6%8D%AE%E6%B5%81%E7%AE%A1%E7%90%86%E6%96%B9%E6%A1%88%E3%80%8B.md)
-- [ ] [ahooks 学习源码](https://github.com/alibaba/hooks)
+  - [ ][一种 hooks 数据流管理方案](https://github.com/ascoders/weekly/blob/master/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/206.%E7%B2%BE%E8%AF%BB%E3%80%8A%E4%B8%80%E7%A7%8D%20Hooks%20%E6%95%B0%E6%8D%AE%E6%B5%81%E7%AE%A1%E7%90%86%E6%96%B9%E6%A1%88%E3%80%8B.md)
+- [ ][ahooks 学习源码](https://github.com/alibaba/hooks)
 - [ ] rc 系列源码
-- [ ] [react-motion 源码](https://github.com/chenglou/react-motion)
-- [ ] [react-draggable 源码](https://github.com/chenglou/react-motion)
+- [ ][react-motion 源码](https://github.com/chenglou/react-motion)
+- [ ][react-draggable 源码](https://github.com/chenglou/react-motion)
 - [ ] mini React
 - [ ] react-dev-utils
-- [ ] [手动实现一个 react-dom](https://www.zhihu.com/question/29380608/answer/2006336708)
+- [ ][手动实现一个 react-dom](https://www.zhihu.com/question/29380608/answer/2006336708)
 
 ---
 
@@ -50,13 +51,13 @@
 - [ ] lodash/fp
 - [ ] getify 视频
 - [ ] Brian Lonsdorf 视频
-- [ ] [Eric Elliott: Composing software](https://medium.com/javascript-scene/composing-software-the-book-f31c77fc3ddc)
+- [ ][eric elliott: composing software](https://medium.com/javascript-scene/composing-software-the-book-f31c77fc3ddc)
 
 ---
 
 **Reactive Programming**
 
-- [ ] [staltz](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754)
+- [ ][staltz](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754)
 - [ ] Jafar 视频
 
 ---
@@ -71,17 +72,15 @@
 - [ ] service worker
 - [ ] web perfomance
 
-
-
 ---
 
 解惑：
 
-- [ ] jsx如何变成js和html
+- [ ] jsx 如何变成 js 和 html
 - [ ] 开发框架
   - [ ] 路由注入
   - [ ] css-module
-  - [ ] store注入
+  - [ ] store 注入
 
 ---
 
