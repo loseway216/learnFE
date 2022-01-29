@@ -88,3 +88,18 @@
 - [ ] Brian Lonsdorf，函数式
   - [ ] Hardcore Functional Programming in JavaScript, v2 (3.75h)
   - [ ] Hardcore Functional Architecture Patterns in JavaScript (4h)
+
+## [CS fundamentals](https://teachyourselfcs.com/)
+
+| 科目           | 书                                   | 资源                             | 时间         |
+| -------------- | ------------------------------------ | -------------------------------- | ------------ |
+| 编程思想       | SICP                                 | 中文书、英文 HTML、Berkeley 视频 | 2021/11/4 ～ |
+| 计算机架构     | CSAPP                                | 中文书、本地英文 PDF、Labs       |              |
+| 算法和数据结构 | Algorithm Design Manual              | 英文 PDF、作者视频课             |              |
+| 网络           | 《图解 HTTP》、自顶向下              | 中文书、英文 PDF、作者视频、Labs |              |
+| 编译原理       | Crafting Interpreters                | 英文 HTML                        |              |
+| 操作系统       | Operating Systems: Three Easy Pieces | 英文 HTML                        |              |
+| 数学           |                                      |                                  |              |
+| 数据库         |                                      |                                  |              |
+| 分布式系统     |                                      |                                  |              |
+| 设计模式       |                                      |                                  |              |

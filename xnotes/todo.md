@@ -14,6 +14,60 @@
 
 ---
 
+### TODO-LIST
+
+- 半年内学习计划，务实
+
+  - angular
+
+  - brian 和 getify 所有课程
+
+  - chrome devtool
+
+  - Web Performance Fundamentals
+
+- 半年后学习计划，基本功
+
+---
+
+**JS**
+
+- [ ] 通读 wangdoc
+
+- [ ] js 工具库，lodash，深拷贝，assign，omit
+
+- [ ] json 解析
+
+- [ ] 正则表达式 pdf
+
+- [ ] The Good Parts of JavaScript and the Web (11h)，查漏补缺
+
+---
+
+### angular
+
+- [ ] frontendmaster
+
+- [ ] typescript
+
+- [ ] rxjs frontendmaster+egghead
+
+---
+
+### 网络
+
+- [ ] nginx 基本配置，含义
+
+- [ ] 本地 front+back 的 demo，http 头设置，cookie、缓存、json/download
+
+- [ ] 单点登录(public/login => public/redirect => biz/authenticate)
+
+- [ ] oauth
+
+- [ ] websocket
+
+---
+
 **浏览器**
 
 - [ ] [building a web browser](https://www.udacity.com/course/programming-languages--cs262)
@@ -21,24 +75,6 @@
 - [ ] 解析 html、js、css
 
 - [ ] demo 配合理解 4 篇博客
-
----
-
-**JS**
-
-- [ ] web API
-
-- [ ] DOM API
-
-- [ ] ES6
-
-- [ ] lodash
-
-- [ ] json 解析
-
-- [ ] 正则表达式 pdf
-
-- [ ] The Good Parts of JavaScript and the Web (11h)，查漏补缺
 
 ---
 
@@ -105,32 +141,3 @@
 - [ ] web perfomance
 
 ---
-
-解惑：
-
-- [ ] jsx 如何变成 js 和 html
-
-- [ ] 开发框架
-
-  - [ ] 路由注入
-
-  - [ ] css-module
-
-  - [ ] store 注入
-
----
-
-[基础](https://teachyourselfcs.com/)
-
-| 科目           | 书                                   | 资源                             | 时间         |
-| -------------- | ------------------------------------ | -------------------------------- | ------------ |
-| 编程思想       | SICP                                 | 中文书、英文 HTML、Berkeley 视频 | 2021/11/4 ～ |
-| 计算机架构     | CSAPP                                | 中文书、本地英文 PDF、Labs       |              |
-| 算法和数据结构 | Algorithm Design Manual              | 英文 PDF、作者视频课             |              |
-| 网络           | 《图解 HTTP》、自顶向下              | 中文书、英文 PDF、作者视频、Labs |              |
-| 编译原理       | Crafting Interpreters                | 英文 HTML                        |              |
-| 操作系统       | Operating Systems: Three Easy Pieces | 英文 HTML                        |              |
-| 数学           |                                      |                                  |              |
-| 数据库         |                                      |                                  |              |
-| 分布式系统     |                                      |                                  |              |
-| 设计模式       |                                      |                                  |              |
