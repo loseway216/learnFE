@@ -36,7 +36,7 @@
 | Tools              | VIM Fundamentals (4h)                                 | ThePrimeagen     | 2021-08-08 | 2021-08-14 |
 | React              | Intermediate React (6h)                               | Brian Holt       | 2021-08-21 | 2021-08-29 |
 | Data Visualization | Introduction To D3.js                                 | Shirley Wu       | 2022-03-02 | 2022-03-08 |
-| Angular            | Angular 13 Fundamentals                               | Lukas Ruebbelke  | 2022-03-19 |            |
+| Angular            | Angular 13 Fundamentals                               | Lukas Ruebbelke  | 2022-04-06 |            |
 
 ### TODO
 
