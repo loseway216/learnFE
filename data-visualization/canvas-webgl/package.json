@@ -1,0 +1,27 @@
+{
+  "name": "canvas-webgl",
+  "version": "1.0.0",
+  "description": "https://frontendmasters.com/courses/canvas-webgl/",
+  "main": "index.js",
+  "scripts": {
+    "new": "npx canvas-sketch sketch.js --new",
+    "new-3": "npx canvas-sketch webgl.js --new --template=three",
+    "new-shader": "npx canvas-sketch shader.js --new --template=shader",
+    "start": "npx canvas-sketch sketch.js --open",
+    "export": "npx canvas-sketch webgl.js --output=tmp/",
+    "penplotter": "npx canvas-sketch penplotter.js --new --template=penplot"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "canvas-sketch-cli": "^1.11.15"
+  },
+  "dependencies": {
+    "bezier-easing": "^2.1.0",
+    "canvas-sketch": "^0.7.5",
+    "canvas-sketch-util": "^1.10.0",
+    "eases": "^1.0.8",
+    "nice-color-palettes": "^3.0.0",
+    "three": "^0.140.2"
+  }
+}
