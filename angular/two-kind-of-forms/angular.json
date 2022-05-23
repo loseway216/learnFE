@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "template-driven-form": {
+    "two-kind-of-forms": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/template-driven-form",
+            "outputPath": "dist/two-kind-of-forms",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -68,10 +68,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "template-driven-form:build:production"
+              "browserTarget": "two-kind-of-forms:build:production"
             },
             "development": {
-              "browserTarget": "template-driven-form:build:development"
+              "browserTarget": "two-kind-of-forms:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -79,7 +79,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "template-driven-form:build"
+            "browserTarget": "two-kind-of-forms:build"
           }
         },
         "test": {
@@ -102,5 +102,5 @@
       }
     }
   },
-  "defaultProject": "template-driven-form"
+  "defaultProject": "two-kind-of-forms"
 }

@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Hero } from './../hero';
+import { Hero } from '../hero';
 
 @Component({
-  selector: 'app-hero-form',
-  templateUrl: './hero-form.component.html',
-  styleUrls: ['./hero-form.component.css'],
+  selector: 'app-template-driven-form',
+  templateUrl: './template-driven-form.component.html',
+  styleUrls: ['./template-driven-form.component.css'],
 })
-export class HeroFormComponent implements OnInit {
+export class TemplateDrivenFormComponent implements OnInit {
   powers = ['Really Smart', 'Super Flexible', 'Super Hot', 'Weather Changer'];
 
   model = new Hero(18, 'Dr IQ', this.powers[0], 'Chuck Overstreet');
