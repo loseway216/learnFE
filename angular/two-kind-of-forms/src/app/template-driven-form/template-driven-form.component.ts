@@ -14,7 +14,6 @@ export class TemplateDrivenFormComponent implements OnInit {
   submitted = false;
 
   onSubmit() {
-    console.log(1);
     this.submitted = true;
   }
 

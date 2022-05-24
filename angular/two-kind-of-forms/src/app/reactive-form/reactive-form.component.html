@@ -1,1 +1,96 @@
-<p>reactive-form works!</p>
+<div class="container">
+  <h1>Reactive Form</h1>
+  <p>form value: {{ heroForm.value | json }}</p>
+  <form (ngSubmit)="onSubmit()" [formGroup]="heroForm">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input
+        class="form-control"
+        type="text"
+        id="name"
+        required
+        formControlName="name"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="power">Hero Power</label>
+      <select id="power" class="form-control" required formControlName="power">
+        <option *ngFor="let power of powers" [value]="power">
+          {{ power }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group" formGroupName="address">
+      <h2>Address</h2>
+      <label for="street">Street</label>
+      <input
+        class="form-control"
+        type="text"
+        id="street"
+        formControlName="street"
+      />
+
+      <label for="city">City</label>
+      <input
+        class="form-control"
+        type="text"
+        id="city"
+        formControlName="city"
+      />
+
+      <label for="state">State</label>
+      <input
+        class="form-control"
+        type="text"
+        id="state"
+        formControlName="state"
+      />
+    </div>
+
+    <div>
+      <h2>Lessons</h2>
+      <button type="button" class="btn btn-default" (click)="addLesson()">
+        Add Lessons
+      </button>
+      <ng-container formArrayName="lessons">
+        <ng-container
+          *ngFor="let lessonForm of lessons.controls; let index = index"
+        >
+          <div [formGroupName]="index">
+            <label for="title">title</label>
+            <input
+              class="form-control"
+              type="text"
+              id="title"
+              formControlName="title"
+            />
+
+            <label for="level">level</label>
+            <input
+              class="form-control"
+              type="text"
+              id="level"
+              formControlName="level"
+            />
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="!heroForm.valid">
+      Submit
+    </button>
+    <button type="button" class="btn btn-default" (click)="updateParts()">
+      Update parts
+    </button>
+    <button
+      type="button"
+      class="btn btn-default"
+      (click)="newHero(); heroForm.reset()"
+    >
+      New Hero
+    </button>
+  </form>
+</div>
