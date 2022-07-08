@@ -2,7 +2,7 @@
 
 ## Jonas' Udemy courses
 
-- [x] html\&css 基础 (12h) ——2020/4
+- [x] html\&css 基础 (12h) ——2020/4·
 
 - [x] javascript 基础 (40h) ——2020/5 to 2020/7
 
@@ -37,6 +37,7 @@
 | React              | Intermediate React (6h)                               | Brian Holt       | 2021-08-21 | 2021-08-29 |
 | Data Visualization | Introduction To D3.js                                 | Shirley Wu       | 2022-03-02 | 2022-03-08 |
 | Data Visualization | Creative Coding with Canvas & WebGL                   | Matt DesLauriers | 2022-05-09 | 2022-05-19 |
+| Tools              | Chrome Dev Tools（3.5h）                              | Jon Kuperman     | 2022-06-21 | 2022-06-23 |
 
 ### TODO
 
@@ -72,8 +73,6 @@
 
   - [ ] Hardcore Functional Architecture Patterns in JavaScript (4h)
 
-- [ ] Mastering Chrome Developer Tools v2 (3.5h)
-
 - [ ] JavaScript Testing Practices and Principles (3.5h)
 
 - [ ] Code Transformation and Linting with ASTs (3.5h)
@@ -96,8 +95,8 @@
 | 计算机架构     | CSAPP                                | 中文书、本地英文 PDF、Labs       |      |
 | 算法和数据结构 | Algorithm Design Manual              | 英文 PDF、作者视频课             |      |
 | 网络           | 《图解 HTTP》、自顶向下              | 中文书、英文 PDF、作者视频、Labs |      |
-| 编译原理       | Crafting Interpreters                | 英文 HTML                        |      |
 | 操作系统       | Operating Systems: Three Easy Pieces | 英文 HTML                        |      |
+| 编译原理       | Crafting Interpreters                | 英文 HTML                        |      |
 | 数学           |                                      |                                  |      |
 | 数据库         |                                      |                                  |      |
 | 分布式系统     |                                      |                                  |      |

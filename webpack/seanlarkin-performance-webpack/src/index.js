@@ -19,7 +19,7 @@ const getLodashUniq = () =>
 // webpack can resolve js json mjs wasm
 let setButtonStyle;
 if (process.env.NODE_ENV === "development") {
-  setButtonStyle = (color) =>
+  setButtonStyle = color =>
     import(
       /* webpackMode: "lazy-once" */
       /* webpackChunkName: "color" */
@@ -28,7 +28,7 @@ if (process.env.NODE_ENV === "development") {
       `./button-styles/${color}.js`
     );
 } else {
-  setButtonStyle = (color) =>
+  setButtonStyle = color =>
     import(
       /* webpackChunkName: "color" */
       /* webpackPrefetch: true */ `./button-styles/${color}.js`
@@ -37,18 +37,18 @@ if (process.env.NODE_ENV === "development") {
 
 const button = makeButton("A Button");
 
-button.addEventListener("click", function () {
+button.addEventListener("click", function() {
   // 引入一个很大的库
-  getGSAP().then((gsap) => {
+  getGSAP().then(gsap => {
     console.log(gsap);
   });
   // 引入一个很大的库其中的子方法
-  getLodashUniq().then((uniq) => {
+  getLodashUniq().then(uniq => {
     console.log(uniq);
   });
-  console.log(Object.prototype.toString.call(this));
+  // console.log(Object.prototype.toString.call(this));
   // 切换主题
-  setButtonStyle("red").then((styleStr) => {
+  setButtonStyle("yellow").then(styleStr => {
     console.log(styleStr);
     this.style = styleStr.default;
   });

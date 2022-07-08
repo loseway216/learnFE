@@ -1,4 +1,4 @@
-import { red, blue } from "./button-styles";
+import { blue, red } from "./button-styles";
 
 const top = document.createElement("div");
 top.innerText = "Top of Footer";

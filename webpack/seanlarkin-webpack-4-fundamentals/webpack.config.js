@@ -1,8 +1,9 @@
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { merge } = require("webpack-merge");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
-const modeConfig = function (mode) {
+const modeConfig = function(mode) {
   return require(`./build-utils/webpack.${mode}`)(mode);
 };
 const loadPresets = require("./build-utils/loadPresets");
@@ -10,20 +11,24 @@ const loadPresets = require("./build-utils/loadPresets");
 module.exports = ({ mode, presets } = { mode: "production", presets: [] }) => {
   return merge(
     {
-      mode: "none",
+      mode: "production",
       output: {
-        filename: "bundle.js",
+        filename: "[chunkhash].js"
       },
       module: {
         rules: [
           {
             test: /\.jpe?g$/,
-            use: [{ loader: "url-loader", options: { limit: 50000 } }],
+            use: [{ loader: "url-loader", options: {} }]
           },
-          {},
-        ],
+          {}
+        ]
       },
-      plugins: [new HtmlWebpackPlugin(), new webpack.ProgressPlugin()],
+      plugins: [
+        new CleanWebpackPlugin(),
+        new HtmlWebpackPlugin(),
+        new webpack.ProgressPlugin()
+      ]
     },
     modeConfig(mode),
     loadPresets({ mode, presets })

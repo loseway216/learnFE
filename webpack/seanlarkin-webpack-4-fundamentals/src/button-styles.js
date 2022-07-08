@@ -1,9 +1,4 @@
-// commonJS named export
-const red = "color: red;";
-const blue = "color: blue;";
-const makeColorStyle = (color) => `color: ${color}`;
-
-// 导出最好都放到最后
-exports.red = red;
-exports.blue = blue;
-exports.makeColorStyle = makeColorStyle;
+export const red = "color: red;";
+export const blue = "color: blue;";
+export const yellow = "color: yellow;";
+export const makeColorStyle = color => `color: ${color}`;

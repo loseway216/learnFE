@@ -1,16 +1,10 @@
-**习惯**
+> It's almost impossible to get gold if you never get your hands dirty
 
-- 每周关注 javascript weekly、github trends
+- 英语水平
 
-- 每周看博客文章：Eric Elliot
+- CS 理论训练
 
-- 每周关注 twitter
-
-- 每日 leetcode
-
-- 每日 lodash
-
-- [Jason Millter](https://github.com/developit)
+- 前端眼界
 
 ---
 
@@ -18,39 +12,31 @@
 
 - 半年内学习计划，务实
 
-  - angular
+  - [ ] 通读 wangdoc
 
-  - brian 和 getify 所有课程
+  - [ ] 通读 angular 文档
 
-  - chrome devtool
+  - [ ] typescript
 
-  - Web Performance Fundamentals
+  - [ ] rxjs
+
+  - [ ] brian 和 getify 所有课程
+
+  - [ ] js 工具库，lodash，深拷贝，assign，omit，学一下 frontendmaster 上面的函数式编程再说
+
+  - [ ] json 解析
+
+  - [ ] 正则表达式 pdf
+
+  - [ ] The Good Parts of JavaScript and the Web (11h)，查漏补缺
+
+  - [ ] Web Performance Fundamentals
 
 - 半年后学习计划，基本功
 
----
+- 浏览器，编译
 
-**JS**
-
-- [ ] 通读 wangdoc
-
-- [ ] js 工具库，lodash，深拷贝，assign，omit
-
-- [ ] json 解析
-
-- [ ] 正则表达式 pdf
-
-- [ ] The Good Parts of JavaScript and the Web (11h)，查漏补缺
-
----
-
-### angular
-
-- [ ] 官方文档
-
-- [ ] typescript
-
-- [ ] rxjs frontendmaster+egghead
+- 顺着 vue 全家桶的原理，学习 web
 
 ---
 
@@ -65,6 +51,8 @@
 - [ ] oauth
 
 - [ ] websocket
+
+- [ ] 登陆拦截
 
 ---
 
