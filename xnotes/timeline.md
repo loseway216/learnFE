@@ -2,13 +2,13 @@
 
 ## Jonas' Udemy courses
 
-- [x] html\&css 基础 (12h) ——2020/4·
+*   [x] html\&css 基础 (12h) ——2020/4·
 
-- [x] javascript 基础 (40h) ——2020/5 to 2020/7
+*   [x] javascript 基础 (40h) ——2020/5 to 2020/7
 
-- [x] css 进阶 (28h) ——2020/8 to 2020/9
+*   [x] css 进阶 (28h) ——2020/8 to 2020/9
 
-- [ ] node (42h) ——2020/9/21 to 93 节搁置，需要学习 express+mongo 的后端开发时再看
+*   [ ] node (42h) ——2020/9/21 to 93 节搁置，需要学习 express+mongo 的后端开发时再看
 
 ## Frontend Master
 
@@ -37,67 +37,69 @@
 | React              | Intermediate React (6h)                               | Brian Holt       | 2021-08-21 | 2021-08-29 |
 | Data Visualization | Introduction To D3.js                                 | Shirley Wu       | 2022-03-02 | 2022-03-08 |
 | Data Visualization | Creative Coding with Canvas & WebGL                   | Matt DesLauriers | 2022-05-09 | 2022-05-19 |
-| Tools              | Chrome Dev Tools（3.5h）                              | Jon Kuperman     | 2022-06-21 | 2022-06-23 |
+| Tools              | Chrome Dev Tools（3.5h）                                | Jon Kuperman     | 2022-06-21 | 2022-06-23 |
+| Node               | Complete Intro to Real-Time                           | Brian Holt       | 2022-07-24 | 2022-07-24 |
 
 ### TODO
 
-- [ ] Brian Holt
+*   [ ] Brian Holt
 
-  - [ ] Complete Intro to Linux and the Command-Line (6.75h)
+    *   [ ] Complete Intro to Linux and the Command-Line (6.75h)
 
-  - [ ] Complete Intro to Docker Containers (6h)
+    *   [ ] Complete Intro to Docker Containers (6h)
 
-  - [ ] Complete Intro to Databases (7h)
+    *   [ ] Complete Intro to Databases (7h)
 
-- [ ] Kyle Simpson
+*   [ ] Kyle Simpson
 
-  - [ ] Exploring Service Workers (4h)
+    *   [ ] Exploring Service Workers (4h)
 
-  - [ ] Digging Into Node.js (4h)
+    *   [ ] Digging Into Node.js (4h)
 
-  - [ ] Rethinking Asynchronous JavaScript (6.5h)
+    *   [ ] Rethinking Asynchronous JavaScript (6.5h)
 
-  - [ ] Functional-Light JavaScript (10h)
+    *   [ ] Functional-Light JavaScript (10h)
 
-- [ ] The Good Parts of JavaScript and the Web (11h)
+*   [ ] The Good Parts of JavaScript and the Web (11h)
 
-- [ ] Jafar Husain，响应式
+*   [ ] Jafar Husain，响应式
 
-  - [ ] Asynchronous Programming in JavaScript (with Rx.js Observables) (9.5h)
+    *   [ ] Asynchronous Programming in JavaScript (with Rx.js Observables) (9.5h)
 
-  - [ ] Advanced Asynchronous JavaScript (3.5h)
+    *   [ ] Advanced Asynchronous JavaScript (3.5h)
 
-- [ ] Brian Lonsdorf，函数式
+*   [ ] Brian Lonsdorf，函数式
 
-  - [ ] Hardcore Functional Programming in JavaScript, v2 (3.75h)
+    *   [ ] Hardcore Functional Programming in JavaScript, v2 (3.75h)
 
-  - [ ] Hardcore Functional Architecture Patterns in JavaScript (4h)
+    *   [ ] Hardcore Functional Architecture Patterns in JavaScript (4h)
 
-- [ ] JavaScript Testing Practices and Principles (3.5h)
+*   [ ] JavaScript Testing Practices and Principles (3.5h)
 
-- [ ] Code Transformation and Linting with ASTs (3.5h)
+*   [ ] Code Transformation and Linting with ASTs (3.5h)
 
-- [ ] Introduction to Bash, VIM & Regex (4h)
+*   [ ] Introduction to Bash, VIM & Regex (4h)
 
-- [ ] Networking and Streams (3h)
+*   [ ] Networking and Streams (3h)
 
-- [ ] JavaScript State Machines and XState (4h)
+*   [ ] JavaScript State Machines and XState (4h)
 
-- [ ] Getting Started with Redux (2h) (Dan Abramov)
+*   [ ] Getting Started with Redux (2h) (Dan Abramov)
 
-- [ ] Redux-Fundamentals (5h)
+*   [ ] Redux-Fundamentals (5h)
 
 ## [CS fundamentals](https://teachyourselfcs.com/)
 
-| 科目           | 书                                   | 资源                             | 时间 |
-| -------------- | ------------------------------------ | -------------------------------- | ---- |
-| 编程思想       | SICP                                 | 中文书、英文 HTML、Berkeley 视频 |      |
-| 计算机架构     | CSAPP                                | 中文书、本地英文 PDF、Labs       |      |
-| 算法和数据结构 | Algorithm Design Manual              | 英文 PDF、作者视频课             |      |
-| 网络           | 《图解 HTTP》、自顶向下              | 中文书、英文 PDF、作者视频、Labs |      |
-| 操作系统       | Operating Systems: Three Easy Pieces | 英文 HTML                        |      |
-| 编译原理       | Crafting Interpreters                | 英文 HTML                        |      |
-| 数学           |                                      |                                  |      |
-| 数据库         |                                      |                                  |      |
-| 分布式系统     |                                      |                                  |      |
-| 设计模式       |                                      |                                  |      |
+| 科目      | 书                                    | 资源                      | 时间 |
+| ------- | ------------------------------------ | ----------------------- | -- |
+| 编程思想    | SICP                                 | 中文书、英文 HTML、Berkeley 视频 |    |
+| 计算机架构   | CSAPP                                | 中文书、本地英文 PDF、Labs       |    |
+| 算法和数据结构 | Algorithm Design Manual              | 英文 PDF、作者视频课            |    |
+| 网络      | 《图解 HTTP》、自顶向下                       | 中文书、英文 PDF、作者视频、Labs    |    |
+| 操作系统    | Operating Systems: Three Easy Pieces | 英文 HTML                 |    |
+| 编译原理    | Crafting Interpreters                | 英文 HTML                 |    |
+| 数学      |                                      |                         |    |
+| 数据库     |                                      |                         |    |
+| 分布式系统   |                                      |                         |    |
+| 设计模式    |                                      |                         |    |
+
