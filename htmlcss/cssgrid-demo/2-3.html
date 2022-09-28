@@ -1,0 +1,66 @@
+<style>
+  /* 实现3：name grid areas */
+  /* 适用于cell不多的小型布局 */
+  .layout {
+    width: 1000px;
+    height: 800px;
+    margin: 30px auto;
+
+    display: grid;
+    grid-template-rows: 1fr 2fr 4fr 1fr;
+    grid-template-columns: repeat(3, 1fr) 20%;
+    grid-gap: 20px;
+
+    grid-template-areas:
+      "head head head ."
+      "box-1 box-2 box-3 side"
+      "main main main side"
+      "foot foot foot foot";
+  }
+
+  .layout > * {
+    background-color: #eee;
+    padding: 20px;
+    font-size: 30px;
+    font-family: sans-serif;
+  }
+
+  .header {
+    grid-area: head;
+  }
+
+  .box--1 {
+    grid-area: box-1;
+  }
+
+  .box--2 {
+    grid-area: box-2;
+  }
+
+  .box--3 {
+    grid-area: box-3;
+  }
+
+  .sidebar {
+    grid-area: side;
+  }
+
+  .content {
+    grid-area: main;
+  }
+
+  .footer {
+    grid-area: foot;
+  }
+</style>
+<body>
+  <div class="layout">
+    <div class="header">Header</div>
+    <div class="box box--1">Small box 1</div>
+    <div class="box box--2">Small box 2</div>
+    <div class="box box--3">Small box 3</div>
+    <div class="sidebar">Sidebar</div>
+    <div class="content">Main content</div>
+    <div class="footer">Footer</div>
+  </div>
+</body>

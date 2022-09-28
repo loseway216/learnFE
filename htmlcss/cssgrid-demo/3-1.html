@@ -1,0 +1,50 @@
+<style>
+  /*
+  1. 显式创建 vs 隐式创建
+  2. align items
+  3. align tracks
+  */
+  .container {
+    width: 1000px;
+    height: 1000px;
+    margin: 30px auto;
+    background-color: #eee;
+
+    display: grid;
+    /* 显式创建两行两列，剩下的部分自动隐式创建 */
+    grid-template-rows: repeat(2, 200px);
+    grid-template-columns: repeat(2, 200px);
+    grid-gap: 20px;
+
+    /* 设置自动填充的高度 */
+    /* auto mincontent minmax */
+    grid-auto-rows: 80px;
+
+    /* 让item在自己的grid area中定位 */
+    align-items: stretch;
+    justify-items: stretch;
+
+    /* center start end space-between space-around space-evenly */
+    justify-content: center;
+    align-content: center;
+  }
+
+  .item {
+    padding: 10px;
+    font-size: 30px;
+    font-family: sans-serif;
+    background-color: orangered;
+  }
+</style>
+<body>
+  <div class="container">
+    <div class="item item--1">1</div>
+    <div class="item item--2">2</div>
+    <div class="item item--3">3</div>
+    <div class="item item--4">4</div>
+    <div class="item item--5">5</div>
+    <div class="item item--6">6</div>
+    <div class="item item--7">7</div>
+    <div class="item item--8">8</div>
+  </div>
+</body>

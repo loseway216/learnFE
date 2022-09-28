@@ -1,0 +1,56 @@
+<style>
+  .container {
+    width: 1000px;
+    margin: 30px auto;
+    background-color: #eee;
+
+    display: grid;
+
+    /* using min-content and max-content */
+    grid-template-rows: repeat(2, min-content);
+    grid-template-columns: max-content 1fr 1fr min-content;
+  }
+
+  .item {
+    padding: 10px;
+    font-size: 30px;
+    font-family: sans-serif;
+  }
+
+  .item--1 {
+    background-color: orangered;
+  }
+  .item--2 {
+    background-color: yellowgreen;
+  }
+  .item--3 {
+    background-color: blueviolet;
+  }
+  .item--4 {
+    background-color: palevioletred;
+  }
+  .item--5 {
+    background-color: royalblue;
+  }
+  .item--6 {
+    background-color: goldenrod;
+  }
+  .item--7 {
+    background-color: crimson;
+  }
+  .item--8 {
+    background-color: darkslategray;
+  }
+</style>
+<body>
+  <div class="container">
+    <div class="item item--1">Morden</div>
+    <div class="item item--2">CSS</div>
+    <div class="item item--3">with</div>
+    <div class="item item--4">Flexbox</div>
+    <div class="item item--5">and and and</div>
+    <div class="item item--6">Grid</div>
+    <div class="item item--7">is</div>
+    <div class="item item--8">great and amazing</div>
+  </div>
+</body>

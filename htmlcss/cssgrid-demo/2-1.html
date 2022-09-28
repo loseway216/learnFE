@@ -1,0 +1,50 @@
+<style>
+  /* 实现1：line numbers */
+  .layout {
+    width: 1000px;
+    height: 800px;
+    margin: 30px auto;
+
+    display: grid;
+    grid-template-rows: 1fr 2fr 4fr 1fr;
+    grid-template-columns: repeat(3, 1fr) 20%;
+    grid-gap: 20px;
+  }
+
+  .layout > * {
+    background-color: #eee;
+    padding: 20px;
+    font-size: 30px;
+    font-family: sans-serif;
+  }
+
+  .header {
+    grid-column: 1 / -1;
+  }
+
+  .sidebar {
+    grid-row: 2 / 4;
+    grid-row: 2 / span 2;
+    grid-column: 4 / 5;
+  }
+
+  .content {
+    grid-column: 1 / 4;
+    grid-column: 1 / span 3;
+  }
+
+  .footer {
+    grid-column: 1 / -1;
+  }
+</style>
+<body>
+  <div class="layout">
+    <div class="header">Header</div>
+    <div class="box box--1">Small box 1</div>
+    <div class="box box--2">Small box 2</div>
+    <div class="box box--3">Small box 3</div>
+    <div class="sidebar">Sidebar</div>
+    <div class="content">Main content</div>
+    <div class="footer">Footer</div>
+  </div>
+</body>
