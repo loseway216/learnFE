@@ -20,6 +20,17 @@ function fibonacci(n) {
   return fibonacci(n - 2) + fibonacci(n - 1);
 }
 
+function fibonacci(n) {
+  function fibIter(a, b, count) {
+    if (count == 0) {
+      return b
+    } else {
+      fibIter(a + b, a, count - 1)
+    }
+  }
+  fibIter(1, 0, n)
+}
+
 for (let i = 1; i < 20; i++) {
   wr(`${i}. ${fibonacci(i)}`);
 }

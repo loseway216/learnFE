@@ -1,12 +1,12 @@
-> It's almost impossible to get gold if you never get your hands dirty
+> Just do it
 
 - 英语水平
 
-- 花一年的时间补习 行业通用知识 CS 基础
+- 2022 年 11 月开始 行业通用知识 CS 基础
 
 - 前端眼界
 
-- 领域深耕？
+- 领域深耕
 
 - 经济视角
 
@@ -14,17 +14,9 @@
 
 ### TODO-LIST
 
-- 半年内学习计划，务实
+- javascript
 
   - [ ] 通读 wangdoc
-
-  - [ ] 通读 angular 文档
-
-  - [ ] typescript
-
-  - [ ] rxjs
-
-  - [ ] brian 和 getify 所有课程
 
   - [ ] js 工具库，lodash，深拷贝，assign，omit，学一下 frontendmaster 上面的函数式编程再说
 
@@ -32,11 +24,7 @@
 
   - [ ] 正则表达式 pdf
 
-  - [ ] The Good Parts of JavaScript and the Web (11h)，查漏补缺
-
-  - [ ] Web Performance Fundamentals
-
-- 半年后学习计划，基本功
+- 基本功
 
   - [ ] sicp
 
