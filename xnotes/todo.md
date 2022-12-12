@@ -1,8 +1,6 @@
-> Just do it
+> Just do it 不要焦虑将来，先把眼前的弄明白
 
 - 英语水平
-
-- 2022 年 11 月开始 行业通用知识 CS 基础
 
 - 前端眼界
 
@@ -14,35 +12,19 @@
 
 ### TODO-LIST
 
-- javascript
-
-  - [ ] 通读 wangdoc
-
-  - [ ] js 工具库，lodash，深拷贝，assign，omit，学一下 frontendmaster 上面的函数式编程再说
-
-  - [ ] json 解析
-
-  - [ ] 正则表达式 pdf
-
 - 基本功
-
-  - [ ] sicp
-
-  - [ ] csapp
-
-  - [ ] 算法
-
-  - [ ] 网络
-
-  - [ ] ddia
-
-  - [ ] system design primer
 
   - [ ] vue 源码学习框架、语言、最佳实践
 
-  - [ ] vite 源码学习工程化、node
+  - [ ] vite 源码学习工程化、node、编译原理
 
   - [ ] 浏览器原理
+
+  - [ ] lodash
+
+  - [ ] json 解析
+
+  - [ ] 正则表达式
 
 ---
 

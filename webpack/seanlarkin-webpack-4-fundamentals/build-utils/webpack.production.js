@@ -1,10 +1,10 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = () => ({
-  mode: "production",
+  mode: "none",
   devtool: "source-map",
   output: {
-    filename: "bundle.js"
+    filename: "[name].[chunkhash].js",
   },
   module: {
     rules: [

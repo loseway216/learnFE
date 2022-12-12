@@ -2,6 +2,7 @@ import makeButton from "./button"; // button内部是commongJS，但是webpack�
 import { makeColorStyle } from "./button-styles";
 import makeImage from "./image";
 import imageUrl from "./webpack-logo.jpg";
+console.log(imageUrl);
 
 import "./footer.css"; // side effect import
 
@@ -18,6 +19,7 @@ button.style = makeColorStyle("orangered");
 // 场景：点击按钮的时候才加载footer，code spliting
 button.addEventListener("click", e => {
   loadFooter().then(m => {
+    console.log(m);
     const footer = m.footer;
     document.body.appendChild(footer);
   });
