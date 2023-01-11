@@ -1,0 +1,9 @@
+<app-left
+  (addEmitter)="add($event)"
+  (removeEmmiter)="remove($event)"
+></app-left>
+<app-right
+  [listOfData]="list"
+  [addItem]="addItem"
+  [removeItem]="removeItem"
+></app-right>

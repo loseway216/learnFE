@@ -89,15 +89,15 @@
 
 ## [CS fundamentals](https://teachyourselfcs.com/)
 
-| 科目           | 书                                   | 资源                             | FROM       | TO  |
-| -------------- | ------------------------------------ | -------------------------------- | ---------- | :-- |
-| 编程思想       | SICP                                 | 中文书、英文 HTML、Berkeley 视频 | 2022-11-01 |     |
-| 计算机架构     | CSAPP                                | 中文书、本地英文 PDF、Labs       |            |     |
-| 网络           | 《图解 HTTP》、自顶向下              | 中文书、英文 PDF、作者视频、Labs |            |     |
-| 算法和数据结构 | Algorithm Design Manual              | 英文 PDF、作者视频课             |            |     |
-| 数学           |                                      |                                  |            |     |
-| 操作系统       | Operating Systems: Three Easy Pieces | 英文 HTML                        |            |     |
-| 编译原理       | Crafting Interpreters                | 英文 HTML                        |            |     |
-| 数据库         |                                      |                                  |            |     |
-| 分布式系统     | ddia/system design primer            |                                  |            |     |
-| 设计模式       |                                      |                                  |            |     |
+| 科目           | 资源                                 | FROM       | TO         |
+| -------------- | ------------------------------------ | ---------- | :--------- |
+| 编程思想       | SICP                                 | 2022-11-01 | 2022-12-23 |
+| 计算机架构     | CSAPP                                | 2022-12-24 |            |
+| 网络           | 《图解 HTTP》、自顶向下              |            |            |
+| 编译原理       | Crafting Interpreters                |            |            |
+| 算法和数据结构 | Algorithm Design Manual              |            |            |
+| 数学           |                                      |            |            |
+| 操作系统       | Operating Systems: Three Easy Pieces |            |            |
+| 数据库         |                                      |            |            |
+| 分布式系统     | ddia/system design primer            |            |            |
+| 设计模式       |                                      |            |            |
