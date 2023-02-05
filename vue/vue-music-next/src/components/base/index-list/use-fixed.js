@@ -1,0 +1,85 @@
+import { computed, nextTick, ref, watch } from "vue";
+
+export default function useFixed(props) {
+  const TITLE_HEIGHT = 30;
+  const groupRef = ref(null);
+  const listHeights = ref([]);
+  const scrollY = ref(0);
+  const currentIndex = ref(0);
+  const distance = ref(0);
+
+  const fixedTitle = computed(() => {
+    if (scrollY.value < 0) {
+      return "";
+    }
+    const currentGroup = props.data[currentIndex.value];
+    // console.log(currentIndex.value, currentGroup);
+    return currentGroup ? currentGroup.title : "";
+  });
+
+  const fixedStyle = computed(() => {
+    const distanceVal = distance.value;
+
+    const diff =
+      distanceVal > 0 && distanceVal < TITLE_HEIGHT
+        ? distanceVal - TITLE_HEIGHT
+        : 0;
+
+    return {
+      transform: `translate3d(0,${diff}px,0)`,
+    };
+  });
+
+  watch(
+    () => props.data,
+    async () => {
+      await nextTick();
+      calculate();
+    }
+  );
+
+  // 监听实时滚动的位置 获取滚动到了哪个组
+  watch(scrollY, (newY) => {
+    const listHeightsVal = listHeights.value;
+
+    for (let i = 0; i < listHeightsVal.length - 1; i++) {
+      // 当前组的顶部
+      const heightTop = listHeightsVal[i];
+      // 当前组的底部
+      const heightBottom = listHeightsVal[i + 1];
+      if (newY >= heightTop && newY <= heightBottom) {
+        currentIndex.value = i;
+        //
+        distance.value = heightBottom - newY;
+      }
+    }
+  });
+
+  // 计算每个组的高度 [0, 500, 650, ...]
+  function calculate() {
+    const list = groupRef.value.children;
+    const listHeightsVal = listHeights.value;
+    let height = 0;
+
+    listHeightsVal.length = 0;
+    listHeightsVal.push(height);
+
+    for (let i = 0; i < list.length; i++) {
+      height += list[i].clientHeight;
+      listHeightsVal.push(height);
+    }
+  }
+
+  function onScroll(position) {
+    // better-scroll中的y是负数
+    scrollY.value = -position.y;
+  }
+
+  return {
+    groupRef,
+    onScroll,
+    fixedTitle,
+    fixedStyle,
+    currentIndex,
+  };
+}

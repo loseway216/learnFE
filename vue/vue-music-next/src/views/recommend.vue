@@ -1,5 +1,6 @@
 <template>
-  <div class="recommend">
+  <div class="recommend" v-loading:[loadingText]="loading">
+    <!-- 比原生滚动更顺滑、有回弹效果 -->
     <scroll class="recommend-content">
       <div>
         <div class="slider-wrapper">
@@ -47,6 +48,7 @@ export default {
     return {
       sliders: [],
       albums: [],
+      loadingText: "Loading...",
     };
   },
   computed: {
