@@ -10,9 +10,11 @@
 </template>
 
 <script>
+import { SINGER_KEY } from "@/assets/js/constant";
 import MusicList from "@/components/music-list/music-list.vue";
 import { getSingerDetail } from "@/service/singer";
 import { processSongs } from "@/service/songs";
+import storage from "good-storage";
 
 export default {
   name: "singer-detail",
@@ -27,15 +29,38 @@ export default {
     singer: Object,
   },
   computed: {
+    computedSinger() {
+      let result = null;
+      const singer = this.singer;
+      if (singer) {
+        result = singer;
+      } else {
+        const cachedSinger = storage.get(SINGER_KEY);
+        // 将点过来的singer和当前路由的singer作比较
+        // 以防随便改一个id
+        if (cachedSinger && cachedSinger.mid === this.$route.params.id) {
+          result = cachedSinger;
+        }
+      }
+      return result;
+    },
     pic() {
-      return this.singer?.pic;
+      return this.computedSinger?.pic;
     },
     title() {
-      return this.singer?.name;
+      return this.computedSinger?.name;
     },
   },
   async created() {
-    const result = await getSingerDetail(this.singer);
+    if (!this.computedSinger) {
+      // 退到一级路由
+      const path = this.$route.matched[0].path;
+      this.$router.push({
+        path,
+      });
+      return;
+    }
+    const result = await getSingerDetail(this.computedSinger);
     this.songs = await processSongs(result.songs);
     this.loading = false;
   },
