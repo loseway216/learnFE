@@ -5,17 +5,24 @@
     </div>
     <h1 class="title">{{ title }}</h1>
     <div class="bg-image" :style="bgImageStyle" ref="bgImage">
+      <div class="play-btn-wrapper" :style="playBtnStyle">
+        <div v-show="songs.length > 0" class="play-btn" @click="random">
+          <i class="icon-play"></i>
+          <span class="text">随机播放全部</span>
+        </div>
+      </div>
       <div class="filter" :style="filterStyle"></div>
     </div>
     <scroll
       class="list"
       :style="scrollStyle"
       v-loading="loading"
+      v-no-result:[noResultText]="noResult"
       :probe-type="3"
       @scroll="onScroll"
     >
       <div class="song-list-wrapper">
-        <song-list :songs="songs"></song-list>
+        <song-list :songs="songs" @select="selectItem"></song-list>
       </div>
     </scroll>
   </div>
@@ -24,6 +31,7 @@
 <script>
 import Scroll from "@/components/base/scroll/scroll";
 import SongList from "@/components/base/song-list/song-list";
+import { mapActions } from "vuex";
 
 // 顶部标题高度
 const RESERVED_HEIGHT = 40;
@@ -44,10 +52,10 @@ export default {
     title: String,
     pic: String,
     loading: Boolean,
-    // noResultText: {
-    //   type: String,
-    //   default: "抱歉，没有找到可播放的歌曲",
-    // },
+    noResultText: {
+      type: String,
+      default: "抱歉，没有找到可播放的歌曲",
+    },
     // rank: Boolean,
   },
   data() {
@@ -58,6 +66,9 @@ export default {
     };
   },
   computed: {
+    noResult() {
+      return !this.loading && this.songs.length === 0;
+    },
     bgImageStyle() {
       // computed中尽量少用 this.xxx
       const scrollY = this.scrollY;
@@ -105,6 +116,15 @@ export default {
         backdropFilter: `blur(${blur}px)`,
       };
     },
+    playBtnStyle() {
+      let display = "";
+      if (this.scrollY >= this.maxTranslateY) {
+        display = "none";
+      }
+      return {
+        display,
+      };
+    },
   },
   mounted() {
     this.imageHeight = this.$refs.bgImage.clientHeight;
@@ -118,6 +138,16 @@ export default {
     onScroll(position) {
       this.scrollY = -position.y;
     },
+    selectItem({ index }) {
+      this.selectPlay({
+        list: this.songs,
+        index,
+      });
+    },
+    random() {
+      this.randomPlay(this.songs);
+    },
+    ...mapActions(["selectPlay", "randomPlay"]),
   },
 };
 </script>
