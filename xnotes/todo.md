@@ -13,32 +13,40 @@
 ### 折腾
 
 - [ ] 写博客
+
 - [ ] timeline
+
 - [ ] 图文回忆录
+
+- [ ] 生活数据可视化 idea
 
 ---
 
 ### 基本功
 
+- [ ] 速通 CSAPP
+
+- [ ] 速通 HTTP
+
 - [ ] 通读 wangdoc
 
-- [ ] vue 源码 学习框架、语言、最佳实践、单测
+- [ ] 手写轮播图组件
 
-- [ ] vite 源码 学习工程化、node、编译
-
-- [ ] typescript 基础、体操类型
-
-- [ ] lodash 源码
-
-- [ ] 浏览器原理
-
-- [ ] json 解析
+- [ ] [json parser](https://github.com/ascoders/weekly/blob/master/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/139.%E7%B2%BE%E8%AF%BB%E3%80%8A%E6%89%8B%E5%86%99%20JSON%20Parser%E3%80%8B.md)
 
 - [ ] 正则表达式
 
+- [ ] vue 源码 学习框架、语言、最佳实践、单测写法
+
+- [ ] vite 源码 学习工程化、node、编译
+
+- [ ] lodash 源码
+
+- [ ] typescript 基础、体操类型
+
 - [ ] babel
 
-- [ ] 单元测试
+- [ ] 浏览器原理
 
 ---
 
@@ -89,12 +97,6 @@
 - [ ] 通读 react 官方文档
 
 - [ ] react 官方 conext，reducer 实现，触发更新的原理
-
-- [ ] 状态管理
-
-  - [ ] redux-dan
-
-  - [ ] saga 文档
 
 - [ ] rc 系列源码
 
