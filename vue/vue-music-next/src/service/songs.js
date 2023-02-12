@@ -21,3 +21,27 @@ export function processSongs(songs) {
       });
   });
 }
+
+const lyricMap = {};
+
+export function getLyric(song) {
+  // 同一首歌
+  if (song.lyric) {
+    return Promise.resolve(song.lyric);
+  }
+
+  // 同一首歌 但 不同的song对象
+  const lyric = lyricMap[song.mid];
+  if (lyric) {
+    return Promise.resolve(lyric);
+  }
+
+  const mid = song.mid;
+  return get("/api/getLyric", {
+    mid,
+  }).then((result) => {
+    const lyric = result ? result.lyric : "[00:00:00]该歌曲暂时无法获取歌词";
+    lyricMap[song.mid] = lyric;
+    return lyric;
+  });
+}

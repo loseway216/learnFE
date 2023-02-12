@@ -1,4 +1,4 @@
-import { save } from "@/assets/js/array-store";
+import { remove, save } from "@/assets/js/array-store";
 import { FAVORITE_KEY } from "@/assets/js/constant";
 import { computed } from "vue";
 import { useStore } from "vuex";
@@ -6,6 +6,7 @@ import { useStore } from "vuex";
 export default function useFavorite() {
   const store = useStore();
   const favoriteList = computed(() => store.state.favoriteList);
+  const maxLen = 100;
 
   function getFavoriteIcon(song) {
     return isFavorite(song) ? "icon-favorite" : "icon-not-favorite";
@@ -14,9 +15,9 @@ export default function useFavorite() {
   function toggleFavorite(song) {
     let list;
     if (isFavorite(song)) {
-      // remove
+      list = remove(FAVORITE_KEY, compare);
     } else {
-      save(song, FAVORITE_KEY, compare);
+      list = save(song, FAVORITE_KEY, compare, maxLen);
     }
 
     store.commit("setFavoriteList", list);
