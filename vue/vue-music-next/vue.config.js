@@ -13,6 +13,7 @@ module.exports = defineConfig({
     },
   },
   devServer: {
+    port: 9999,
     onBeforeSetupMiddleware(devServer) {
       registerRouter(devServer.app);
     },

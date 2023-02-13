@@ -38,9 +38,9 @@ export default function useMiniSlider() {
             },
           });
 
+          // 左右滑动/播放列表切歌/删除歌曲都会触发 需要自动播放
           sliderVal.on("slidePageChanged", ({ pageX }) => {
             store.commit("setCurrentIndex", pageX);
-            store.commit("setPlayingState", true);
           });
         } else {
           sliderVal.refresh();
@@ -54,6 +54,14 @@ export default function useMiniSlider() {
       // 切歌的前提是显示
       if (sliderVal && sliderShow.value) {
         sliderVal.goToPage(newIndex, 0, 0);
+      }
+    });
+
+    // 播放列表增删歌曲后 slider需要刷新dom
+    watch(playlist, async () => {
+      if (sliderVal && sliderShow.value) {
+        await nextTick();
+        sliderVal.refresh();
       }
     });
   });

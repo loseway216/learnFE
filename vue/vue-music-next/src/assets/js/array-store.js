@@ -26,7 +26,6 @@ export function save(item, key, compare, maxLen) {
 }
 
 export function remove(key, compare) {
-  debugger;
   const items = storage.get(key, []);
   deleteFromArray(items, compare);
   storage.set(key, items);
