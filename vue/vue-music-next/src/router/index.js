@@ -1,13 +1,24 @@
+import Album from "@/views/album.vue";
 import Recommend from "@/views/recommend.vue";
 import Search from "@/views/search.vue";
 import singerDetail from "@/views/singer-detail.vue";
 import Singer from "@/views/singer.vue";
+import TopDetail from "@/views/top-detail.vue";
 import TopList from "@/views/top-list.vue";
 import { createRouter, createWebHashHistory } from "vue-router";
 
 const routes = [
   { path: "/", redirect: "/recommend" },
-  { path: "/recommend", component: Recommend },
+  {
+    path: "/recommend",
+    component: Recommend,
+    children: [
+      {
+        path: ":id",
+        component: Album,
+      },
+    ],
+  },
   {
     path: "/singer",
     component: Singer,
@@ -19,7 +30,16 @@ const routes = [
     ],
   },
   { path: "/search", component: Search },
-  { path: "/top-list", component: TopList },
+  {
+    path: "/top-list",
+    component: TopList,
+    children: [
+      {
+        path: ":id",
+        component: TopDetail,
+      },
+    ],
+  },
 ];
 
 const router = createRouter({

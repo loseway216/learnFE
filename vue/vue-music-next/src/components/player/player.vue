@@ -118,7 +118,7 @@
 <script>
 import { PLAY_MODE } from "@/assets/js/constant";
 import { formatTime } from "@/assets/js/util";
-import Scroll from "@/components/base/scroll/scroll.vue";
+import Scroll from "@/components/wrap-scroll";
 import { computed, nextTick, ref, watch } from "vue";
 import { useStore } from "vuex";
 import MiniPlayer from "./mini-player.vue";
@@ -587,6 +587,7 @@ export default {
         align-items: center;
         .icon {
           flex: 1;
+          text-align: center;
           color: $color-theme;
           &.disable {
             color: $color-theme-d;

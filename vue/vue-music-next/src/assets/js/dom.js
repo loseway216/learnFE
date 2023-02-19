@@ -1,5 +1,5 @@
 export function addClass(el, className) {
-  if (!el.classList.contans(className)) {
+  if (!el.classList.contains(className)) {
     el.classList.add(className);
   }
 }

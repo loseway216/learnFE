@@ -22,16 +22,16 @@
       @scroll="onScroll"
     >
       <div class="song-list-wrapper">
-        <song-list :songs="songs" @select="selectItem"></song-list>
+        <song-list :songs="songs" @select="selectItem" :rank="rank"></song-list>
       </div>
     </scroll>
   </div>
 </template>
 
 <script>
-import Scroll from "@/components/base/scroll/scroll";
 import SongList from "@/components/base/song-list/song-list";
-import { mapActions } from "vuex";
+import Scroll from "@/components/wrap-scroll";
+import { mapActions, mapState } from "vuex";
 
 // 顶部标题高度
 const RESERVED_HEIGHT = 40;
@@ -56,7 +56,7 @@ export default {
       type: String,
       default: "抱歉，没有找到可播放的歌曲",
     },
-    // rank: Boolean,
+    rank: Boolean,
   },
   data() {
     return {
@@ -100,7 +100,11 @@ export default {
       };
     },
     scrollStyle() {
-      return { top: `${this.imageHeight}px` };
+      const bottom = this.playlist.length ? "60px" : 0;
+      return {
+        top: `${this.imageHeight}px`,
+        bottom,
+      };
     },
     filterStyle() {
       let blur = 0;
@@ -125,6 +129,7 @@ export default {
         display,
       };
     },
+    ...mapState(["playlist"]),
   },
   mounted() {
     this.imageHeight = this.$refs.bgImage.clientHeight;

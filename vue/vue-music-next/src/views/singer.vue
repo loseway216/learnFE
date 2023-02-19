@@ -3,7 +3,7 @@
     <index-list :data="singers" @select="selectSinger"></index-list>
     <router-view v-slot="{ Component }">
       <transition name="slide" appear>
-        <Component :is="Component" :singer="selectedSinger" />
+        <Component :is="Component" :data="selectedSinger" />
       </transition>
     </router-view>
   </div>
@@ -11,7 +11,7 @@
 
 <script>
 import { SINGER_KEY } from "@/assets/js/constant";
-import IndexList from "@/components/base/index-list/index-list.vue";
+import IndexList from "@/components/index-list/index-list.vue";
 import { getSingerList } from "@/service/singer";
 import storage from "good-storage";
 

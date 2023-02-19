@@ -58,8 +58,8 @@ export default function useMiniSlider() {
     });
 
     // 播放列表增删歌曲后 slider需要刷新dom
-    watch(playlist, async () => {
-      if (sliderVal && sliderShow.value) {
+    watch(playlist, async (newList) => {
+      if (sliderVal && sliderShow.value && newList.length) {
         await nextTick();
         sliderVal.refresh();
       }
