@@ -29,7 +29,16 @@ const routes = [
       },
     ],
   },
-  { path: "/search", component: Search },
+  {
+    path: "/search",
+    component: Search,
+    children: [
+      {
+        path: ":id",
+        component: singerDetail,
+      },
+    ],
+  },
   {
     path: "/top-list",
     component: TopList,
