@@ -35,16 +35,17 @@
               </li>
             </transition-group>
           </scroll>
-          <!-- <div class="list-add">
+          <div class="list-add">
             <div class="add" @click="showAddSong">
               <i class="icon-add"></i>
               <span class="text">添加歌曲到队列</span>
             </div>
-          </div> -->
+          </div>
           <div class="list-footer" @click="hide">
             <span>关闭</span>
           </div>
         </div>
+        <add-song ref="addSongRef"></add-song>
         <confirm
           ref="confirmRef"
           @confirm="confirmClear"
@@ -57,6 +58,7 @@
 </template>
 
 <script>
+import AddSong from "@/components/add-song/add-song.vue";
 import Confirm from "@/components/base/confirm/confirm.vue";
 import Scroll from "@/components/wrap-scroll";
 import { computed, nextTick, ref, watch } from "vue";
@@ -69,6 +71,7 @@ export default {
   components: {
     Scroll,
     Confirm,
+    AddSong,
   },
   setup() {
     const visible = ref(false);
@@ -76,6 +79,7 @@ export default {
     const scrollRef = ref(null);
     const listRef = ref(null);
     const confirmRef = ref(null);
+    const addSongRef = ref(null);
 
     // vuex
     const store = useStore();
@@ -167,12 +171,17 @@ export default {
       hide();
     }
 
+    function showAddSong() {
+      addSongRef.value.show();
+    }
+
     return {
       visible,
       removing,
       scrollRef,
       listRef,
       confirmRef,
+      addSongRef,
       playlist,
       sequenceList,
       show,
@@ -183,6 +192,7 @@ export default {
       removeSong,
       showConfirm,
       confirmClear,
+      showAddSong,
       // use-mode
       modeIcon,
       modeText,

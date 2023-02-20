@@ -129,6 +129,7 @@ import useFavorite from "./use-favorite";
 import useLyric from "./use-lyric";
 import useMiddleInteractive from "./use-middle-interactive";
 import useMode from "./use-mode";
+import usePlayHistory from "./use-play-history";
 
 export default {
   name: "player",
@@ -173,7 +174,6 @@ export default {
     });
     const { cdWrapperRef, enter, afterEnter, leave, afterLeave } =
       useAnimation();
-
     const {
       currentShow,
       middleLStyle,
@@ -182,6 +182,7 @@ export default {
       onMiddleTouchMove,
       onMiddleTouchEnd,
     } = useMiddleInteractive();
+    const { savePlay } = usePlayHistory();
 
     // computed
     const playIcon = computed(() =>
@@ -301,6 +302,8 @@ export default {
 
       // 歌词比歌曲加载快
       playLyric();
+
+      savePlay(currentSong.value);
     }
 
     function error() {

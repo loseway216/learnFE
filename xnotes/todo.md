@@ -26,6 +26,10 @@
 
 - 项目亮点
 
+- 单元测试
+
+- typescript
+
 ---
 
 ### 折腾
@@ -48,7 +52,7 @@
 
 - [ ] 通读 wangdoc
 
-- [ ] 手写轮播图组件
+- [ ] 手写轮播图组件、原生滚动、滑动的开发套路(better-scroll)
 
 - [ ] [json parser](https://github.com/ascoders/weekly/blob/master/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/139.%E7%B2%BE%E8%AF%BB%E3%80%8A%E6%89%8B%E5%86%99%20JSON%20Parser%E3%80%8B.md)
 

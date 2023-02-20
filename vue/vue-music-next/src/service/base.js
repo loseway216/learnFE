@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = "/";
+const baseURL = process.env.NODE_ENV === "production" ? "xxx/music-next/" : "/";
 const ERR_OK = 0;
 
 axios.defaults.baseURL = baseURL;
