@@ -8,9 +8,9 @@
 
 ## Eazy
 
-| \*?y | Title | Tag | Notes |
-| :--- | :---- | :-- | :---- |
-|      |       |     |       |
+| \*?y | Title      | Tag | Notes |
+| :--- | :--------- | :-- | :---- |
+|      | 1. Two Sum |     |       |
 
 ## Medium
 
