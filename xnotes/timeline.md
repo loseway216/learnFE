@@ -92,12 +92,11 @@
 | 科目           | 资源                                 | FROM       | TO                      |
 | -------------- | ------------------------------------ | ---------- | :---------------------- |
 | 编程思想       | SICP                                 | 2022-11-01 | 2022-12-23 最后两章略过 |
-| 计算机架构     | CSAPP                                | 2022-12-24 | 浏览一遍                |
 | 网络           | 自顶向下、《图解 HTTP》              |            |                         |
-| 算法和数据结构 | Algorithm Design Manual              | 2023-02-23 |                         |
+| 算法和数据结构 | Algorithm Design Manual              | 2023-02-28 |                         |
 | 编译原理       | Crafting Interpreters                |            |                         |
-| 数学           |                                      |            |                         |
-| 操作系统       | Operating Systems: Three Easy Pieces |            |                         |
+| 数学           | 线性代数、离散数学                   |            |                         |
 | 数据库         |                                      |            |                         |
 | 分布式系统     | ddia/system design primer            |            |                         |
-| 设计模式       |                                      |            |                         |
+| 计算机组成原理 | CSAPP                                | 2022-12-24 | 放弃                    |
+| 操作系统       | Operating Systems: Three Easy Pieces |            |                         |
