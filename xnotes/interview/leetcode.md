@@ -8,15 +8,16 @@
 
 ## Eazy
 
-| \*?y | Title      | Tag | Notes |
-| :--- | :--------- | :-- | :---- |
-|      | 1. Two Sum |     |       |
+| \*?y | Title      | Tag     | Notes |
+| :--- | :--------- | :------ | :---- |
+|      | 1. Two Sum | Hashing |       |
 
 ## Medium
 
-| \*?y | Title | Tag | Notes |
-| :--- | :---- | :-- | :---- |
-|      |       |     |       |
+| \*?y | Title                             | Tag                                       | Notes |
+| :--- | :-------------------------------- | :---------------------------------------- | :---- |
+| ?    | 53. Maximum Subarray              | Dynamic Programming && Divide and Conquer |       |
+| ?    | 238. Product of Array Except Self | Dynamic Programming                       |       |
 
 ## Hard
 
