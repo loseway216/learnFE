@@ -1,4 +1,7 @@
 const LinkedList = require("./SinglyLinkedList");
+const Queue = require("./Queue");
+const Stack = require("./Stack");
+const Graph = require("./Graph");
 
 /////////////////////////////////
 // Array
