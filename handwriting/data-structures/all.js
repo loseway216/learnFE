@@ -2,6 +2,7 @@ const LinkedList = require("./SinglyLinkedList");
 const Queue = require("./Queue");
 const Stack = require("./Stack");
 const Graph = require("./Graph");
+const BinarySearchTree = require("./BinarySearchTree");
 
 /////////////////////////////////
 // Array
@@ -302,3 +303,6 @@ function intersection(list1, list2) {
 
 /////////////////////////////////
 // Graph
+
+/////////////////////////////////
+// BinarySearchTree
