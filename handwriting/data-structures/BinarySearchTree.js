@@ -84,6 +84,7 @@ module.exports = class BinarySearchTree {
   }
 
   delete(currentNode, value) {
+    // case 1: empty tree
     if (currentNode == null) {
       return false;
     }
@@ -99,15 +100,65 @@ module.exports = class BinarySearchTree {
       }
     }
 
+    // case 2: not found
     if (currentNode == null) {
-      // not found
       return false;
-    } else if (
-      currentNode.leftChild == null &&
-      currentNode.rightChild == null
-    ) {
-      // leaf node
-      parent;
+    }
+    // case 3: delete a leaf node
+    else if (currentNode.leftChild == null && currentNode.rightChild == null) {
+      // delete the root node
+      if (currentNode.val == this.root.val) {
+        this.root = null;
+        return true;
+      }
+      // 根据大小判断删除左边还是右边
+      else if (currentNode.val < parent.val) {
+        parent.leftChild = null;
+        return true;
+      } else {
+        parent.rightChild = null;
+        return true;
+      }
+    }
+    // case 4: delete a node has a left child only
+    else if (currentNode.leftChild && currentNode.rightChild == null) {
+      if (currentNode.val == this.root.val) {
+        this.root = currentNode.leftChild;
+        return true;
+      } else if (currentNode.leftChild.val < parent.val) {
+        parent.leftChild = currentNode.leftChild;
+        return true;
+      } else {
+        parent.rightChild = currentNode.leftChild;
+        return true;
+      }
+    }
+    // case 5: delete a node has a right child only
+    else if (currentNode.rightChild && currentNode.leftChild == null) {
+      if (currentNode.val === this.root.val) {
+        this.root = currentNode.rightChild;
+        return true;
+      } else if (currentNode.rightChild.val < parent.val) {
+        parent.leftChild = currentNode.leftChild;
+        return true;
+      } else {
+        parent.rightChild = currentNode.leftChild;
+        return true;
+      }
+    }
+    // case 6: delete a node with two children
+    else {
+      // 右侧最小的值
+      let minRight = currentNode.rightChild;
+
+      while (minRight.leftChild) {
+        minRight = minRight.leftChild;
+      }
+
+      const temp = minRight.val;
+      this.delete(currentNode, minRight.val);
+      currentNode.val = temp;
+      return true;
     }
   }
 
@@ -135,3 +186,31 @@ module.exports = class BinarySearchTree {
     }
   }
 };
+
+// var BST = new BinarySearchTree(6);
+// console.log("The root val for BST : ", BST.root.val);
+// BST.insert(4);
+// BST.insert(9);
+// BST.insert(5);
+// BST.insert(2);
+// BST.insert(8);
+// BST.insert(12);
+// BST.insert(3);
+// BST.insert(1);
+
+// BST.inOrderPrint(BST.root);
+// console.log("Delete 9!");
+// console.log(BST.delete(BST.root, 9));
+// BST.inOrderPrint(BST.root);
+
+// var BST = new BinarySearchTree(6);
+// console.log("The root val for BST : ", BST.root.val);
+// BST.insert(4);
+// BST.insert(9);
+// BST.insert(5);
+// BST.insert(2);
+// BST.insert(8);
+// BST.insert(12);
+
+// console.log(BST.search(8));
+// console.log(BST.search(11));
