@@ -674,3 +674,53 @@ function findKNodes() {}
 // BST.insertBST(8);
 // BST.insertBST(12);
 // console.log(findKNodes(BST.root, 2));
+
+/////////////////////////////////
+// Trie
+
+// Total Number of Words in a Trie
+
+function totalWords(root) {}
+
+// let t = new Trie();
+// t.insert("data", 0);
+// t.insert("structures", 1);
+// console.log(totalWords(t.root));
+
+// Find All Words Stored in Trie
+
+function findWords(root) {}
+
+// let tr = new Trie();
+// let keys = ["This", "is", "our", "first", "trie"];
+
+// for (var x = 0; x < keys.length; x++) {
+//   tr.insert(keys[x], x);
+// }
+
+// console.log(findWords(tr.root));
+
+// Array Sort Using Tries
+
+function sortArray(arr) {}
+
+// let arr = ["abc", "aba", "ceed", "cde"];
+// console.log(arr);
+// console.log(sortArray(arr));
+
+// Word Formation from a Dictionary Using a Trie
+
+function isFormationPossible(dict, word) {}
+
+// let keys = [
+//   "the",
+//   "hello",
+//   "there",
+//   "answer",
+//   "any",
+//   "educative",
+//   "world",
+//   "their",
+//   "abc",
+// ];
+// console.log(isFormationPossible(keys, "helloworld"));
