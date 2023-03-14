@@ -3,6 +3,8 @@ const Queue = require("./Queue");
 const Stack = require("./Stack");
 const Graph = require("./Graph");
 const BinarySearchTree = require("./BinarySearchTree");
+const MinHeap = require("./MinHeap");
+const MaxHeap = require("./MaxHeap");
 
 /////////////////////////////////
 // Array
@@ -679,7 +681,6 @@ function findKNodes() {}
 // Trie
 
 // Total Number of Words in a Trie
-
 function totalWords(root) {}
 
 // let t = new Trie();
@@ -688,7 +689,6 @@ function totalWords(root) {}
 // console.log(totalWords(t.root));
 
 // Find All Words Stored in Trie
-
 function findWords(root) {}
 
 // let tr = new Trie();
@@ -701,7 +701,6 @@ function findWords(root) {}
 // console.log(findWords(tr.root));
 
 // Array Sort Using Tries
-
 function sortArray(arr) {}
 
 // let arr = ["abc", "aba", "ceed", "cde"];
@@ -709,7 +708,6 @@ function sortArray(arr) {}
 // console.log(sortArray(arr));
 
 // Word Formation from a Dictionary Using a Trie
-
 function isFormationPossible(dict, word) {}
 
 // let keys = [
@@ -729,23 +727,69 @@ function isFormationPossible(dict, word) {}
 // Heap
 
 // Convert Max-Heap to Min-Heap
+function convertMax(maxHeap) {
+  for (let i = Math.floor((maxHeap.length - 1) / 2); i > -1; i--) {
+    minHeapify(maxHeap, i);
+  }
+  return maxHeap;
+}
 
-// function convertMax(maxHeap) {
-// Min Heapify all Parent Nodes
-//   return minHeap;
-// }
+function minHeapify(heap, index) {
+  const left = index * 2 + 1;
+  const right = index * 2 + 2;
+  let smallest = index;
+
+  if (heap.length > left && heap[smallest] > heap[left]) {
+    smallest = left;
+  }
+  if (heap.length > right && heap[smallest] > heap[right]) {
+    smallest = right;
+  }
+  if (smallest != index) {
+    const temp = heap[smallest];
+    heap[smallest] = heap[index];
+    heap[index] = temp;
+    minHeapify(heap, smallest);
+  }
+  return heap;
+}
+
+// var maxHeap = [9, 4, 7, 1, -2, 6, 5];
+// console.log(convertMax(maxHeap));
 
 // Find k Smallest Elements in an Array
+function findKSmallest(arr, k) {
+  const kSmallest = [];
+  if (k > arr.length) {
+    k = arr.length;
+  }
+  const heap = new MinHeap();
+  heap.buildHeap(arr);
 
-function findKSmallest(arr, k) {}
+  for (let i = 0; i < k; i++) {
+    kSmallest.push(heap.removeMin());
+  }
+  return kSmallest;
+}
 
 // var arr = [9, 4, 7, 1, -2, 6, 5];
 // var k = 6;
 // console.log(findKSmallest(arr, k));
 
 // Find k Largest Elements in an Array
+function findKLargest(arr, k) {
+  const kLargest = [];
+  if (k > arr.length) {
+    k = arr.length;
+  }
+  const heap = new MaxHeap();
+  heap.buildHeap(arr);
 
-function findKLargest(arr, k) {}
+  for (let i = 0; i < k; i++) {
+    kLargest.push(heap.removeMax());
+  }
+  return kLargest;
+}
 
 // var arr = [9, 4, 7, 1, -2, 6, 5];
 // var k = 6;

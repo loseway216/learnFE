@@ -1,5 +1,5 @@
-// module.exports = class MaxHeap {
-class MaxHeap {
+module.exports = class MaxHeap {
+  // class MaxHeap {
   constructor() {
     this.heap = [];
     this.elements = 0;
@@ -9,7 +9,7 @@ class MaxHeap {
     if (this.elements >= this.heap.length) {
       this.heap.push(value);
       this.elements += 1;
-      this.__percolateUp(this.heap.length - 1);
+      this.__percolateUp(this.elements - 1);
     } else {
       this.heap[this.elements] = value;
       this.elements += 1;
@@ -27,14 +27,14 @@ class MaxHeap {
 
   removeMax() {
     if (this.elements > 1) {
-      const max = this.heap[0];
-      this.heap[0] = this.heap[this.heap.length - 1];
-      this.elements -= 1;
+      var max = this.heap[0];
+      this.heap[0] = this.heap[this.elements - 1];
+      this.elements = this.elements - 1;
       this.__maxHeapify(0);
       return max;
     } else if (this.elements == 1) {
-      const max = this.heap[0];
-      this.elements -= 1;
+      var max = this.heap[0];
+      this.elements = this.elements - 1;
       return max;
     } else {
       return null;
@@ -50,7 +50,7 @@ class MaxHeap {
   }
 
   __percolateUp(index) {
-    if (index < 0) {
+    if (index <= 0) {
       return;
     }
     const parent = Math.floor((index - 1) / 2);
@@ -82,13 +82,18 @@ class MaxHeap {
       this.__maxHeapify(largest);
     }
   }
-}
 
-var heap = new MaxHeap();
-var arr = [6, 9, 3, 4, 13, 22, 1, 30, 17];
-heap.buildHeap(arr);
-console.log(heap.getMax());
+  printHeap() {
+    console.log(this.heap);
+  }
+};
 
-heap.removeMax();
-
-console.log(heap.getMax());
+// var heap = new MaxHeap();
+// var arr = [6, 9, 3, 4, 13, 22, 1, 30, 17];
+// heap.buildHeap(arr);
+// heap.printHeap();
+// // console.log(heap.getMax());
+// heap.removeMax();
+// heap.printHeap();
+// heap.removeMax();
+// heap.printHeap();
