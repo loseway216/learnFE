@@ -98,5 +98,5 @@
 | 数学           | 线性代数、离散数学                   |            |                         |
 | 数据库         |                                      |            |                         |
 | 分布式系统     | ddia/system design primer            |            |                         |
-| 计算机组成原理 | CSAPP                                | 2022-12-24 | 放弃                    |
+| 计算机组成原理 | CSAPP                                | 2022-12-24 | 搁置                    |
 | 操作系统       | Operating Systems: Three Easy Pieces |            |                         |
