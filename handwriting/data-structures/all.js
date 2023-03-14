@@ -724,3 +724,29 @@ function isFormationPossible(dict, word) {}
 //   "abc",
 // ];
 // console.log(isFormationPossible(keys, "helloworld"));
+
+/////////////////////////////////
+// Heap
+
+// Convert Max-Heap to Min-Heap
+
+// function convertMax(maxHeap) {
+// Min Heapify all Parent Nodes
+//   return minHeap;
+// }
+
+// Find k Smallest Elements in an Array
+
+function findKSmallest(arr, k) {}
+
+// var arr = [9, 4, 7, 1, -2, 6, 5];
+// var k = 6;
+// console.log(findKSmallest(arr, k));
+
+// Find k Largest Elements in an Array
+
+function findKLargest(arr, k) {}
+
+// var arr = [9, 4, 7, 1, -2, 6, 5];
+// var k = 6;
+// console.log(findKLargest(arr, k));
