@@ -5,6 +5,7 @@ const Graph = require("./Graph");
 const BinarySearchTree = require("./BinarySearchTree");
 const MinHeap = require("./MinHeap");
 const MaxHeap = require("./MaxHeap");
+const HashTable = require("./HashTable");
 
 /////////////////////////////////
 // Array
@@ -814,3 +815,22 @@ function isDisjoint(list1, list2) {}
 
 // Find Symmetric Pairs in an Array
 function findSymmetric(list) {}
+
+// let list1 = [
+//   [1, 2],
+//   [3, 4],
+//   [2, 1],
+//   [4, 3],
+//   [0, 1],
+//   [5, 5],
+//   [5, 5],
+// ];
+// console.log("Input list:");
+// for (var x = 0; x < list1.length; x++) {
+//   console.log("[" + list1[x][0] + ", " + list1[x][1] + "] ");
+// }
+// let res = findSymmetric(list1);
+// console.log("Symmetric pairs:");
+// for (var y = 0; y < res.length; y++) {
+//   console.log("[" + res[y][0] + ", " + res[y][1] + "] ");
+// }
