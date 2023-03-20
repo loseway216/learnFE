@@ -794,3 +794,23 @@ function findKLargest(arr, k) {
 // var arr = [9, 4, 7, 1, -2, 6, 5];
 // var k = 6;
 // console.log(findKLargest(arr, k));
+
+/////////////////////////////////
+// HashTable
+
+// An Array as a Subset of Another Array
+function isSubset(parent, child) {}
+
+// console.log(isSubset([10, -2, 3, 7, 1, -2, 5], [7, 1, -2]));
+
+// Check if Arrays are Disjointed
+function isDisjoint(list1, list2) {}
+
+// var list1 = [9, 4, 3, 1, -2, 6, 5];
+// var list2 = [7, 10, 8];
+// var list3 = [1, 12];
+// console.log(isDisjoint(list1, list2));
+// console.log(isDisjoint(list1, list3));
+
+// Find Symmetric Pairs in an Array
+function findSymmetric(list) {}
