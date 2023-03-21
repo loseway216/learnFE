@@ -6,7 +6,7 @@ class HashEntry {
   }
 }
 
-class HashTable {
+module.exports = class HashTable {
   constructor() {
     this.slots = 10;
     this.size = 0;
@@ -131,17 +131,17 @@ class HashTable {
 
     this.bucket = new_bucket;
   }
-}
+};
 
-let table = new HashTable(); //Create a HashTable
-console.log(table.isEmpty());
-table.insert("This", 1);
-table.insert("is", 2);
-table.insert("a", 3);
-table.insert("Test", 4);
-table.insert("Driver", 5);
-console.log("Table Size: " + String(table.get_size()));
-console.log("The value for 'is' key: " + String(table.search("is")));
-table.deleteVal("is");
-table.deleteVal("a");
-console.log("Table Size: " + String(table.get_size()));
+// let table = new HashTable(); //Create a HashTable
+// console.log(table.isEmpty());
+// table.insert("This", 1);
+// table.insert("is", 2);
+// table.insert("a", 3);
+// table.insert("Test", 4);
+// table.insert("Driver", 5);
+// console.log("Table Size: " + String(table.get_size()));
+// console.log("The value for 'is' key: " + String(table.search("is")));
+// table.deleteVal("is");
+// table.deleteVal("a");
+// console.log("Table Size: " + String(table.get_size()));

@@ -13,12 +13,6 @@ const HashTable = require("./HashTable");
 // Merge Two Sorted Arrays
 function mergeArrays(arr1, arr2) {}
 
-// Find Two Numbers that Add up to "value"
-function twoSum(arr, value) {}
-
-// console.log(twoSum([1, 2, 3, 4], 5));
-// console.log(twoSum([1, 2, 3, 4], 10));
-
 // Array of Products of All Other Elements
 function findProduct(arr) {}
 
@@ -28,11 +22,6 @@ function findProduct(arr) {}
 function findMinimum(arr) {}
 
 // console.log(findMinimum([9, 2, 3, 6, -1]));
-
-// First First Unique Integer in an Array
-function findFirstUnique(arr) {}
-
-// console.log(findFirstUnique([9, 2, 3, 6, 2, 6, 9, 0, 3]));
 
 // Find Second Maximum Value in an Array
 function findSecondMaximum(arr) {}
@@ -834,3 +823,72 @@ function findSymmetric(list) {}
 // for (var y = 0; y < res.length; y++) {
 //   console.log("[" + res[y][0] + ", " + res[y][1] + "] ");
 // }
+
+// Trace the Complete Path of a Journey
+function tracePath(map) {}
+
+// var map = {};
+// map["NewYork"] = "Chicago";
+// map["Boston"] = "Texas";
+// map["Missouri"] = "NewYork";
+// map["Texas"] = "Missouri";
+// console.log(tracePath(map));
+
+// Find Two Pairs Such That a+b = c+d
+function findPair(my_list) {}
+
+// var list = [7, 4, 9, 12, 0, 1];
+// var res = findPair(list);
+// console.log(res);
+
+// A Subarray with a Sum of 0
+function findSubZero(my_list) {}
+
+// var list = [6, 4, -7, 3, 12, 9];
+// console.log(findSubZero(list));
+
+// Find Two Numbers that Add up to "value"
+function twoSum(arr, value) {}
+
+// console.log(twoSum([1, 2, 3, 4], 5));
+// console.log(twoSum([1, 2, 3, 4], 10));
+
+// First First Unique Integer in an Array
+function findFirstUnique(arr) {}
+
+// console.log(findFirstUnique([9, 2, 3, 6, 2, 6, 9, 0, 3]));
+
+// Remove Duplicates from a Linked List
+function removeDuplicates(list) {}
+
+// let list = new LinkedList();
+// list.insertAtHead(7);
+// list.insertAtHead(7);
+// list.insertAtHead(7);
+// list.insertAtHead(22);
+// list.insertAtHead(14);
+// list.insertAtHead(21);
+// list.insertAtHead(14);
+// list.insertAtHead(7);
+
+// list.printList();
+// removeDuplicates(list);
+// list.printList();
+
+// // Union of Linked Lists
+function union(list1, list2) {}
+
+// let list1 = new LinkedList();
+// let list2 = new LinkedList();
+// list1.insertAtHead(1);
+// list1.insertAtHead(2);
+// list1.insertAtHead(3);
+// list1.insertAtHead(4);
+
+// list2.insertAtHead(3);
+// list2.insertAtHead(4);
+// list2.insertAtHead(5);
+// list2.insertAtHead(6);
+
+// let list3 = union(list1, list2);
+// list3.printList();
