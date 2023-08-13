@@ -1,30 +1,3 @@
-- [Jonas HTML&CSS Courses](#jonas-htmlcss-courses)
-  - [CHEATSHEET](#cheatsheet)
-    - [FLEXBOX](#flexbox)
-    - [GRID](#grid)
-  - [HTML](#html)
-  - [CSS](#css)
-    - [计算优先级](#计算优先级)
-      - [IMPORTANCE](#importance)
-      - [SPECIFICITY](#specificity)
-      - [SOURCE ORDER](#source-order)
-    - [CSS 单位计算方式](#css-单位计算方式)
-      - [百分比](#百分比)
-      - [em 和 rem（font-based），rem 不支持 ie9 以下版本](#em-和-remfont-basedrem-不支持-ie9-以下版本)
-      - [vh 和 vw](#vh-和-vw)
-    - [渲染，The Visual Formatting Model](#渲染the-visual-formatting-model)
-      - [盒模型](#盒模型)
-      - [盒子的类型：display 属性](#盒子的类型display-属性)
-      - [定位](#定位)
-      - [stacking context，层叠上下文](#stacking-context层叠上下文)
-    - [BEM (Block Element Modifier)](#bem-block-element-modifier)
-    - [冷门选择器整理](#冷门选择器整理)
-  - [响应式布局](#响应式布局)
-    - [媒体查询，media queries](#媒体查询media-queries)
-    - [responsive images](#responsive-images)
-  - [浏览器兼容性](#浏览器兼容性)
-  - [网站优化](#网站优化)
-
 # Jonas HTML&CSS Courses
 
 ## CHEATSHEET
@@ -33,11 +6,9 @@
 
 <img src=".\images\image-20200902153449234.png" alt="FLEXBOX"  />
 
-
 ### GRID
 
 <img src=".\images\image-20200910135738552.png" alt="GRID"  />
-
 
 ## HTML
 

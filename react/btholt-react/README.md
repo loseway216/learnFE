@@ -2,13 +2,13 @@
 
 ## Course website
 
-https://btholt.github.io/complete-intro-to-react-v6/
+<https://btholt.github.io/complete-intro-to-react-v6/>
 
-https://github.com/btholt/citr-v6-project/
+<https://github.com/btholt/citr-v6-project/>
 
 ## Expand on Adopt Me
 
-1. 分页
+1. Pagination
 2. Adding a navigation bar
 
 ## Hooks in Depth

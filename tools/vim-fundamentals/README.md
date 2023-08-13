@@ -1,14 +1,14 @@
 # VIM Fundamentals
 
-## learning Vim
+## Resource
 
 - vimtutor
 - vim-adventures
 - ThePrimeagen's Youtube
 
-## nagivation cheatsheet
+## Cheatsheet
 
-### 原生
+### Built-in
 
 - `%` Nearest/matching {[()]}
 - `[(` `[{` `[<` Previous ( or { or <
