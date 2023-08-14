@@ -2,14 +2,6 @@
 
 personal exercises/notes/cheat-sheets of frontend workshops/courses/tutorials
 
-## HTML&CSS Exercises Demo
-
-Omnifood
-
-Trillo
-
-Nexter
-
 ## Notes
 
 [HTML&CSS Notes](./htmlcss/README.md)
