@@ -1,7 +1,7 @@
 {
-  "name": "Nexter",
+  "name": "nexter",
   "version": "1.0.0",
-  "description": "Nexter webpage",
+  "description": "nexter webpage",
   "main": "index.js",
   "browserslist": "last 10 versions",
   "scripts": {
