@@ -11,7 +11,7 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage"
   },
-  "author": "Brian Holt <btholt+citrv6@gmail.com>",
+  "author": "loseway216",
   "license": "Apache-2.0",
   "devDependencies": {
     "@babel/core": "7.12.16",

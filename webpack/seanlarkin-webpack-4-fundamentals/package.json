@@ -16,7 +16,7 @@
     "prod:compress": "yarn prod --env.presets compress",
     "prod:compress:analyze": "yarn prod:compress --env.presets analyze"
   },
-  "author": "loseway",
+  "author": "loseway216",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.5.5",
