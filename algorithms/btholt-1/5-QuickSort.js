@@ -20,3 +20,33 @@ const quickSort = (nums) => {
 };
 
 console.log(quickSort([10, 5, 3, 8, 2, 6, 4, 7, 9, 1]));
+
+
+const quickSortInPlace = (nums, start = 0, end = nums.length - 1) => {
+  if (start >= end) return;
+  
+  const pivotIndex = partition(nums, start, end);
+  
+  quickSortInPlace(nums, start, pivotIndex - 1);
+  quickSortInPlace(nums, pivotIndex + 1, end);
+};
+
+const partition = (nums, start, end) => {
+  const pivot = nums[end];
+  let i = start;
+
+  for (let j = start; j < end; j++) {
+    if (nums[j] < pivot) {
+      [nums[i], nums[j]] = [nums[j], nums[i]];
+      i++;
+    }
+  }
+
+  [nums[i], nums[end]] = [nums[end], nums[i]];
+
+  return i;
+};
+
+const nums = [10, 5, 3, 8, 2, 6, 4, 7, 9, 1];
+quickSortInPlace(nums);
+console.log(nums);
