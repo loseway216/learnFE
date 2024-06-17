@@ -1,0 +1,30 @@
+<template>
+    <div>
+        <div class="top">
+            <TopVue></TopVue>
+        </div>
+        <div class="center">
+            <CenterVue></CenterVue>
+        </div>
+        <div class="bottom">
+            <BottomVue></BottomVue>
+        </div>
+    </div>
+</template>
+
+<script setup>
+import TopVue from './Top.vue';
+import CenterVue from './Center.vue';
+import BottomVue from './Bottom.vue';
+</script>
+<style scoped lang='less'>
+.top{
+    height:33.3%;
+}
+.center {
+    height: 33.3%;
+}
+.bottom {
+    height: 33.3%;
+}
+</style>

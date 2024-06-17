@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/WebApi/homepage/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>绿盟工业网络安全监测预警平台</title>
+    <script src="/WebApi/homepage/jtopo-in-node/src/jtopo.js"></script>
+    <script src="/WebApi/homepage/echarts.min.js"></script>
+    <script type="module" crossorigin src="/WebApi/homepage/assets/index.6e988895.js"></script>
+    <link rel="stylesheet" href="/WebApi/homepage/assets/index.3aa1bd0d.css">
+  </head>
+  <body>
+    <div id="app"></div>
+    
+  </body>
+</html>

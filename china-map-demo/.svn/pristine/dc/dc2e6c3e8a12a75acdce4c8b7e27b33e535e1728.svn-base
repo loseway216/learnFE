@@ -1,0 +1,35 @@
+<template>
+  <div class="charts-container">
+    <div class="top">
+      <TopVue></TopVue>
+    </div>
+    <div class="center">
+      <CenterVue></CenterVue>
+    </div>
+    <div class="bottom">
+      <BottomVue></BottomVue>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import BottomVue from "./Bottom.vue";
+import CenterVue from "./Center.vue";
+import TopVue from "./Top.vue";
+</script>
+<style scoped lang="less">
+.charts-container {
+  padding-top: 20px;
+}
+.top {
+  height: 33.3%;
+}
+.center {
+  //   height: 33.3%;
+  height: 40%;
+}
+.bottom {
+  //   height: 33.3%;
+  height: 40%;
+}
+</style>

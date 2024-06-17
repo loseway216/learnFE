@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="381px" height="43px" viewBox="0 0 381 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55 (78076) - https://sketchapp.com -->
+    <title>title备份 3</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0 1 210 -4.26741975e-16 210 9.08398437 173.181641 42 0 41"></polygon>
+        <radialGradient cx="50%" cy="31.1917489%" fx="50%" fy="31.1917489%" r="157.869038%" gradientTransform="translate(0.500000,0.311917),scale(0.270142,1.000000),scale(1.000000,0.268815),translate(-0.500000,-0.311917)" id="radialGradient-3">
+            <stop stop-color="#3D77FF" offset="0%"></stop>
+            <stop stop-color="#2B68FF" offset="47.9756123%"></stop>
+            <stop stop-color="#3366FF" stop-opacity="0.1" offset="100%"></stop>
+        </radialGradient>
+        <filter x="-21.3%" y="-78.9%" width="142.7%" height="257.9%" filterUnits="objectBoundingBox" id="filter-4">
+            <feGaussianBlur stdDeviation="15" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <linearGradient x1="99.893106%" y1="49.893106%" x2="0.106894003%" y2="49.893106%" id="linearGradient-5">
+            <stop stop-color="#4768ED" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#4768ED" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="99.893106%" y1="49.893106%" x2="0.106894003%" y2="49.893106%" id="linearGradient-6">
+            <stop stop-color="#4768ED" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#4768ED" offset="100%"></stop>
+        </linearGradient>
+        <radialGradient cx="50%" cy="0%" fx="50%" fy="0%" r="3275%" gradientTransform="translate(0.500000,0.000000),scale(0.011834,1.000000),rotate(90.000000),translate(-0.500000,-0.000000)" id="radialGradient-7">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="环境感知态势" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-1516.000000, -59.000000)" id="title备份-3">
+            <g transform="translate(1515.000000, 59.000000)">
+                <g id="椭圆形" transform="translate(276.000000, 21.000000) scale(-1, 1) translate(-276.000000, -21.000000) translate(171.000000, 0.000000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="蒙版" transform="translate(105.000000, 21.000000) scale(1, -1) translate(-105.000000, -21.000000) "></g>
+                    <path d="M90.7540862,40 C146.249677,40 195,27.2401154 195,11.5 C195,-4.24011537 146.249677,-17 90.7540862,-17 C35.2584958,-17 -16,-4.24011537 -16,11.5 C-16,27.2401154 35.2584958,40 90.7540862,40 Z" fill="url(#radialGradient-3)" filter="url(#filter-4)" mask="url(#mask-2)"></path>
+                </g>
+                <polyline id="直线-4" stroke="url(#linearGradient-5)" stroke-width="2" transform="translate(274.500000, 17.774064) scale(-1, 1) translate(-274.500000, -17.774064) " points="168 5 168 1 342 1 381 34"></polyline>
+                <polyline id="直线-2" stroke="url(#linearGradient-6)" stroke-width="2" transform="translate(190.500000, 39.274064) scale(-1, -1) translate(-190.500000, -39.274064) " points="0 41.2740644 0 37.2740644 381 37.2740644"></polyline>
+                <rect id="直线" fill="url(#radialGradient-7)" transform="translate(296.500000, 1.000000) scale(-1, 1) translate(-296.500000, -1.000000) " x="212" y="0" width="169" height="2"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

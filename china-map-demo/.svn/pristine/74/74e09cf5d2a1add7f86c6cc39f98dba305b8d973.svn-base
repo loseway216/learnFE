@@ -1,0 +1,73 @@
+<template>
+  <div class="wrap">
+    <RightTitleVue>
+      <template v-slot>
+        <span>接入设备</span>
+      </template>
+    </RightTitleVue>
+    <section>
+      <ChartVue :option="option"></ChartVue>
+    </section>
+  </div>
+</template>
+
+<script setup>
+import { reactive } from "vue";
+import ChartVue from "../components/Chart/Chart.vue";
+import RightTitleVue from "../components/RightTitle/RightTitle.vue";
+/*
+ * 数据部分
+ */
+const option = reactive({
+  tooltip: {
+    trigger: "item",
+  },
+  backgroundColor: "#09152d",
+  legend: {
+    orient: "vertical",
+    right: "2%",
+    top: "16%",
+  },
+
+  series: [
+    {
+      type: "pie",
+      radius: ["40%", "70%"],
+      data: [
+        { value: 1, name: "INSP工业预警平台" },
+        { value: 7, name: "ISG工业防火墙" },
+        { value: 1, name: "堡垒机OSMS" },
+        { value: 1, name: "SAG远程安全办公系统" },
+        { value: 2, name: "NF边界防火墙" },
+        { value: 1, name: "入侵防御系统" },
+      ],
+      label: {
+        normal: {
+          position: "inner",
+          show: false,
+        },
+      },
+      emphasis: {
+        itemStyle: {
+          shadowBlur: 10,
+          shadowOffsetX: 0,
+          shadowColor: "rgba(0, 0, 0, 0.5)",
+        },
+      },
+      center: ["30%", "46%"],
+    },
+  ],
+});
+</script>
+<style scoped lang="less">
+.wrap {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+section {
+  width: 100%;
+  flex: 1;
+}
+</style>

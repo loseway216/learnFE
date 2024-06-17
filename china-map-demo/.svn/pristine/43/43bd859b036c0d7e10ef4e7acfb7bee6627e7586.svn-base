@@ -1,0 +1,73 @@
+<template>
+  <div class="canvas-box" ref="canvasBox">
+    <canvas ref="canvas">当前浏览器无法使用canvas，请更新浏览器版本</canvas>
+  </div>
+</template>
+
+<script setup>
+import { onBeforeUnmount, onMounted, ref } from "vue";
+import { onBeforeRouteUpdate, useRoute } from "vue-router";
+import http from "../utils/http";
+
+const { params } = useRoute();
+
+const canvas = ref(null);
+const canvasBox = ref(null);
+
+onMounted(async () => {
+  // 初始化topo图数据
+  const response = await http.get(`/isoc/api/v1/asset_topo/get_asset_topo`);
+  const data = response?.errMsg?.data ?? [];
+  initCanvas(data);
+});
+
+onBeforeUnmount(() => {});
+
+onBeforeRouteUpdate(async (to, from) => {
+  if (to.params.id !== from.params.id) {
+    const response = await http.get(`/isoc/api/v1/asset_topo/get_asset_topo`);
+    const data = response?.errMsg?.data ?? [];
+    initCanvas(data);
+  }
+});
+
+function initCanvas(data) {
+  canvas.value.width = canvasBox.value.offsetWidth;
+  canvas.value.height = canvasBox.value.offsetHeight;
+  const topoInstance = JTopo.deSeriailzeByJSON(data, canvas.value);
+  // console.log(topoInstance);
+  const stage = topoInstance.stage;
+  stage.mode = "normal";
+  // stage.zoomIn(1.1);
+
+  const clickNode = async (event) => {
+    if (event.target.eleData.eleType === "group") {
+      const groupName = event.target.eleData.eleName;
+      const response = await http.get(
+        `/isoc/api/v1/asset_topo/get_asset_by_group`,
+        { group_name: groupName }
+      );
+      // TODO: 下一层
+      const data = response?.errMsg ?? [];
+      console.log("group", data);
+      // initCanvas(data);
+    }
+  };
+
+  const scene = stage.childs[0];
+  const allNodes = scene.getDisplayedNodes();
+  allNodes.forEach((node) => {
+    // node.dbclick(clickNode);
+    node.click(clickNode);
+  });
+}
+</script>
+
+<style scoped>
+.canvas-box {
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+  padding-top: 100px;
+}
+</style>

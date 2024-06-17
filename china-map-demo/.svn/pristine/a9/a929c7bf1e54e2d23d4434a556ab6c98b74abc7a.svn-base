@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="381px" height="34px" viewBox="0 0 381 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55 (78076) - https://sketchapp.com -->
+    <title>编组 36</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="55.2364496%" y1="50%" x2="0.311444257%" y2="50%" id="linearGradient-1">
+            <stop stop-color="#3366FF" stop-opacity="0.05" offset="0%"></stop>
+            <stop stop-color="#3366FF" stop-opacity="0.5" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="55.2364496%" y1="50%" x2="0.311444257%" y2="50%" id="linearGradient-2">
+            <stop stop-color="#3366FF" stop-opacity="0.05" offset="0%"></stop>
+            <stop stop-color="#3366FF" stop-opacity="0.5" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="脆弱性大屏_主机" transform="translate(-23.000000, -819.000000)">
+            <g id="底框式" transform="translate(24.000000, 820.000000)">
+                <g id="编组-26">
+                    <g id="编组-36">
+                        <path d="M18.0000094,0 L307,0 L282,36 L18,36 C8.0588745,36 0,27.9411255 0,18 C0,8.0588745 8.0588745,0 18,0 Z" id="形状结合" stroke="#3366FF" fill="url(#linearGradient-1)" opacity="0.5"></path>
+                        <polygon id="矩形" stroke="#3366FF" fill="url(#linearGradient-2)" opacity="0.5" points="312 2 374 2 379 7 379 19 364 34 291 34"></polygon>
+                        <circle id="椭圆形备份-12" fill="#08152D" cx="18" cy="18" r="17"></circle>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

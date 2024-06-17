@@ -1,0 +1,41 @@
+{
+  "_from": "jtopo-in-node",
+  "_id": "jtopo-in-node@1.0.2",
+  "_inBundle": false,
+  "_integrity": "sha512-M7FN1Dn2E43AY8DMOWR8J3vA3nZ4pCe4fCTMMUnGRS6xAYnC1kq1GMlE/+69Low7IQvzKpNlZnLvpUcwiqeHGw==",
+  "_location": "/jtopo-in-node",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "jtopo-in-node",
+    "name": "jtopo-in-node",
+    "escapedName": "jtopo-in-node",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "http://10.67.1.73:4873/jtopo-in-node/-/jtopo-in-node-1.0.2.tgz",
+  "_shasum": "02b1091822166ee765459baaaaecb8e35833c912",
+  "_spec": "jtopo-in-node",
+  "_where": "G:\\INSP\\isop-insp\\ISOC\\static",
+  "author": "",
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "感谢 jtopo 原作者，这个版本的JTopo跟原版（0.48.1）的区别不大",
+  "keywords": [
+    "jtopo",
+    "Topology"
+  ],
+  "license": "ISC",
+  "main": "src/jtopo.js",
+  "name": "jtopo-in-node",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.2"
+}

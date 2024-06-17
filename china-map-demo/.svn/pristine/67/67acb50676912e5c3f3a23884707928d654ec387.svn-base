@@ -1,0 +1,150 @@
+<template>
+  <div class="side">
+    <div class="item" @click="gofunc(data[0],0)">
+      <LeftTitleVue>
+        <template v-slot>
+          <span>全国地图</span>
+        </template>
+      </LeftTitleVue>
+      <div class="sub-title">
+        <span class="sub-title-square"></span>
+        <span class="sub-title-text">相关数据</span>
+        <span class="sub-title-line"></span>
+      </div>
+      <ul>
+        <li><span>已接入工厂数量：6</span></li>
+        <li><span>供应商数量：6</span></li>
+        <li><span>每秒数据流大小：6</span></li>
+        <li><span>设备数量：6</span></li>
+      </ul>
+    </div>
+    <div class="item" @click="gofunc(data[1],0)">
+      <LeftTitleVue>
+        <template v-slot>
+          <span>拓扑图</span>
+        </template>
+      </LeftTitleVue>
+      <ul>
+        <li>上海一厂</li>
+        <li @click.stop="gofunc(data[1],1)">上海二厂</li>
+      </ul>
+    </div>
+    <div class="item" @click="gofunc(data[2],0)">
+      <LeftTitleVue>
+        <template v-slot>
+          <span>点位图</span>
+        </template>
+      </LeftTitleVue>
+      <ul class="bitmap">
+        <li>上海一厂</li>
+        <li @click.stop="gofunc(data[2],1)">上海二厂</li>
+      </ul>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import LeftTitleVue from '../components/LeftTitle/LeftTitle.vue';
+import {reactive} from 'vue';
+import { useRouter, useRoute } from 'vue-router'
+
+const data = reactive([
+  {
+    title: '全国地图',
+    flag: true,
+    path: [{ name: 'Map' }],
+  },
+  {
+    title: '拓扑图',
+    flag: false,
+    path: [{ name: 'Topo', params: { id: '上海一厂' } }, { name: 'Topo', params: { id: '上海二厂' } }],
+  },
+  {
+    title: '点位图',
+    flag: false,
+    path: [{ name: 'Points', params: { id: '上海一厂' } }, { name: 'Points', params: { id: '上海二厂' } }],
+  },
+]);
+
+const router = useRouter();
+const route = useRoute();
+function gofunc(item, index) {
+  router.push(item.path[index])
+  console.log(route);
+  for (let i of data) {
+    i.flag = false
+  }
+  item.flag = true
+}
+
+</script>
+<style scoped lang="less">
+.side {
+  display: flex;
+  flex-flow: row wrap;
+  align-content: space-around; 
+  font-size: 16px;
+  .item {
+      width: 100%;
+      height: 33.3%;
+      display: flex;
+      flex-direction: column;
+      ul{
+        margin-bottom: 15px;
+      }
+  }
+  .sub-title {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', SimSun, sans-serif;
+    font-size: 18px;
+    color: #00FFE4;
+    text-align: left;
+    line-height: 26px;
+    height: 26px;
+    padding-left: 25px;
+    margin-bottom: 8px;
+    .sub-title-line {
+      display: inline-block;
+      background: linear-gradient(to right, #fff, #fff, rgba(255, 255, 255, 0));
+      width: 70%;
+      height: 1px;
+      line-height: 6px;
+      position: relative;
+      left: 2px;
+      top: -6px;
+    }
+    .sub-title-square {
+      display: inline-block;
+      background: #fff;
+      width: 6px;
+      height: 6px;
+      margin-left: 8px;
+      margin-right: 8px;
+      position: relative;
+      top: -4px;
+    }
+  }
+}
+
+.side .item:hover {
+  cursor: pointer;
+ }
+
+.item header{
+  height: 15%;
+  padding-top: 10px;
+  font-size: 20px;
+}
+
+.item ul{
+  margin-left: 50px;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.bitmap{
+  background: url(../../../assets/images/bitmap.gif) center left / contain no-repeat;
+}
+ 
+</style>

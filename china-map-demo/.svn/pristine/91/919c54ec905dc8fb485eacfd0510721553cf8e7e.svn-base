@@ -1,0 +1,13 @@
+export default async function () {
+  return fetch("/verifyProxy/verify/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: new URLSearchParams({
+      username: "admin",
+      password:
+        "6f48663f5f791c85a686e48a32f0ad7e75b34cc8a77aa860659fd919bffcd178c15b65f73c9a8ee08475c734b2716bcd23cf0a21dd2b70f20dc0dac49a52ff66728fa452f95a2d2c8c4e2b53a3037f7e87027f74",
+    }),
+  });
+}

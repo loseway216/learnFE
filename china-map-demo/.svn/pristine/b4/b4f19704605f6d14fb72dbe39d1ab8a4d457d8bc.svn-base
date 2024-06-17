@@ -1,0 +1,35 @@
+const get = async (url = "", params = {}) => {
+  const response = await fetch(`${url}?${new URLSearchParams(params)}`, {
+    method: "GET",
+    headers: {
+      "X-CSRFToken": localStorage.getItem("csrftoken"),
+    },
+  });
+  return response.json();
+};
+
+const post = async (url = "", body = {}) => {
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      "X-CSRFToken": localStorage.getItem("csrftoken"),
+    },
+    body: new URLSearchParams(body),
+  });
+  return response.json();
+};
+
+const postForm = async (url = "", body = {}) => {
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      "X-CSRFToken": localStorage.getItem("csrftoken"),
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: new URLSearchParams(body),
+  });
+
+  return response.json();
+};
+
+export default { get, post, postForm };

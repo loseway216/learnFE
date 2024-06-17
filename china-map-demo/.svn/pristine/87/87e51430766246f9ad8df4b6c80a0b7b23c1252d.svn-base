@@ -1,0 +1,154 @@
+<template>
+    <div class="situation-table">
+        <RightTitleVue>
+            <template v-slot>
+                <span>全球近三年Top5工业网络安全事件</span>
+            </template>
+        </RightTitleVue>
+        <div class="sub-title">
+            <span class="sub-title-line"></span>
+            <span class="sub-title-text">已经接入漏洞情报数：5条</span>
+            <span class="sub-title-square"></span>
+        </div>
+        <div class="situation-table-content">
+
+            <ul class="situation-ul-intell">
+                <li class="intell">
+                    <span class="risk3-circle">高</span>
+                    <span class="name-content textOverFlow">美国天然气管道遭受勒索软件攻击</span>
+                    <span class="grade-square">评分10</span>
+                </li>
+                <li class="intell">
+                    <span class="risk3-circle">高</span>
+                    <span class="name-content textOverFlow">钢铁制造商EVRAZ遭受勒索软件攻击</span>
+                    <span class="grade-square">评分10</span>
+                </li>
+                <li class="intell">
+                    <span class="risk3-circle">高</span>
+                    <span class="name-content textOverFlow">欧洲能源巨头EDP遭勒索软件攻击</span>
+                    <span class="grade-square">评分10</span>
+                </li>
+                <li class="intell">
+                    <span class="risk3-circle">高</span>
+                    <span class="name-content textOverFlow">本田汽车Honda遭受勒索软件 Snake攻击</span>
+                    <span class="grade-square">评分10</span>
+                </li>
+                <li class="intell">
+                    <span class="risk3-circle">高</span>
+                    <span class="name-content textOverFlow">台湾两大炼油厂遭受勒索软件攻击</span>
+                    <span class="grade-square">评分10</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</template>
+
+<script setup>
+import RightTitleVue from '../components/RightTitle/RightTitle.vue';
+</script>
+<style scoped lang='less'>
+.situation-table {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.sub-title {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', SimSun, sans-serif;
+    font-size: 18px;
+    color: #00FFE4;
+    text-align: left;
+    line-height: 26px;
+    height: 26px;
+    margin-bottom: 8px;
+}
+
+.sub-title-line {
+    display: inline-block;
+    background: linear-gradient(to left, #fff, #fff, rgba(255, 255, 255, 0));
+    width: 37%;
+    height: 1px;
+    line-height: 6px;
+    position: relative;
+    right: 1px;
+    top: -6px;
+}
+.sub-title-square {
+    display: inline-block;
+    background: #fff;
+    width: 6px;
+    height: 6px;
+    margin-left: 8px;
+    position: relative;
+    top: -4px;
+}
+.situation-table-content {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+
+    .situation-ul-intell {
+        flex: 1;
+        width: 100%;
+        margin-bottom: 0;
+        height: 86%;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+
+        .intell {
+            width: 100%;
+            height: 33px;
+            position: relative;
+            background: url('../../../assets/images/background_2.svg') center left / contain no-repeat;
+
+            span {
+                position: absolute;
+            }
+        }
+        
+    }
+
+    .risk3-circle {
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        font-size: 14px;
+        top: 4px;
+        left: 23px;
+        line-height: 24px;
+        text-align: center;
+        overflow: hidden;
+        background-color: red;
+    }
+
+    .name-content {
+        top: 5px;
+        left: 60px;
+        font-size: 16px;
+        line-height: 26px;
+        width: 58%;
+        text-align: left;
+    }
+
+    .grade-square {
+        width: 88px;
+        top: 6px;
+        right: 33px;
+        font-size: 16px;
+        line-height: 22px;
+        padding-left: 10px;
+        letter-spacing: 1px;
+    }
+
+    .textOverFlow {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: block;
+        padding-right: 0px;
+    }
+}
+</style>

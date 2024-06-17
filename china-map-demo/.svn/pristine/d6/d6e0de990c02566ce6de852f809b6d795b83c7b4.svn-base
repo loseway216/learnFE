@@ -1,0 +1,20 @@
+`/isoc/api/v1/perceived_environment/get_datas?type=show_assets`
+
+import { defineStore } from "pinia";
+import http from "../utils/http";
+
+export const useAssetStore = defineStore("asset", {
+    state: () => ({
+        assetStatus: { total: 0, online: 0, offline: 0 },
+    }),
+    actions: {
+        async getAssetStatus() {
+            try {
+                const res = await http.get(`/asset/assetCommon/pingAsset`);
+                this.asseStatus = res.errMsg.data;
+            } catch (error) {
+                console.log(error);
+            }
+        },
+    },
+});
